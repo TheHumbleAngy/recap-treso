@@ -1,0 +1,85 @@
+@media (max-width: 1500px) {
+    i.ncare {
+        font-size: 10em !important;
+    }
+
+    h2.ncare {
+        margin-bottom: 1rem !important;
+    }
+}
+
+@media (max-width: 1390px), (max-height: 760px) {
+    #wrapper {
+        width: 50vw;
+        height: 35vh;
+        padding: 60px 80px 100px;
+        background-color: whitesmoke;
+        border-radius: 10px;
+        position: absolute;
+        top:0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        margin: 20vh auto;
+    }
+
+    #wrapper button {
+        padding: 0.25rem 0.5rem;
+        font-size: 0.875rem;
+        line-height: 1.5;
+        border-radius: 0.2rem;
+    }
+}
+
+@font-face {
+    font-family: 'Roboto-regular';
+    src: url(fonts/Roboto-Regular.ttf);
+}
+
+table.ncare th {
+    vertical-align: middle;
+}
+
+#wrapper {
+    width: 55vw;
+    height: 35vh;
+    padding: 60px 80px 100px;
+    background-color: whitesmoke;
+    border-radius: 10px;
+    position: absolute;
+    top:0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: 20vh auto;
+}
+
+i.ncare {
+    font-size: 11em;
+    color: #1A74B8;
+}
+
+h2.ncare {
+    margin-bottom: 2rem;
+}
+
+#wrapper_banque {
+    width: 55vw;
+    /*height: 50vh;*/
+    padding: 60px 80px;
+    background-color: whitesmoke;
+    border-radius: 10px;
+    position: absolute;
+    top:0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: 20vh auto;
+    /*font-family: 'Roboto-Regular', serif;*/
+}
+
+#retour {
+    position: absolute;
+    top: 1vh;
+    left: 0.5vw;
+}
