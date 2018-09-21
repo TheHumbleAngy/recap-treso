@@ -13,7 +13,7 @@
         </div>
         <div class="col-6">
             <h3 class="mb-3">Que voulez-vous faire?</h3>
-            <a role="button" class="btn btn-primary btn-lg btn-block" href="index.php?page=form_operations">
+            <a role="button" class="btn btn-primary btn-lg btn-block" href="index.php?page=test">
                 <i class="fas fa-money-check-alt mr-2"></i>
                 <span>Saisir des Opérations</span>
             </a>

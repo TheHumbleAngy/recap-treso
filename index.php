@@ -42,23 +42,23 @@
     });
 
     let nombre = $('#nombre'),
+        nature_ = $('#nature'),
         saisir = $('#saisir'),
         valider = $('#valider'),
         check = false;
 
     saisir.click(function () {
-        let n = nombre.val();
-
-        // console.log("before AJAX n is " + n);
+        let n = nombre.val(),
+            nature = nature_.val();
 
         $.ajax({
             type: 'POST',
-            url: 'ajax.php',
+            url: 'ajax_saisie_operations.php',
             data: {
-                nbr: n
+                nbr: n,
+                nature: nature
             },
             success: function (resultat) {
-                // console.log('feedback');
                 $('#feedback').html(resultat);
                 check = true;
             }
@@ -78,6 +78,61 @@
     function goBack() {
         window.history.back();
     }
+
+    $("[id*='menu_']").click(function () {
+
+        let banque,
+            monnaie,
+            pays,
+            str = $(this).attr('id');
+
+        arr = str.split("_");
+        monnaie = arr[1];
+        banque = arr[2];
+        pays = arr[3];
+
+        let text = banque + ' ' + pays + ' - ' + monnaie;
+        $('.message').html(text);
+
+        $.ajax({
+            type: 'POST',
+            url: 'ajax_banq_info.php',
+            data: {
+                monnaie: monnaie,
+                banque: banque,
+                pays: pays
+            },
+            success: function (data) {
+                // console.log(data);
+                json_data = JSON.parse(data);
+                let entite = json_data[0].entite,
+                    solde = json_data[0].solde,
+                    sign = "";
+
+                switch (monnaie) {
+                    case "usd":
+                        sign = '<i class="fas fa-dollar-sign text-uppercase"></i>';
+                        break;
+                    case "euro":
+                        sign = '<i class="fas fa-euro-sign text-uppercase"></i>';
+                        break;
+                    default:
+                        sign = '<strong><span class="text-uppercase">' + monnaie + '</span></strong>';
+                }
+
+                // console.log($('#monnaie').html(monnaie));
+                $('#monnaie').html(sign);
+
+                $('#entite').attr('placeholder', entite);
+                $('#solde').attr('placeholder', solde);
+
+                // $('#feedback').html(data);
+                // check = true;
+            }
+        });
+    });
+
+
 </script>
 </body>
 </html>
