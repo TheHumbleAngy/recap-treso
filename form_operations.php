@@ -10,7 +10,17 @@
     <a class="alert alert-info py-1" role="button" onclick="goBack();" data-toggle="tooltip" data-placement="right" title="Page d'accueil" style="position: absolute; top: 6vh">
         <i class="fas fa-home"></i>
     </a>
-    <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+    <ul class="nav nav-tabs mb-3" id="pills-tab" role="tablist">
+        <li class="nav-item dropdown" id="nav_01">
+            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" id="banq01"
+               aria-expanded="false">BANQUE 01</a>
+            <div class="dropdown-menu">
+                <a class="dropdown-item" id="menu_euro_banq01" href="#euro_banq01-tab" data-toggle="tab"
+                   aria-controls="euro_banq01" aria-expanded="true">EURO</a>
+                <a class="dropdown-item" id="menu_ngn_banq01" href="#ngn_banq01-tab" data-toggle="tab"
+                   aria-controls="ngn_banq01" aria-expanded="true">NGN</a>
+            </div>
+        </li>
         <li class="nav-item">
             <a class="nav-link active" id="pills-eco_nigeria_ngn-tab" data-toggle="pill" href="#pills-eco_nigeria_ngn" role="tab"
                aria-controls="pills-eco_nigeria_ngn" aria-selected="true">ECOBANK Nigeria - NGN</a>

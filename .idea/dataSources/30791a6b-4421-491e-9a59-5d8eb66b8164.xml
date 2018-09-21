@@ -942,98 +942,98 @@
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="236" parent="230" name="monnaie_banque">
+    <column id="236" parent="230" name="entite_operation">
       <Position>4</Position>
+      <DataType>varchar(20)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="237" parent="230" name="monnaie_banque">
+      <Position>5</Position>
       <DataType>varchar(4)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="237" parent="230" name="PRIMARY">
+    <key id="238" parent="230" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id_banque</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="238" parent="231" name="id_operation">
+    <column id="239" parent="231" name="id_operation">
       <Position>1</Position>
       <DataType>varchar(15)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="239" parent="231" name="id_banque">
+    <column id="240" parent="231" name="id_banque">
       <Position>2</Position>
       <DataType>varchar(10)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="240" parent="231" name="id_type_operation">
+    <column id="241" parent="231" name="id_type_operation">
       <Position>3</Position>
-      <DataType>varchar(10)|0s</DataType>
+      <DataType>tinyint(1)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="241" parent="231" name="piece_operation">
+    <column id="242" parent="231" name="piece_operation">
       <Position>4</Position>
       <DataType>varchar(20)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="242" parent="231" name="entite_operation">
-      <Position>5</Position>
-      <DataType>varchar(20)|0s</DataType>
-      <NotNull>1</NotNull>
-      <ColumnKind>normal</ColumnKind>
-    </column>
     <column id="243" parent="231" name="compte_operation">
-      <Position>6</Position>
+      <Position>5</Position>
       <DataType>varchar(10)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
     <column id="244" parent="231" name="tag_operation">
-      <Position>7</Position>
+      <Position>6</Position>
       <Comment>libelle de l&apos;operation</Comment>
       <DataType>varchar(50)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
     <column id="245" parent="231" name="date_saisie_operation">
-      <Position>8</Position>
+      <Position>7</Position>
       <DataType>date|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
     <column id="246" parent="231" name="date_operation">
-      <Position>9</Position>
+      <Position>8</Position>
       <DataType>date|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
     <column id="247" parent="231" name="designation_operation">
-      <Position>10</Position>
+      <Position>9</Position>
       <DataType>varchar(100)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
     <column id="248" parent="231" name="cours_operation">
-      <Position>11</Position>
+      <Position>10</Position>
       <DataType>float|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
     <column id="249" parent="231" name="montant_operation">
-      <Position>12</Position>
+      <Position>11</Position>
       <DataType>float|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
     <column id="250" parent="231" name="montant_xof_operation">
-      <Position>13</Position>
+      <Position>12</Position>
       <DataType>float|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
     <column id="251" parent="231" name="observation_operation">
-      <Position>14</Position>
+      <Position>13</Position>
       <DataType>varchar(100)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
@@ -1042,7 +1042,7 @@
       <ColNames>id_banque</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="253" parent="231" name="id_type_operation_operation">
+    <index id="253" parent="231" name="id_type_operation">
       <ColNames>id_type_operation</ColNames>
       <Type>btree</Type>
     </index>
@@ -1065,7 +1065,7 @@
     </foreign-key>
     <column id="257" parent="232" name="id_type_operation">
       <Position>1</Position>
-      <DataType>varchar(10)|0s</DataType>
+      <DataType>tinyint(1)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>

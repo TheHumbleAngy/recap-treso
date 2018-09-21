@@ -83,3 +83,15 @@ h2.ncare {
     top: 1vh;
     left: 0.5vw;
 }
+
+.w-8 {
+    width: 8% !important;
+}
+
+.w-10 {
+    width: 10% !important;
+}
+
+.w-12 {
+    width: 12% !important;
+}
