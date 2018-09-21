@@ -29,13 +29,13 @@
             <table class="table table-sm table-hover my-4 ncare bg-light font-weight-light" id="etat">
                 <thead class="bg-primary text-light">
                 <tr>
-                    <th class="w-8" rowspan="2">Pièce</th>
-                    <th class="w-8" rowspan="2">Compte</th>
-                    <th class="" rowspan="2">Libellé</th>
-                    <th class="w-8" rowspan="2">Date</th>
+                    <th class="" rowspan="2">Pièce</th>
+                    <th class="" rowspan="2">Compte</th>
+                    <th class="w-8" rowspan="2">Libellé</th>
+                    <th class="" rowspan="2">Date</th>
                     <th class="w-25" rowspan="2">Operation</th>
-                    <th colspan="3" class="w-25">' . $libelle_nature . '</th>
-                    <th class="w-8" rowspan="2">Observation</th>
+                    <th colspan="3" class="w-12">' . $libelle_nature . '</th>
+                    <th class="" rowspan="2">Observation</th>
                 </tr>
                 <tr class="bg-success">
                     <th class="">En Devise</th>
