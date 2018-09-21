@@ -25,7 +25,7 @@
 </head>
 <body>
 <div class="container-fluid">
-    <h3 class="display-3 d-flex justify-content-center mb-5">Recap Trésorerie 2018</h3>
+    <h3 class="display-3 d-flex justify-content-center mb-5">Recap Trésorerie - 2018</h3>
 
     <div id="content">
         <?php include $page; ?>
