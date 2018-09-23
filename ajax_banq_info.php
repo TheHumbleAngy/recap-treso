@@ -17,14 +17,14 @@
         $pays = $_POST['pays'];
         $monnaie = $_POST['monnaie'];
 
-        $sql = "SELECT entite_operation FROM banque WHERE libelle_banque = '$banque' AND pays_banque = '$pays' AND monnaie_banque = '$monnaie'";
+        $sql = "SELECT entite_banque FROM banque WHERE libelle_banque = '$banque' AND pays_banque = '$pays' AND monnaie_banque = '$monnaie'";
 
         $resultat = mysqli_query($connection, $sql);
 
         if ($resultat->num_rows > 0) {
             $lignes = $resultat->fetch_all(MYSQLI_ASSOC);
             foreach ($lignes as $ligne) {
-                $entite = stripslashes($ligne['entite_operation']);
+                $entite = stripslashes($ligne['entite_banque']);
             }
         }
 

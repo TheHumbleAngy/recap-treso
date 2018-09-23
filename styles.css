@@ -8,7 +8,7 @@
     }
 }
 
-@media (max-width: 1390px), (max-height: 760px) {
+/*@media (max-width: 1390px), (max-height: 760px) {
     #wrapper {
         width: 50vw;
         height: 35vh;
@@ -29,7 +29,7 @@
         line-height: 1.5;
         border-radius: 0.2rem;
     }
-}
+}*/
 
 @font-face {
     font-family: 'Roboto-regular';
@@ -42,8 +42,8 @@ table.ncare th {
 
 #wrapper {
     width: 55vw;
-    height: 35vh;
-    padding: 60px 80px 100px;
+    /*height: 50vh;*/
+    padding: 80px;
     background-color: whitesmoke;
     border-radius: 10px;
     position: absolute;
@@ -51,7 +51,7 @@ table.ncare th {
     bottom: 0;
     left: 0;
     right: 0;
-    margin: 20vh auto;
+    margin: 25vh auto;
 }
 
 i.ncare {

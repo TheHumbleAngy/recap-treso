@@ -73,17 +73,17 @@
         let libelle_banque = $('#libelle').val(),
             pays_banque = $('#pays').val(),
             monnaie_banque = $('#monnaie').val(),
-            info, operation;
+            info, action;
 
         if ($.trim(libelle_banque) === "") {
             console.log("empty");
         } else {
             info = "libelle_banque=" + libelle_banque + "&pays_banque=" + pays_banque + "&monnaie_banque=" + monnaie_banque;
-            operation = "add";
+            action = "ajout_banque";
 
             $.ajax({
                 type: 'POST',
-                url: 'updatedata.php?operation=' + operation,
+                url: 'updatedata.php?action=' + action,
                 data: info,
                 success: function (data) {
                     $('#content-response').html(data);

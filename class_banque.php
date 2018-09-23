@@ -44,30 +44,7 @@
 
         function saveData() {
             $req = "SELECT id_banque FROM banque ORDER BY id_banque DESC LIMIT 1";
-            $resultat = $this->connection->query($req);
 
-            if ($resultat->num_rows > 0) {
-                $lignes = $resultat->fetch_all(MYSQLI_ASSOC);
-
-                $_id_banque = "";
-                foreach ($lignes as $ligne) {
-                    $_id_banque = stripslashes($ligne['id_banque']);
-                }
-
-                $_id_banque = substr($_id_banque, -2);
-                $_id_banque++;
-            }
-            else {
-                $_id_banque = 1;
-            }
-
-            $b = "BANQ";
-            $dat = date("Y");
-            $dat = substr($dat, -2);
-            $format = '%02d';
-            $code = $dat . "" . $b . "" . sprintf($format, $_id_banque);
-
-            $this->id_banque = $code;
 
             $sql = "INSERT INTO banque(id_banque, libelle_banque, pays_banque, monnaie_banque)
                     VALUES ('$this->id_banque','$this->libelle_banque','$this->pays_banque','$this->monnaie_banque')";

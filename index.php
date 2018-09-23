@@ -64,7 +64,7 @@
             }
         });
 
-        valider.prop('disabled', check);
+        valider.prop('disabled', false);
 
         /* An alternative way to use AJAX
         $.post(
@@ -84,7 +84,9 @@
         let banque,
             monnaie,
             pays,
-            str = $(this).attr('id');
+            str = $(this).attr('id'),
+            arr_banque = $(this).attr('id').split("_"),
+            id_banque = arr_banque[4];
 
         arr = str.split("_");
         monnaie = arr[1];
@@ -120,19 +122,71 @@
                         sign = '<strong><span class="text-uppercase">' + monnaie + '</span></strong>';
                 }
 
-                // console.log($('#monnaie').html(monnaie));
                 $('#monnaie').html(sign);
-
                 $('#entite').attr('placeholder', entite);
-                $('#solde').attr('placeholder', solde);
 
+                $('#solde').attr('placeholder', solde);
+                $('#idbanque').html(id_banque);
                 // $('#feedback').html(data);
                 // check = true;
+
             }
         });
     });
 
+    function ajoutOperation() {
+        let piece_op = [],
+            compte_op = [],
+            libelle_op = [],
+            datesaisie_op = new Date(),
+            date_op = [],
+            designation_op = [],
+            cours_op = [],
+            devise_op = [],
+            xof_op = [],
+            observation_op = [],
+            nature = $("#nature").val(),
+            id_banque = $("#idbanque").text(),
+            nbr = $("#nbr_").text();
 
+        datesaisie_op = datesaisie_op.getFullYear() + "-" + (datesaisie_op.getMonth()+1) + "-" + datesaisie_op.getDate();
+
+        for (let i = 0; i < nbr; i = i + 1) {
+            piece_op[i] = $('[id*="piece"]')[i].value;
+            compte_op[i] = $('[id*="compte"]')[i].value;
+            libelle_op[i] = $('[id*="libelle"]')[i].value;
+            date_op[i] = $('[id*="date"]')[i].value;
+            designation_op[i] = $('[id*="operation"]')[i].value;
+            cours_op[i] = $('[id*="cours"]')[i].value;
+            devise_op[i] = $('[id*="devise"]')[i].value;
+            xof_op[i] = $('[id*="xof"]')[i].value;
+            observation_op[i] = $('[id*="observation"]')[i].value;
+        }
+
+        let json_piece_op = JSON.stringify(piece_op),
+            json_compte_op = JSON.stringify(compte_op),
+            json_libelle_op = JSON.stringify(libelle_op),
+            json_date_op = JSON.stringify(date_op),
+            json_designation_op = JSON.stringify(designation_op),
+            json_cours_op = JSON.stringify(cours_op),
+            json_devise_op = JSON.stringify(devise_op),
+            json_xof_op = JSON.stringify(xof_op),
+            json_observation_op = JSON.stringify(observation_op),
+            info = "nbr=" + nbr + "&id_banque=" + id_banque + "&id_type_operation=" + nature + "&piece_operation=" + json_piece_op + "&compte_operation=" + json_compte_op + "&tag_operation=" + json_libelle_op + "&date_saisie_operation=" + datesaisie_op + "&date_operation=" + json_date_op + "&designation_operation=" + json_designation_op + "&cours_operation=" + json_cours_op + "&montant_operation=" + json_devise_op + "&montant_xof_operation=" + json_xof_op + "&observation_operation=" + json_observation_op,
+            action = "ajout_operation";
+
+        $.ajax({
+            type: 'POST',
+            url: 'updatedata.php?action=' + action,
+            data: info,
+            success: function (data) {
+                $('.feedback').html(data);
+                setTimeout(function () {
+                    $('.alert-success').slideToggle('slow');
+                }, 2500);
+            }
+        });
+    }
 </script>
 </body>
 </html>

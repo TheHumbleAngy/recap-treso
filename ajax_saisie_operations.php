@@ -6,12 +6,12 @@
      * Time: 10:52 PM
      */
 
-    if (isset($_POST['nbr']) && empty($_POST['nbr']) === false && isset($_POST['nature'])) {
+    if (isset($_POST['nbr']) && empty($_POST['nbr']) === false && isset($_POST['nature']) && ($_POST['nature']) === "0" || $_POST['nature'] === "1") {
         $nbr = stripcslashes($_POST['nbr']);
         $nature = stripcslashes($_POST['nature']);
         $libelle_nature = $nature == "0" ? "Dépense" : "Recette";
 
-        echo '
+        echo '<span id="nbr_" hidden>' . $nbr . '</span>
             <table class="table table-sm table-hover my-4 ncare bg-light font-weight-light" id="etat">
                 <thead class="bg-primary text-light">
                 <tr>

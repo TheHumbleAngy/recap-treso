@@ -40,18 +40,20 @@
                                 </a>
                                 <div class="dropdown-menu">
                                     <?php
-                                        $sql_banque = "SELECT DISTINCT monnaie_banque FROM banque WHERE libelle_banque = '$libelle' AND pays_banque = '$pays'";
+                                        $sql_banque = "SELECT DISTINCT monnaie_banque, id_banque FROM banque WHERE libelle_banque = '$libelle' AND pays_banque = '$pays'";
                                         if ($resultat = $connection->query($sql_banque)) {
                                             if ($resultat->num_rows > 0) {
                                                 $listes = $resultat->fetch_all(MYSQLI_ASSOC);
                                                 foreach ($listes as $liste) {
+                                                    $id_banque = stripcslashes($liste['id_banque']);
                                                     $monnaie = stripcslashes($liste['monnaie_banque']);
                                                     ?>
 
+                                                    <span hidden id="idbanque"></span>
                                                     <span hidden id="<?php echo 'monnaie_' . $monnaie; ?>"><?php echo $monnaie; ?></span>
 
                                                     <a class="dropdown-item"
-                                                       id="<?php echo 'menu_' . $monnaie . '_' . $libelle . '_' . $pays; ?>"
+                                                       id="<?php echo 'menu_' . $monnaie . '_' . $libelle . '_' . $pays . '_' . $id_banque; ?>"
                                                        href="<?php echo '#' . $monnaie . '_' . $libelle . '-tab'; ?>"
                                                        data-toggle="tab"
                                                        aria-controls="<?php echo $monnaie . '_' . $libelle; ?>"
@@ -124,14 +126,13 @@
                         <div class="container-fluid">
                             <div class="d-flex">
                                 <div class="p-2 bd-highlight mx-auto">
-                                    <button class="btn btn-block btn-outline-primary px-5" id="valider" disabled>
-                                        Valider
+                                    <button class="btn btn-block btn-outline-primary px-5" id="valider" disabled onclick="ajoutOperation();">
+                                        Valider <i class="far fa-check-circle ml-2"></i>
                                     </button>
                                 </div>
                             </div>
                         </div>
                         <div id="feedback"></div>
-
                     </div>
                 </div>
 

@@ -2,12 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bc4f30b7-6a35-4415-8de2-63235db8ccfc" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/ajax_saisie_operations.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/class_operation.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ajax.php" beforeDir="false" afterPath="$PROJECT_DIR$/ajax.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/accueil.php" beforeDir="false" afterPath="$PROJECT_DIR$/accueil.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ajax_banq_info.php" beforeDir="false" afterPath="$PROJECT_DIR$/ajax_banq_info.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ajax_saisie_operations.php" beforeDir="false" afterPath="$PROJECT_DIR$/ajax_saisie_operations.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/class_banque.php" beforeDir="false" afterPath="$PROJECT_DIR$/class_banque.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/form_banques.php" beforeDir="false" afterPath="$PROJECT_DIR$/form_banques.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/styles.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test.php" beforeDir="false" afterPath="$PROJECT_DIR$/test.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/updatedata.php" beforeDir="false" afterPath="$PROJECT_DIR$/updatedata.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -48,20 +53,23 @@
         <item name="recap_treso@localhost" type="feb32156:DbDataSourceImpl" />
         <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
         <item name="recap_treso: schema" type="c314c289:MysqlImplModel$Schema" />
-        <item name="operations: table" type="98d5ac3d:MysqlImplModel$Table" />
+        <item name="banque: table" type="98d5ac3d:MysqlImplModel$Table" />
       </path>
     </expand>
     <select />
   </component>
+  <component name="FavoritesManager">
+    <favorites_list name="recap-treso" />
+  </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.7403599">
+    <splitter split-orientation="horizontal" split-proportion="0.43766066">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
           <file leaf-file-name="accueil.php" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/accueil.php">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="255">
-                  <caret line="15" column="95" selection-start-line="15" selection-start-column="95" selection-end-line="15" selection-end-column="95" />
+                <state relative-caret-position="187">
+                  <caret line="16" column="35" selection-start-line="16" selection-start-column="35" selection-end-line="16" selection-end-column="35" />
                 </state>
               </provider>
             </entry>
@@ -69,8 +77,8 @@
           <file leaf-file-name="form_banques.php" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/form_banques.php">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="1547">
-                  <caret line="96" column="9" selection-start-line="96" selection-start-column="9" selection-end-line="96" selection-end-column="9" />
+                <state relative-caret-position="325">
+                  <caret line="81" column="34" selection-start-line="81" selection-start-column="34" selection-end-line="81" selection-end-column="34" />
                 </state>
               </provider>
             </entry>
@@ -78,38 +86,38 @@
           <file leaf-file-name="updatedata.php" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/updatedata.php">
               <provider selected="true" editor-type-id="text-editor">
-                <state>
-                  <caret column="5" selection-start-column="5" selection-end-column="5" />
+                <state relative-caret-position="546">
+                  <caret line="91" column="112" selection-start-line="91" selection-start-column="112" selection-end-line="91" selection-end-column="112" />
                   <folding>
                     <element signature="e#10#112#0#PHP" />
+                    <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+                    <element signature="n#style#0;n#button#0;n#div#0;n#!!top" expanded="true" />
+                    <element signature="e#316#323#1" expanded="true" />
+                    <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+                    <element signature="n#style#0;n#button#0;n#div#0;n#!!top" expanded="true" />
+                    <element signature="e#335#342#1" expanded="true" />
+                    <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+                    <element signature="n#style#0;n#button#0;n#div#0;n#!!top" expanded="true" />
+                    <element signature="e#335#342#1" expanded="true" />
                   </folding>
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="test.php" pinned="false" current-in-tab="false">
+          <file leaf-file-name="test.php" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/test.php">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="-442">
-                  <caret line="9" column="12" selection-start-line="9" selection-start-column="12" selection-end-line="9" selection-end-column="12" />
+                <state relative-caret-position="393">
+                  <caret line="134" column="49" selection-start-line="134" selection-start-column="49" selection-end-line="134" selection-end-column="49" />
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="styles.css" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/styles.css">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="254">
-                  <caret line="74" column="12" selection-start-line="74" selection-start-column="12" selection-end-line="74" selection-end-column="12" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="ajax_saisie_operations.php" pinned="false" current-in-tab="true">
+          <file leaf-file-name="ajax_saisie_operations.php" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/ajax_saisie_operations.php">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="475">
-                  <caret line="69" column="120" selection-start-line="69" selection-start-column="120" selection-end-line="69" selection-end-column="120" />
+                <state relative-caret-position="508">
+                  <caret line="48" column="24" selection-start-line="48" selection-start-column="24" selection-end-line="48" selection-end-column="24" />
                 </state>
               </provider>
             </entry>
@@ -117,17 +125,8 @@
           <file leaf-file-name="ajax_banq_info.php" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/ajax_banq_info.php">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="1105">
+                <state relative-caret-position="696">
                   <caret line="70" column="9" selection-start-line="70" selection-start-column="9" selection-end-line="70" selection-end-column="9" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="console_1.sql" pinned="false" current-in-tab="false">
-            <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/30791a6b-4421-491e-9a59-5d8eb66b8164/console_1.sql">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="748">
-                  <caret line="44" column="33" selection-start-line="44" selection-start-column="33" selection-end-line="44" selection-end-column="33" />
                 </state>
               </provider>
             </entry>
@@ -136,32 +135,55 @@
       </split-first>
       <split-second>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+          <file leaf-file-name="class_operation.php" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/class_operation.php">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="594">
+                  <caret line="285" column="13" selection-start-line="281" selection-start-column="12" selection-end-line="285" selection-end-column="13" />
+                  <folding>
+                    <element signature="e#982#1032#0#PHP" />
+                    <element signature="n#setIdBanque#0;n#operation#0;n#!!top" />
+                    <element signature="n#setIdTypeOperation#0;n#operation#0;n#!!top" />
+                    <element signature="n#setPieceOperation#0;n#operation#0;n#!!top" />
+                    <element signature="n#setCompteOperation#0;n#operation#0;n#!!top" />
+                    <element signature="n#setTagOperation#0;n#operation#0;n#!!top" />
+                    <element signature="n#setDateSaisieOperation#0;n#operation#0;n#!!top" />
+                    <element signature="n#setDateOperation#0;n#operation#0;n#!!top" />
+                    <element signature="n#setDesignationOperation#0;n#operation#0;n#!!top" />
+                    <element signature="n#setCoursOperation#0;n#operation#0;n#!!top" />
+                    <element signature="n#setMontantOperation#0;n#operation#0;n#!!top" />
+                    <element signature="n#setMontantXofOperation#0;n#operation#0;n#!!top" />
+                    <element signature="n#setObservationOperation#0;n#operation#0;n#!!top" />
+                    <element signature="n#getIdBanque#0;n#operation#0;n#!!top" />
+                    <element signature="n#getIdTypeOperation#0;n#operation#0;n#!!top" />
+                    <element signature="n#getPieceOperation#0;n#operation#0;n#!!top" />
+                    <element signature="n#getCompteOperation#0;n#operation#0;n#!!top" />
+                    <element signature="n#getTagOperation#0;n#operation#0;n#!!top" />
+                    <element signature="n#getDateSaisieOperation#0;n#operation#0;n#!!top" />
+                    <element signature="n#getDateOperation#0;n#operation#0;n#!!top" />
+                    <element signature="n#getDesignationOperation#0;n#operation#0;n#!!top" />
+                    <element signature="n#getCoursOperation#0;n#operation#0;n#!!top" />
+                    <element signature="n#getMontantOperation#0;n#operation#0;n#!!top" />
+                    <element signature="n#getMontantXofOperation#0;n#operation#0;n#!!top" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="console_1.sql" pinned="false" current-in-tab="false">
+            <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/30791a6b-4421-491e-9a59-5d8eb66b8164/console_1.sql">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="509">
+                  <caret line="69" column="25" selection-start-line="67" selection-end-line="69" selection-end-column="25" />
+                </state>
+              </provider>
+            </entry>
+          </file>
           <file leaf-file-name="index.php" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/index.php">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="410">
-                  <caret line="55" column="40" selection-start-line="55" selection-start-column="18" selection-end-line="55" selection-end-column="40" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="class_banque.php" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/class_banque.php">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="833">
-                  <caret line="54" column="17" selection-start-line="52" selection-start-column="16" selection-end-line="54" selection-end-column="17" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="ajax.php" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/ajax.php">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="403">
-                  <caret line="46" column="14" selection-start-line="46" selection-start-column="14" selection-end-line="46" selection-end-column="14" />
-                  <folding>
-                    <element signature="e#10#112#0#PHP" />
-                  </folding>
+                <state relative-caret-position="256">
+                  <caret line="185" column="25" selection-start-line="185" selection-start-column="25" selection-end-line="185" selection-end-column="25" />
                 </state>
               </provider>
             </entry>
@@ -181,19 +203,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>w-25</find>
-      <find>form-control-sm</find>
-      <find>test</find>
-      <find>wrapper</find>
-      <find>h</find>
-      <find>tit</find>
-      <find>title</find>
-      <find>toolt</find>
-      <find>3</find>
-      <find>.html(</find>
-      <find>arrow-left</find>
-      <find>title=&quot;Retour&quot;</find>
-      <find>nav-pills</find>
       <find>menu_</find>
       <find>nav_</find>
       <find>euro_banq01-tab</find>
@@ -209,6 +218,21 @@
       <find>id=&quot;entite</find>
       <find>id=&quot;monnaie&quot;</find>
       <find>w-</find>
+      <find>btn-info</find>
+      <find>btn-lg</find>
+      <find>id=&quot;check&quot;</find>
+      <find>[]</find>
+      <find>operation=</find>
+      <find>action</find>
+      <find>public</find>
+      <find>banque</find>
+      <find>entite_operation</find>
+      <find>htmlspecialchars</find>
+      <find>,</find>
+      <find>observation_operation</find>
+      <find>operation</find>
+      <find>valider</find>
+      <find>check</find>
     </findStrings>
     <replaceStrings>
       <replace>w-15</replace>
@@ -216,6 +240,14 @@
       <replace>feedback</replace>
       <replace>home</replace>
       <replace>title=&quot;Page d'accueil&quot;</replace>
+      <replace>btn-primary</replace>
+      <replace>btn-sm</replace>
+      <replace>JSON.stringify()</replace>
+      <replace>private</replace>
+      <replace>entite_banque</replace>
+      <replace>json_decode</replace>
+      <replace>[i],</replace>
+      <replace>[$i],</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -224,6 +256,7 @@
         <option value="AngeKouakou_office &lt;angemarius@gmail.com&gt;" />
       </list>
     </option>
+    <option name="PUSH_AUTO_UPDATE" value="true" />
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="IdeDocumentHistory">
@@ -244,21 +277,22 @@
         <option value="$PROJECT_DIR$/form_banque.php" />
         <option value="$PROJECT_DIR$/css/styles.css" />
         <option value="$APPLICATION_CONFIG_DIR$/consoles/db/30791a6b-4421-491e-9a59-5d8eb66b8164/console.sql" />
-        <option value="$PROJECT_DIR$/class_banque.php" />
-        <option value="$PROJECT_DIR$/updatedata.php" />
         <option value="$PROJECT_DIR$/form_operations.php" />
-        <option value="$PROJECT_DIR$/accueil.php" />
-        <option value="$PROJECT_DIR$/form_banques.php" />
         <option value="$PROJECT_DIR$/ajax_banq_infos.php" />
         <option value="$PROJECT_DIR$/test1.php" />
-        <option value="$APPLICATION_CONFIG_DIR$/consoles/db/30791a6b-4421-491e-9a59-5d8eb66b8164/console_1.sql" />
         <option value="$PROJECT_DIR$/ajax_banq_info.php" />
-        <option value="$PROJECT_DIR$/styles.css" />
         <option value="$PROJECT_DIR$/ajax.php" />
         <option value="$PROJECT_DIR$/ajax_saise_operations.php" />
-        <option value="$PROJECT_DIR$/index.php" />
-        <option value="$PROJECT_DIR$/test.php" />
+        <option value="$PROJECT_DIR$/styles.css" />
+        <option value="$PROJECT_DIR$/accueil.php" />
         <option value="$PROJECT_DIR$/ajax_saisie_operations.php" />
+        <option value="$PROJECT_DIR$/class_banque.php" />
+        <option value="$PROJECT_DIR$/form_banques.php" />
+        <option value="$APPLICATION_CONFIG_DIR$/consoles/db/30791a6b-4421-491e-9a59-5d8eb66b8164/console_1.sql" />
+        <option value="$PROJECT_DIR$/class_operation.php" />
+        <option value="$PROJECT_DIR$/updatedata.php" />
+        <option value="$PROJECT_DIR$/test.php" />
+        <option value="$PROJECT_DIR$/index.php" />
       </list>
     </option>
   </component>
@@ -297,24 +331,7 @@
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
-    <panes>
-      <pane id="Scope" />
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="recap-treso" type="b2602c69:ProjectViewProjectNode" />
-              <item name="recap-treso" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="recap-treso" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="bcb0276e:PhpExternalLibrariesNodePatcher$PatchedExternalLibrariesNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
-    </panes>
+    <panes />
   </component>
   <component name="PropertiesComponent">
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
@@ -371,7 +388,10 @@
       <updated>1537343403224</updated>
       <workItem from="1537343420877" duration="25810000" />
       <workItem from="1537430495562" duration="28265000" />
-      <workItem from="1537569628589" duration="2714000" />
+      <workItem from="1537569628589" duration="3009000" />
+      <workItem from="1537648344116" duration="16478000" />
+      <workItem from="1537702467893" duration="597000" />
+      <workItem from="1537719004615" duration="13821000" />
     </task>
     <task id="LOCAL-00001" summary="index.php updated">
       <created>1537516057036</created>
@@ -387,36 +407,42 @@
       <option name="project" value="LOCAL" />
       <updated>1537561548103</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="done lot of ajax">
+      <created>1537572510395</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1537572510399</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="90621000" />
+    <option name="totallyTimeSpent" value="121812000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1616" height="916" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="1" weight="0.16966581" />
       <window_info anchor="bottom" id="TODO" order="11" />
-      <window_info anchor="bottom" id="Docker" order="0" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="3" side_tool="true" />
-      <window_info anchor="right" id="Database" order="3" weight="0.15167095" />
       <window_info anchor="bottom" id="Database Changes" order="1" show_stripe_button="false" />
       <window_info anchor="bottom" id="Run" order="7" />
-      <window_info anchor="bottom" id="Version Control" order="4" />
-      <window_info id="Structure" order="2" side_tool="true" weight="0.25" />
+      <window_info active="true" anchor="bottom" id="Version Control" order="4" visible="true" weight="0.32904884" />
       <window_info anchor="bottom" id="Terminal" order="2" weight="0.32904884" />
+      <window_info anchor="bottom" id="Database Console" order="13" sideWeight="0.4993573" weight="0.33547556" />
+      <window_info content_ui="combo" id="Project" order="1" weight="0.17159383" />
+      <window_info anchor="bottom" id="Docker" order="0" show_stripe_button="false" />
+      <window_info anchor="right" id="Database" order="3" weight="0.15167095" />
+      <window_info anchor="bottom" id="Find" order="6" weight="0.3292683" />
+      <window_info id="Structure" order="2" side_tool="true" weight="0.15616967" />
       <window_info anchor="bottom" id="Debug" order="8" weight="0.4" />
-      <window_info id="Favorites" order="0" side_tool="true" />
+      <window_info id="Favorites" order="0" side_tool="true" weight="0.32969153" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="10" weight="0.4" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="bottom" id="Message" order="5" />
       <window_info anchor="bottom" id="Cvs" order="9" weight="0.25" />
-      <window_info anchor="bottom" id="Database Console" order="13" sideWeight="0.4993573" weight="0.3933162" />
-      <window_info anchor="bottom" id="Find" order="6" weight="0.3292683" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -456,8 +482,12 @@
     <MESSAGE value="done lot of ajax" />
     <option name="LAST_COMMIT_MESSAGE" value="done lot of ajax" />
   </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <option name="time" value="1" />
+    </breakpoint-manager>
+  </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/banque02.php" />
     <entry file="file://$PROJECT_DIR$/bootstrap/jquery-3.3.1.slim.js" />
     <entry file="file://$PROJECT_DIR$/bootstrap/js/jquery.js" />
     <entry file="file://$PROJECT_DIR$/bootstrap/jquery-3.3.1.min.js">
@@ -502,9 +532,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
           <caret line="9" column="40" selection-start-line="8" selection-start-column="4" selection-end-line="9" selection-end-column="40" />
-          <folding>
-            <element signature="e#10#112#0#PHP" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -536,6 +563,15 @@
           <caret column="5" selection-start-column="5" selection-end-column="5" />
           <folding>
             <element signature="e#10#112#0#PHP" />
+            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#button#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="e#316#323#1" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#button#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="e#335#342#1" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#button#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="e#335#342#1" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -603,9 +639,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1734">
           <caret line="102" column="33" selection-start-line="102" selection-start-column="33" selection-end-line="102" selection-end-column="33" />
-          <folding>
-            <element signature="e#10#112#0#PHP" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -655,34 +688,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/30791a6b-4421-491e-9a59-5d8eb66b8164/console.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" column="45" selection-start-line="1" selection-start-column="45" selection-end-line="1" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/updatedata.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="5" selection-start-column="5" selection-end-column="5" />
-          <folding>
-            <element signature="e#10#112#0#PHP" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/bootstrap/css/bootstrap.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="237">
           <caret line="3916" column="20" selection-start-line="3916" selection-start-column="20" selection-end-line="3916" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/accueil.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="15" column="95" selection-start-line="15" selection-start-column="95" selection-end-line="15" selection-end-column="95" />
         </state>
       </provider>
     </entry>
@@ -703,69 +712,132 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/class_banque.php">
+    <entry file="file://$PROJECT_DIR$/ajax.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="833">
-          <caret line="54" column="17" selection-start-line="52" selection-start-column="16" selection-end-line="54" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/30791a6b-4421-491e-9a59-5d8eb66b8164/console_1.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="748">
-          <caret line="44" column="33" selection-start-line="44" selection-start-column="33" selection-end-line="44" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/form_banques.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1547">
-          <caret line="96" column="9" selection-start-line="96" selection-start-column="9" selection-end-line="96" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ajax_banq_info.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1105">
-          <caret line="70" column="9" selection-start-line="70" selection-start-column="9" selection-end-line="70" selection-end-column="9" />
+        <state relative-caret-position="697">
+          <caret line="46" column="14" selection-start-line="46" selection-start-column="14" selection-end-line="46" selection-end-column="14" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/styles.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="254">
-          <caret line="74" column="12" selection-start-line="74" selection-start-column="12" selection-end-line="74" selection-end-column="12" />
+        <state relative-caret-position="402">
+          <caret line="53" column="14" selection-start-line="53" selection-start-column="14" selection-end-line="53" selection-end-column="14" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ajax.php">
+    <entry file="file://$PROJECT_DIR$/accueil.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="403">
-          <caret line="46" column="14" selection-start-line="46" selection-start-column="14" selection-end-line="46" selection-end-column="14" />
-          <folding>
-            <element signature="e#10#112#0#PHP" />
-          </folding>
+        <state relative-caret-position="187">
+          <caret line="16" column="35" selection-start-line="16" selection-start-column="35" selection-end-line="16" selection-end-column="35" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/index.php">
+    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/30791a6b-4421-491e-9a59-5d8eb66b8164/console.sql">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="410">
-          <caret line="55" column="40" selection-start-line="55" selection-start-column="18" selection-end-line="55" selection-end-column="40" />
+        <state relative-caret-position="17">
+          <caret line="1" column="45" selection-start-line="1" selection-start-column="45" selection-end-line="1" selection-end-column="45" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test.php">
+    <entry file="file://$PROJECT_DIR$/class_banque.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-442">
-          <caret line="9" column="12" selection-start-line="9" selection-start-column="12" selection-end-line="9" selection-end-column="12" />
+        <state relative-caret-position="17">
+          <caret line="19" column="24" selection-start-line="19" selection-start-column="24" selection-end-line="19" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/form_banques.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="325">
+          <caret line="81" column="34" selection-start-line="81" selection-start-column="34" selection-end-line="81" selection-end-column="34" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/ajax_saisie_operations.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="475">
-          <caret line="69" column="120" selection-start-line="69" selection-start-column="120" selection-end-line="69" selection-end-column="120" />
+        <state relative-caret-position="508">
+          <caret line="48" column="24" selection-start-line="48" selection-start-column="24" selection-end-line="48" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ajax_banq_info.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="696">
+          <caret line="70" column="9" selection-start-line="70" selection-start-column="9" selection-end-line="70" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/30791a6b-4421-491e-9a59-5d8eb66b8164/console_1.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="509">
+          <caret line="69" column="25" selection-start-line="67" selection-end-line="69" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/class_operation.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="594">
+          <caret line="285" column="13" selection-start-line="281" selection-start-column="12" selection-end-line="285" selection-end-column="13" />
+          <folding>
+            <element signature="e#982#1032#0#PHP" />
+            <element signature="n#setIdBanque#0;n#operation#0;n#!!top" />
+            <element signature="n#setIdTypeOperation#0;n#operation#0;n#!!top" />
+            <element signature="n#setPieceOperation#0;n#operation#0;n#!!top" />
+            <element signature="n#setCompteOperation#0;n#operation#0;n#!!top" />
+            <element signature="n#setTagOperation#0;n#operation#0;n#!!top" />
+            <element signature="n#setDateSaisieOperation#0;n#operation#0;n#!!top" />
+            <element signature="n#setDateOperation#0;n#operation#0;n#!!top" />
+            <element signature="n#setDesignationOperation#0;n#operation#0;n#!!top" />
+            <element signature="n#setCoursOperation#0;n#operation#0;n#!!top" />
+            <element signature="n#setMontantOperation#0;n#operation#0;n#!!top" />
+            <element signature="n#setMontantXofOperation#0;n#operation#0;n#!!top" />
+            <element signature="n#setObservationOperation#0;n#operation#0;n#!!top" />
+            <element signature="n#getIdBanque#0;n#operation#0;n#!!top" />
+            <element signature="n#getIdTypeOperation#0;n#operation#0;n#!!top" />
+            <element signature="n#getPieceOperation#0;n#operation#0;n#!!top" />
+            <element signature="n#getCompteOperation#0;n#operation#0;n#!!top" />
+            <element signature="n#getTagOperation#0;n#operation#0;n#!!top" />
+            <element signature="n#getDateSaisieOperation#0;n#operation#0;n#!!top" />
+            <element signature="n#getDateOperation#0;n#operation#0;n#!!top" />
+            <element signature="n#getDesignationOperation#0;n#operation#0;n#!!top" />
+            <element signature="n#getCoursOperation#0;n#operation#0;n#!!top" />
+            <element signature="n#getMontantOperation#0;n#operation#0;n#!!top" />
+            <element signature="n#getMontantXofOperation#0;n#operation#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/updatedata.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="546">
+          <caret line="91" column="112" selection-start-line="91" selection-start-column="112" selection-end-line="91" selection-end-column="112" />
+          <folding>
+            <element signature="e#10#112#0#PHP" />
+            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#button#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="e#316#323#1" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#button#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="e#335#342#1" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#button#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="e#335#342#1" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="393">
+          <caret line="134" column="49" selection-start-line="134" selection-start-column="49" selection-end-line="134" selection-end-column="49" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="256">
+          <caret line="185" column="25" selection-start-line="185" selection-start-column="25" selection-end-line="185" selection-end-column="25" />
         </state>
       </provider>
     </entry>
