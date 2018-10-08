@@ -10,7 +10,7 @@
 
         $banque = new banque();
 
-        if ($banque->setData()) {
+        if ($banque->setData($_POST['libelle_banque'], $_POST['pays_banque'], $_POST['entite_banque'], $_POST['monnaie_banque'])) {
             if ($banque->saveData()) {
                 echo '
                     <h6>Enregistrée <small class="text-muted">avec succès</small></h6>
@@ -25,7 +25,8 @@
                     <h6>Erreur <small class="text-muted">lors de la recupération des données</small></h6>
                 ';
         }
-    } elseif (isset($_GET['action']) && $_GET['action'] == "ajout_operation") {
+    }
+    elseif (isset($_GET['action']) && $_GET['action'] == "ajout_operation") {
         include 'class_operation.php';
 
         $operation = new operation();
@@ -55,10 +56,13 @@
             $error = 0;
 
             if ($operation->setData($id_banque, $id_type_operation, $piece_operation[$i], $compte_operation[$i], $tag_operation[$i], $date_saisie_operation, $date_operation[$i], $designation_operation[$i], $cours_operation[$i], $montant_operation[$i], $montant_xof_operation[$i], $observation_operation[$i])) {
-                if (!$operation->saveData()) {
+                if ($operation->saveData()) {
+                    $error = 0;
+                } else {
                     $error = 1;
                     break;
                 }
+//                $operation->saveData();
             } else {
                 $error = 2;
                 break;
@@ -66,31 +70,16 @@
         }
 
         if ($error == 0) {
-            echo "
-            <div class='alert alert-success alert-dismissible' role='alert' style='width: 60%; margin-right: auto; margin-left: auto'>
-                <button type='button' class='close' data-dismiss='alert' aria-label='Close' style='position: inherit'>
-                    <span aria-hidden='true'>&times;</span>
-                </button>
-                <strong>Succès!</strong><br/> Les opérations ont été enregistrées.
-            </div>
-            ";
+            echo '
+            <h6>Enregistrée(s) <small class="text-muted">avec succès</small></h6>
+            ';
         } elseif ($error == 1) {
-            echo "
-            <div class='alert alert-danger alert-dismissible' role='alert' style='width: 60%; margin-right: auto; margin-left: auto'>
-                <button type='button' class='close' data-dismiss='alert' aria-label='Close' style='position: inherit'>
-                    <span aria-hidden='true'>&times;</span>
-                </button>
-                <strong>Erreur!</strong><br/> Une erreur s'est produite lors de la tentative d'enregistrement des opérations. Veuillez contacter l'administrateur.
-            </div>
-            ";
+            echo '
+            <h6>Erreur <small class="text-muted">lors de la sauvegarde</small></h6>
+                ';
         } elseif ($error == 2) {
-            echo "
-            <div class='alert alert-danger alert-dismissible' role='alert' style='width: 60%; margin-right: auto; margin-left: auto'>
-                <button type='button' class='close' data-dismiss='alert' aria-label='Close' style='position: inherit'>
-                    <span aria-hidden='true'>&times;</span>
-                </button>
-                <strong>Erreur!</strong><br/> Une erreur s'est produite lors de la récupération des informations. Veuillez contacter l'administrateur.
-            </div>
-            ";
+            echo '
+            <h6>Erreur <small class="text-muted">lors de la recupération des données</small></h6>
+                ';
         }
     }

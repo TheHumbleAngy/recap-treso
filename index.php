@@ -21,11 +21,13 @@
 
     <!-- Custom style -->
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="datepicker/gijgo.css">
+<!--    <link rel="stylesheet" href="addons/daterangepicker/daterangepicker.css">-->
 
 </head>
-<body>
+<body class="bg-light">
 <div class="container-fluid">
-    <h3 class="display-3 d-flex justify-content-center mb-5">Recap Trésorerie - 2018</h3>
+    <h4 class="display-4 d-flex justify-content-center mt-1 mb-4 mx-auto pb-3 w-75 cadre retroshadow">Recap Trésorerie - 2018</h4>
 
     <div id="content">
         <?php include $page; ?>
@@ -36,16 +38,46 @@
 <script src="bootstrap/popper-1.14.3.min.js"></script>
 <script src="bootstrap/js/bootstrap.js"></script>
 
-<script>
-    $(function () {
-        $('[data-toggle="tooltip"]').tooltip();
-    });
+<script src="datepicker/gijgo.js"></script>
+<!--<script src="addons/daterangepicker/moment.min.js"></script>-->
+<!--<script src="addons/daterangepicker/daterangepicker.js"></script>-->
 
+<script>
+    /*$(".datepicker").each(function(){
+        $(this).datepicker({
+            uiLibrary: "bootstrap4",
+            iconsLibrary: "fontawesome",
+            size: "small",
+            format: "dd-mm-yyyy"
+        });
+    });*/
     let nombre = $('#nombre'),
         nature_ = $('#nature'),
         saisir = $('#saisir'),
         valider = $('#valider'),
-        check = false;
+        check = false,
+        choix = 1;
+
+    $('.form-check-input').click(function () {
+        choix = $(this).val();
+    });
+    $(document).ready(function () {
+        /*$('#periode').daterangepicker({
+            startDate: moment().startOf(),
+            locale: {
+                format: 'DD-MM-YYYY'
+            }
+        });*/
+        $('#nature').prop('disabled', true);
+        $('#nombre').prop('disabled', true);
+        $('#saisir').prop('disabled', true);
+
+        $('#valider').prop('disabled', true);
+
+    });
+    $(function () {
+        $('[data-toggle="tooltip"]').tooltip();
+    });
 
     saisir.click(function () {
         let n = nombre.val(),
@@ -59,14 +91,17 @@
                 nature: nature
             },
             success: function (resultat) {
-                $('#feedback').html(resultat);
+                let feedback = $('#feedback');
+
+                feedback.empty();
+                feedback.html(resultat);
                 check = true;
             }
         });
 
         valider.prop('disabled', false);
 
-        /* An alternative way to use AJAX
+        /* TODO: An alternative way to use AJAX
         $.post(
             'ajax.php',
             {nbr: n},
@@ -74,10 +109,6 @@
                 alert(data);
         });*/
     });
-
-    function goBack() {
-        window.history.back();
-    }
 
     $("[id*='menu_']").click(function () {
 
@@ -94,7 +125,7 @@
         pays = arr[3];
 
         let text = banque + ' ' + pays + ' - ' + monnaie;
-        $('.message').html(text);
+        $('.titre').html(text);
 
         $.ajax({
             type: 'POST',
@@ -105,10 +136,11 @@
                 pays: pays
             },
             success: function (data) {
-                // console.log(data);
                 json_data = JSON.parse(data);
+                // console.log(data);
                 let entite = json_data[0].entite,
-                    solde = json_data[0].solde,
+                    solde_xof = json_data[0].solde_xof,
+                    solde_devise = json_data[0].solde_devise,
                     sign = "";
 
                 switch (monnaie) {
@@ -122,17 +154,54 @@
                         sign = '<strong><span class="text-uppercase">' + monnaie + '</span></strong>';
                 }
 
-                $('#monnaie').html(sign);
-                $('#entite').attr('placeholder', entite);
+                $('#monnaie_devise').html(sign);
+                $('#entite').html('#' + entite);
+                $('#nature').prop('disabled', false);
+                $('#nombre').prop('disabled', false);
+                $('#saisir').prop('disabled', false);
 
-                $('#solde').attr('placeholder', solde);
+                $('#solde_xof').attr('placeholder', solde_xof);
+                $('#solde_devise').attr('placeholder', solde_devise);
                 $('#idbanque').html(id_banque);
-                // $('#feedback').html(data);
-                // check = true;
+                $('#feedback').empty();
 
+                valider.prop('disabled', true);
             }
         });
     });
+
+    function ajoutBanque() {
+        let libelle_banque = $('#libelle').val(),
+            pays_banque = $('#pays').val(),
+            entite_banque = $('#entite').val(),
+            monnaie_banque = $('#monnaie').val(),
+            info, action;
+
+        if ($.trim(libelle_banque) === "") {
+            console.log("empty");
+        }
+        else {
+            info = "libelle_banque=" + libelle_banque +
+                "&pays_banque=" + pays_banque +
+                "&entite_banque=" + entite_banque +
+                "&monnaie_banque=" + monnaie_banque,
+            action = "ajout_banque";
+
+            $.ajax({
+                type: 'POST',
+                url: 'updatedata.php?action=' + action,
+                data: info,
+                success: function (data) {
+                    $('#content-response').html(data);
+                    $('#form_banque').trigger('reset');
+                    $('#modal-response').modal('show');
+                    /*setTimeout(function () {
+                        $('#modal-response').modal('hide');
+                    }, 2500);*/
+                }
+            });
+        }
+    }
 
     function ajoutOperation() {
         let piece_op = [],
@@ -155,12 +224,16 @@
             piece_op[i] = $('[id*="piece"]')[i].value;
             compte_op[i] = $('[id*="compte"]')[i].value;
             libelle_op[i] = $('[id*="libelle"]')[i].value;
-            date_op[i] = $('[id*="date"]')[i].value;
-            designation_op[i] = $('[id*="operation"]')[i].value;
+            designation_op[i] = $('[id*="operation"]')[i].value.trim();
             cours_op[i] = $('[id*="cours"]')[i].value;
-            devise_op[i] = $('[id*="devise"]')[i].value;
-            xof_op[i] = $('[id*="xof"]')[i].value;
+            devise_op[i] = $('[id*="mtt_devise"]')[i].value;
+            xof_op[i] = $('[id*="mtt_xof"]')[i].value;
             observation_op[i] = $('[id*="observation"]')[i].value;
+
+            date_op[i] = $('[id*="date"]')[i].value;
+            /*let date_test = $('[id*="date"]')[i].value,
+                arr_date = date_test.split('-');
+            date_op[i] = arr_date[2] + '-' + arr_date[1] + '-' + arr_date[0];*/
         }
 
         let json_piece_op = JSON.stringify(piece_op),
@@ -172,7 +245,19 @@
             json_devise_op = JSON.stringify(devise_op),
             json_xof_op = JSON.stringify(xof_op),
             json_observation_op = JSON.stringify(observation_op),
-            info = "nbr=" + nbr + "&id_banque=" + id_banque + "&id_type_operation=" + nature + "&piece_operation=" + json_piece_op + "&compte_operation=" + json_compte_op + "&tag_operation=" + json_libelle_op + "&date_saisie_operation=" + datesaisie_op + "&date_operation=" + json_date_op + "&designation_operation=" + json_designation_op + "&cours_operation=" + json_cours_op + "&montant_operation=" + json_devise_op + "&montant_xof_operation=" + json_xof_op + "&observation_operation=" + json_observation_op,
+            info = "nbr=" + nbr +
+                "&id_banque=" + id_banque +
+                "&id_type_operation=" + nature +
+                "&piece_operation=" + json_piece_op +
+                "&compte_operation=" + json_compte_op +
+                "&tag_operation=" + json_libelle_op +
+                "&date_saisie_operation=" + datesaisie_op +
+                "&date_operation=" + json_date_op +
+                "&designation_operation=" + json_designation_op +
+                "&cours_operation=" + json_cours_op +
+                "&montant_operation=" + json_devise_op +
+                "&montant_xof_operation=" + json_xof_op +
+                "&observation_operation=" + json_observation_op,
             action = "ajout_operation";
 
         $.ajax({
@@ -180,13 +265,47 @@
             url: 'updatedata.php?action=' + action,
             data: info,
             success: function (data) {
-                $('.feedback').html(data);
-                setTimeout(function () {
+                $('#content-response').html(data);
+                $('#feedback').empty();
+                $('#modal-response').modal('show');
+                valider.prop('disabled', true);
+                /*setTimeout(function () {
                     $('.alert-success').slideToggle('slow');
-                }, 2500);
+                }, 2500);*/
             }
         });
     }
+    
+    function test() {
+        let debut = $('#debut').val(),
+            fin = $('#fin').val(),
+
+        arr = debut.split('-');
+        debut = arr[2] + "-" + arr[1] + "-" + arr[0];
+
+        arr = fin.split('-');
+        fin = arr[2] + "-" + arr[1] + "-" + arr[0];
+
+        // console.log(choix);
+
+        $.ajax({
+            type: 'POST',
+            url: 'ajax_consultation.php',
+            data: {
+                debut: debut,
+                fin: fin,
+                choix: choix
+            },
+            success: function (data) {
+                // console.log(data);
+                $('#feedback_consultation').html(data);
+                // console.log($('#solde_avt').val());
+                $('#solde_avant').val($('#solde_avt').val());
+                $('#solde_apres').val($('#solde_apr').val());
+            }
+        })
+    }
+
 </script>
 </body>
 </html>

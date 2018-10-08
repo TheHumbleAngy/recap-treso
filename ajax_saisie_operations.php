@@ -13,7 +13,7 @@
 
         echo '<span id="nbr_" hidden>' . $nbr . '</span>
             <table class="table table-sm table-hover my-4 ncare bg-light font-weight-light" id="etat">
-                <thead class="bg-primary text-light">
+                <thead class="bg-primary text-light sticky-top">
                 <tr>
                     <th class="w-8" rowspan="2">Pièce</th>
                     <th class="w-8" rowspan="2">Compte</th>
@@ -47,7 +47,7 @@
                     </td>
                     
                     <td>
-                        <input type="text" class="form-control form-control-sm text-uppercase" id="date' . $i . '">
+                        <input type="date" class="form-control form-control-sm" id="date' . $i . '">
                     </td>
                     
                     <td>
@@ -55,7 +55,7 @@
                     </td>
                     
                     <td class="">
-                        <input type="text" class="form-control form-control-sm text-uppercase text-right" id="devise' . $i . '">
+                        <input type="text" class="form-control form-control-sm text-uppercase text-right" id="mtt_devise' . $i . '">
                     </td>
                     
                     <td class="">
@@ -63,7 +63,7 @@
                     </td>
                     
                     <td class="">
-                        <input type="text" class="form-control form-control-sm text-uppercase text-right" id="xof' . $i . '">
+                        <input type="text" class="form-control form-control-sm text-uppercase text-right" id="mtt_xof' . $i . '">
                     </td>
                     
                     <td>

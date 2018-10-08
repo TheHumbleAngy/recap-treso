@@ -7,43 +7,53 @@
      */
     ?>
 <div id="wrapper_banque" class="shadow">
-    <a id="retour" class="alert alert-info py-1" role="button" onclick="goBack();" data-toggle="tooltip" data-placement="right" title="Page d'accueil">
-        <i class="fas fa-home"></i>
+    <a id="retour" class="alert alert-info py-1" role="button" data-toggle="tooltip" data-placement="right" title="Page d'accueil" href="index.php">
+        <i class="fas fa-arrow-left"></i>
     </a>
     <div class="row">
-        <div class="col-6 d-flex flex-column justify-content-center">
+        <div class="col-4 d-flex flex-column justify-content-center">
             <i class="fas fa-university ncare mx-auto"></i>
         </div>
-        <div class="col-6">
-            <h2 class="d-flex justify-content-center ncare">Banque</h2>
+        <div class="col offset-1">
+            <h2 class="d-flex justify-content-center ncare insetshadow cadre pb-2 w-75 mx-auto">Banque</h2>
             <form id="form_banque">
-                <div class="form-group">
-                    <label for="libelle" class="h4">Libellé</label>
-                    <input type="text" id="libelle" class="form-control form-control-sm text-uppercase">
+                <div class="input-group input-group-sm my-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">Libellé <i class="fas fa-tag ml-1"></i></span>
+                    </div>
+                    <input type="text" class="form-control text-uppercase" id="libelle">
                 </div>
-                <div class="input-group mb-3">
+                <div class="input-group input-group-sm my-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">Entité <i class="fas fa-hashtag ml-1"></i></span>
+                    </div>
+                    <input type="text" class="form-control text-uppercase" id="entite">
+                </div>
+                <div class="input-group input-group-sm my-3">
                     <div class="input-group-prepend">
                         <label class="input-group-text" for="pays">Pays <i class="fas fa-globe-africa ml-1"></i></label>
                     </div>
-                    <select class="custom-select" id="pays">
+                    <select class="form-control form-control-sm" id="pays">
                         <option selected>Sélectionner...</option>
-                        <option value="nigeria">NIGERIA</option>
                         <option value="france">FRANCE</option>
+                        <option value="ghana">GHANA</option>
+                        <option value="nigeria">NIGERIA</option>
                     </select>
                 </div>
-                <div class="input-group mb-3">
+                <div class="input-group input-group-sm my-3">
                     <div class="input-group-prepend">
                         <label class="input-group-text" for="monnaie">Monnaie <i class="fas fa-dollar-sign ml-1"></i></label>
                     </div>
-                    <select class="custom-select" id="monnaie">
+                    <select class="form-control form-control-sm" id="monnaie">
                         <option selected>Sélectionner...</option>
+                        <option value="ghs" class="text-uppercase">GHS</option>
                         <option value="usd" class="text-uppercase">USD</option>
                         <option value="euro" class="text-uppercase">EURO</option>
                         <option value="ngn" class="text-uppercase">NGN</option>
                     </select>
                 </div>
                 <div class="d-flex justify-content-end">
-                    <button type="button" class="btn btn-primary my-2" onclick="saveData();">
+                    <button type="button" class="btn btn-primary my-2" onclick="ajoutBanque();">
                         <i class="fas fa-save mr-2"></i>
                         Enregistrer
                     </button>
@@ -67,33 +77,3 @@
         </div>
     </div>
 </div>
-
-<script>
-    function saveData() {
-        let libelle_banque = $('#libelle').val(),
-            pays_banque = $('#pays').val(),
-            monnaie_banque = $('#monnaie').val(),
-            info, action;
-
-        if ($.trim(libelle_banque) === "") {
-            console.log("empty");
-        } else {
-            info = "libelle_banque=" + libelle_banque + "&pays_banque=" + pays_banque + "&monnaie_banque=" + monnaie_banque;
-            action = "ajout_banque";
-
-            $.ajax({
-                type: 'POST',
-                url: 'updatedata.php?action=' + action,
-                data: info,
-                success: function (data) {
-                    $('#content-response').html(data);
-                    $('#form_banque').trigger('reset');
-                    $('#modal-response').modal('show');
-                    setTimeout(function () {
-                        $('#modal-response').modal('hide');
-                    }, 2500);
-                }
-            });
-        }
-    }
-</script>

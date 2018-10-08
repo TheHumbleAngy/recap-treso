@@ -274,15 +274,51 @@
             $code = $dat . $b . strtoupper($libelle_banque) . strtoupper($pays_banque) . sprintf($format, $_id_operation);
 
             $this->id_operation = $code;
+//            $operation = addcslashes($this->designation_operation, '"');
 
-            $sql = "INSERT INTO operations (id_operation, id_banque, id_type_operation, piece_operation, compte_operation, tag_operation, date_saisie_operation, date_operation, designation_operation, cours_operation, montant_operation, montant_xof_operation, observation_operation) 
-                    VALUES ('$this->id_operation','$this->id_banque','$this->id_type_operation','$this->piece_operation','$this->compte_operation','$this->tag_operation','$this->date_saisie_operation','$this->date_operation','$this->designation_operation','$this->cours_operation','$this->montant_operation','$this->montant_xof_operation','$this->observation_operation')";
+            $piece = mysqli_escape_string($this->connection, $this->piece_operation);
+            $compte = mysqli_escape_string($this->connection, $this->compte_operation);
+            $libelle = mysqli_escape_string($this->connection, $this->tag_operation);
+            $operation = mysqli_escape_string($this->connection, $this->designation_operation);
+            $observation = mysqli_escape_string($this->connection, $this->observation_operation);
+
+            $piece = htmlspecialchars($piece);
+            $compte = htmlspecialchars($compte);
+            $libelle = htmlspecialchars($libelle);
+            $operation = htmlspecialchars($operation);
+            $observation = htmlspecialchars($observation);
+
+            $sql = "INSERT INTO operations (id_operation, 
+                                            id_banque, 
+                                            id_type_operation, 
+                                            piece_operation, 
+                                            compte_operation, 
+                                            tag_operation, 
+                                            date_saisie_operation, 
+                                            date_operation, 
+                                            designation_operation, 
+                                            cours_operation, 
+                                            montant_operation, 
+                                            montant_xof_operation, 
+                                            observation_operation)
+                    VALUES ('$this->id_operation',
+                            '$this->id_banque',
+                            '$this->id_type_operation',
+                            '$piece',
+                            '$compte',
+                            '$libelle',
+                            '$this->date_saisie_operation',
+                            '$this->date_operation',
+                            '$operation',
+                            '$this->cours_operation',
+                            '$this->montant_operation',
+                            '$this->montant_xof_operation',
+                            '$observation')";
 
 //            echo $sql;
-            if ($result = mysqli_query($this->connection, $sql)) {
+            if ($result = mysqli_query($this->connection, $sql))
                 return TRUE;
-            } else {
+            else
                 return FALSE;
-            }
         }
     }

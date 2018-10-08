@@ -41,10 +41,10 @@ table.ncare th {
 }
 
 #wrapper {
-    width: 55vw;
-    /*height: 50vh;*/
-    padding: 80px;
-    background-color: whitesmoke;
+    width: 40vw;
+    height: 300px;
+    padding: 60px 80px;
+    background-color: #fff;
     border-radius: 10px;
     position: absolute;
     top:0;
@@ -55,19 +55,19 @@ table.ncare th {
 }
 
 i.ncare {
-    font-size: 11em;
+    font-size: 8em;
     color: #1A74B8;
 }
 
 h2.ncare {
-    margin-bottom: 2rem;
+    margin-bottom: 1.5rem;
 }
 
 #wrapper_banque {
-    width: 55vw;
-    /*height: 50vh;*/
-    padding: 60px 80px;
-    background-color: whitesmoke;
+    width: 50vw;
+    height: 400px;
+    padding: 40px 80px;
+    background-color: #fff;
     border-radius: 10px;
     position: absolute;
     top:0;
@@ -75,11 +75,10 @@ h2.ncare {
     left: 0;
     right: 0;
     margin: 20vh auto;
-    /*font-family: 'Roboto-Regular', serif;*/
 }
 
 #retour {
-    position: absolute;
+    position: relative;
     top: 1vh;
     left: 0.5vw;
 }
@@ -98,4 +97,42 @@ h2.ncare {
 
 .w-12 {
     width: 12% !important;
+}
+
+.force-to-bottom {
+    background: grey; height: 50px;
+    margin: 0;
+    justify-content: center;
+    align-items: center;
+}
+
+.cadre {
+    border: #DEE2E6 solid 1px;
+    border-radius: 4px;
+}
+
+.insetshadow {
+    color: #0096d3;
+    background-color: whitesmoke;
+    letter-spacing: 0.1em;
+    text-shadow: -1px -1px 1px white, 2px 2px 1px rgba(0, 0, 0, 0.1);
+    font-weight: bolder;
+}
+
+.retroshadow {
+    color: #1b70b6;
+    background-color: #fff;
+    letter-spacing: 0.05em;
+    text-shadow: 4px 4px 0 #e6e6e6, 3px 3px 0 rgba(0, 0, 0, 0.2);
+}
+
+input.ncare {
+    background-color: #fff !important;
+}
+
+.fixed_header tbody {
+    /*display: block;*/
+    width: 100%;
+    overflow-y: scroll;
+    height: 350px;
 }

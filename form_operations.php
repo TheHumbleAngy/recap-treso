@@ -7,7 +7,7 @@
      */
     ?>
 <div style="position: relative">
-    <a class="alert alert-info py-1" role="button" onclick="goBack();" data-toggle="tooltip" data-placement="right" title="Page d'accueil" style="position: absolute; top: 6vh">
+    <a class="alert alert-info py-1" role="button" data-toggle="tooltip" data-placement="right" title="Page d'accueil" href="index.php" style="position: absolute; top: 6vh">
         <i class="fas fa-home"></i>
     </a>
     <ul class="nav nav-tabs mb-3" id="pills-tab" role="tablist">
@@ -68,7 +68,7 @@
                         <label for="nombre">Nombre de lignes :</label>
                         <input type="number" class="form-control form-control-sm mx-2" id="nombre" min="1" style="width: 15%">
                         <button class="btn btn-sm btn-outline-primary px-3" type="button" id="saisir" data-toggle="tooltip" data-placement="right" title="Cliquez ici pour commencer à saisir">
-                            <i class="fas fa-arrow-circle-right"></i>
+                            teST
                         </button>
                     </form>
                 </div>
