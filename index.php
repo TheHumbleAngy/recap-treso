@@ -18,16 +18,17 @@
 
     <!-- Fontawesome -->
     <link rel="stylesheet" href="addons/css/all.min.css">
+    <link rel="stylesheet" href="addons/css/font-awesome-animation.min.css">
 
     <!-- Custom style -->
     <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="datepicker/gijgo.css">
-<!--    <link rel="stylesheet" href="addons/daterangepicker/daterangepicker.css">-->
 
 </head>
 <body class="bg-light">
 <div class="container-fluid">
-    <h4 class="display-4 d-flex justify-content-center mt-1 mb-4 mx-auto pb-3 w-75 cadre retroshadow">Recap Trésorerie - 2018</h4>
+    <h4 class="display-4 d-flex justify-content-center mt-1 mb-4 mx-auto pb-3 w-75 cadre retroshadow">
+        Trésorerie NCA Ré <small><i class="fas fa-hand-holding-usd fa-xs mx-3 mt-2" style="line-height: inherit"></i></small>
+    </h4>
 
     <div id="content">
         <?php include $page; ?>
@@ -38,21 +39,7 @@
 <script src="bootstrap/popper-1.14.3.min.js"></script>
 <script src="bootstrap/js/bootstrap.js"></script>
 
-<script src="datepicker/gijgo.js"></script>
-<!--<script src="addons/daterangepicker/moment.min.js"></script>-->
-<!--<script src="addons/daterangepicker/daterangepicker.js"></script>-->
-
 <script>
-    let nombre = $('#nombre'),
-        nature_ = $('#nature'),
-        saisir = $('#saisir'),
-        valider = $('#valider'),
-        choix = 1;
-
-    $('.form-check-input').click(function () {
-        choix = $(this).val();
-    });
-
     $(document).ready(function () {
         $('#nature').prop('disabled', true);
         $('#nombre').prop('disabled', true);
@@ -61,61 +48,19 @@
         $('#valider').prop('disabled', true);
     });
 
+    let nombre = $('#nombre'),
+        nature_ = $('#nature'),
+        valider = $('#valider'),
+        choix = 1;
+
+    /*$('.form-check-input').click(function () {
+        choix = $(this).val();
+    });*/
+
+    //TODO: create a form for operation and banque in consultation
+
     $(function () {
         $('[data-toggle="tooltip"]').tooltip();
-    });
-
-    saisir.click(function () {
-        let n = nombre.val(),
-            nature = nature_.val();
-
-        $.ajax({
-            type: 'POST',
-            url: 'ajax_saisie_operations.php',
-            data: {
-                nbr: n,
-                nature: nature
-            },
-            success: function (resultat) {
-                let feedback = $('#feedback');
-
-                feedback.empty();
-                feedback.html(resultat);
-                valider.prop('disabled', false);
-
-                // On gère ici le calcul du montant XOF qui se fait automatiquement
-                // on recupere le nombre de lignes
-                let n = $('[id^="mtt_devise"]').length,
-                    operand = ".operand";
-                console.log(n);
-
-                for (let i = 1; i <= n; i++) {
-
-                    let sel_operand = operand + i;
-
-                    $(sel_operand).change(function () {
-                        let sel_mtt_devise = "#mtt_devise" + i;
-                        let sel_cours = "#cours" + i;
-                        let sel_xof = "#mtt_xof" + i;
-
-                        let mtt_devise = $(sel_mtt_devise).val();
-                        let cours = $(sel_cours).val();
-                        let mtt_xof = Number(mtt_devise) * Number(cours);
-                        $(sel_xof).val(mtt_xof);
-                    })
-                }
-            }
-        });
-
-
-
-        /* TODO: An alternative way to use AJAX
-        $.post(
-            'ajax.php',
-            {nbr: n},
-            function (data) {
-                alert(data);
-        });*/
     });
 
     $("[id*='menu_']").click(function () {
@@ -168,14 +113,65 @@
                 $('#nombre').prop('disabled', false);
                 $('#saisir').prop('disabled', false);
 
-                $('#solde_xof').attr('placeholder', solde_xof);
-                $('#solde_devise').attr('placeholder', solde_devise);
+                $('#solde_xof').attr('placeholder', solde_xof.toFixed(2));
+                $('#solde_devise').attr('placeholder', solde_devise.toFixed(2));
                 $('#idbanque').html(id_banque);
                 $('#feedback').empty();
 
                 valider.prop('disabled', true);
             }
         });
+    });
+
+    $('#saisir').click(function () {
+        let n = nombre.val(),
+            nature = nature_.val();
+
+        $.ajax({
+            type: 'POST',
+            url: 'ajax_saisie_operations.php',
+            data: {
+                nbr: n,
+                nature: nature
+            },
+            success: function (resultat) {
+                let feedback = $('#feedback');
+
+                feedback.empty();
+                feedback.html(resultat);
+                valider.prop('disabled', false);
+
+                // On gère ici le calcul du montant XOF qui se fait automatiquement
+                // on recupere le nombre de lignes
+                let n = $('[id^="mtt_devise"]').length,
+                    operand = ".operand";
+                // console.log(n);
+
+                for (let i = 1; i <= n; i++) {
+
+                    let sel_operand = operand + i;
+
+                    $(sel_operand).change(function () {
+                        let sel_mtt_devise = "#mtt_devise" + i;
+                        let sel_cours = "#cours" + i;
+                        let sel_xof = "#mtt_xof" + i;
+
+                        let mtt_devise = $(sel_mtt_devise).val();
+                        let cours = $(sel_cours).val();
+                        let mtt_xof = Number(mtt_devise) * Number(cours);
+                        $(sel_xof).val(mtt_xof);
+                    })
+                }
+            }
+        });
+
+        /* TODO: An alternative way to use AJAX
+        $.post(
+            'ajax.php',
+            {nbr: n},
+            function (data) {
+                alert(data);
+        });*/
     });
 
     function ajoutBanque() {
@@ -192,7 +188,7 @@
             info = "libelle_banque=" + libelle_banque +
                 "&pays_banque=" + pays_banque +
                 "&entite_banque=" + entite_banque +
-                "&monnaie_banque=" + monnaie_banque,
+                "&monnaie_banque=" + monnaie_banque;
             action = "ajout_banque";
 
             $.ajax({
@@ -229,19 +225,15 @@
         datesaisie_op = datesaisie_op.getFullYear() + "-" + (datesaisie_op.getMonth()+1) + "-" + datesaisie_op.getDate();
 
         for (let i = 0; i < nbr; i = i + 1) {
-            piece_op[i] = $('[id*="piece"]')[i].value;
-            compte_op[i] = $('[id*="compte"]')[i].value;
-            libelle_op[i] = $('[id*="libelle"]')[i].value;
+            piece_op[i] = $('[id*="piece"]')[i].value.trim();
+            compte_op[i] = $('[id*="compte"]')[i].value.trim();
+            libelle_op[i] = $('[id*="libelle"]')[i].value.trim();
+            date_op[i] = $('[id*="date"]')[i].value.trim();
             designation_op[i] = $('[id*="operation"]')[i].value.trim();
-            cours_op[i] = $('[id*="cours"]')[i].value;
-            devise_op[i] = $('[id*="mtt_devise"]')[i].value;
-            xof_op[i] = $('[id*="mtt_xof"]')[i].value;
-            observation_op[i] = $('[id*="observation"]')[i].value;
-
-            date_op[i] = $('[id*="date"]')[i].value;
-            /*let date_test = $('[id*="date"]')[i].value,
-                arr_date = date_test.split('-');
-            date_op[i] = arr_date[2] + '-' + arr_date[1] + '-' + arr_date[0];*/
+            cours_op[i] = $('[id*="cours"]')[i].value.trim();
+            devise_op[i] = $('[id*="mtt_devise"]')[i].value.trim();
+            xof_op[i] = $('[id*="mtt_xof"]')[i].value.trim();
+            observation_op[i] = $('[id*="observation"]')[i].value.trim();
         }
 
         let json_piece_op = JSON.stringify(piece_op),
@@ -284,15 +276,15 @@
         });
     }
     
-    function test() {
+    function consultation() {
         let debut = $('#debut').val(),
-            fin = $('#fin').val(),
+            fin = $('#fin').val();
 
-        arr = debut.split('-');
+        /*arr = debut.split('-');
         debut = arr[2] + "-" + arr[1] + "-" + arr[0];
 
         arr = fin.split('-');
-        fin = arr[2] + "-" + arr[1] + "-" + arr[0];
+        fin = arr[2] + "-" + arr[1] + "-" + arr[0];*/
 
         // console.log(choix);
 
@@ -308,8 +300,15 @@
                 // console.log(data);
                 $('#feedback_consultation').html(data);
                 // console.log($('#solde_avt').val());
-                $('#solde_avant').val($('#solde_avt').val());
-                $('#solde_apres').val($('#solde_apr').val());
+                let solde_avant = $('#solde_avt').val(),
+                    solde_apres = $('#solde_apr').val();
+
+                solde_avant = (solde_avant === "") ? 0 : solde_avant;
+                solde_apres = (solde_apres === "") ? 0 : solde_apres;
+                // console.log(solde_avant + ' ' + solde_apres);
+
+                $('#solde_avant').val(solde_avant);
+                $('#solde_apres').val(solde_apres);
             }
         })
     }

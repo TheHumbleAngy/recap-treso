@@ -51,8 +51,8 @@
                             <input class="form-check-input" type="radio" id="choix_detaille" value="2">
                             <label class="form-check-label" for="choix_detaille">Détaillée</label>
                         </div>
-                        <button type="button" class="btn btn-sm btn-outline-primary mx-5 px-4" id="test" onclick="test();">
-                            Valider <i class="far fa-check-circle ml-1"></i>
+                        <button type="button" class="btn btn-sm btn-outline-primary mx-5 px-4" id="test" onclick="consultation();">
+                            Consulter <i class="fas fa-search ml-1"></i>
                         </button>
                     </div>
                     <div class="col-4">

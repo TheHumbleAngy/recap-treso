@@ -94,7 +94,8 @@
                          aria-labelledby="<?php echo 'menu_' . $monnaie . '_' . $libelle . '_' . $pays; ?>"
                          aria-expanded="false">
                         <h5 class="display-5 d-flex justify-content-center my-3 mx-auto py-2 w-25 titre text-uppercase cadre insetshadow">
-                            <?php echo $libelle . ' - ' . $monnaie; ?>
+                            <i class="fa fa-exclamation-triangle faa-flash animated" title="Sélectionnez une banque pour commencer"></i>
+                            <?php //echo $libelle . ' - ' . $monnaie; ?>
                         </h5>
 
                         <div class="row container-fluid">
@@ -137,8 +138,9 @@
                                 <div class="row">
                                     <div class="co-3 mt-4">
                                         <div class="d-flex flex-column">
-                                            <button class="btn btn-block btn-outline-primary px-4" id="valider" disabled onclick="ajoutOperation();">
-                                                Valider <i class="far fa-check-circle ml-1"></i>
+                                            <button class="btn btn-block btn-outline-primary px-4 faa-parent animated-hover" id="valider" disabled onclick="ajoutOperation();">
+                                                <i class="fas fa-save mr-2 faa-pulse"></i>
+                                                Enregistrer
                                             </button>
                                             <div class="modal fade" id="modal-response" tabindex="-1" role="dialog">
                                                 <div class="modal-dialog modal-sm" role="document">

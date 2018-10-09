@@ -2,9 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bc4f30b7-6a35-4415-8de2-63235db8ccfc" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/addons/css/font-awesome-animation.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/form_param_consultation.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dictionaries/angem.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dictionaries/angem.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ajax_saisie_operations.php" beforeDir="false" afterPath="$PROJECT_DIR$/ajax_saisie_operations.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/accueil.php" beforeDir="false" afterPath="$PROJECT_DIR$/accueil.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ajax_consultation.php" beforeDir="false" afterPath="$PROJECT_DIR$/ajax_consultation.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/form_banques.php" beforeDir="false" afterPath="$PROJECT_DIR$/form_banques.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/form_consultation.php" beforeDir="false" afterPath="$PROJECT_DIR$/form_consultation.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/styles.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test.php" beforeDir="false" afterPath="$PROJECT_DIR$/test.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -47,127 +55,21 @@
     <favorites_list name="recap-treso" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.5">
-      <split-first>
-        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file leaf-file-name="test.php" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/test.php">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="2397">
-                  <caret line="146" column="110" selection-start-line="146" selection-start-column="110" selection-end-line="146" selection-end-column="110" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="updatedata.php" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/updatedata.php">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="1020">
-                  <caret line="65" column="20" selection-start-line="65" selection-start-column="20" selection-end-line="65" selection-end-column="20" />
-                  <folding>
-                    <element signature="e#10#112#0#PHP" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name=".gitignore" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/.gitignore">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="17">
-                  <caret line="1" column="6" selection-start-line="1" selection-start-column="6" selection-end-line="1" selection-end-column="6" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="class_operation.php" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/class_operation.php">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="696">
-                  <caret line="321" column="29" selection-start-line="318" selection-start-column="12" selection-end-line="321" selection-end-column="29" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="ajax_saisie_operations.php" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/ajax_saisie_operations.php">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="329">
-                  <caret line="57" column="138" selection-start-line="57" selection-start-column="128" selection-end-line="57" selection-end-column="138" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="index.php" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/index.php">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="4420">
-                  <caret line="283" column="11" selection-start-line="283" selection-start-column="11" selection-end-line="283" selection-end-column="11" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-        </leaf>
-      </split-first>
-      <split-second>
-        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file leaf-file-name="index.php" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/index.php">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="645">
-                  <caret line="105" column="17" selection-start-line="105" selection-start-column="17" selection-end-line="105" selection-end-column="17" />
-                  <folding>
-                    <element signature="e#3067#5034#0#HTML" />
-                    <element signature="e#5065#6170#0#HTML" />
-                    <element signature="e#6202#9296#0#HTML" />
-                    <element signature="e#9322#10148#0#HTML" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="updatedata.php" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/updatedata.php">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="34">
-                  <caret line="7" column="24" selection-start-line="7" selection-start-column="24" selection-end-line="7" selection-end-column="24" />
-                  <folding>
-                    <element signature="e#10#112#0#PHP" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="console.sql" pinned="false" current-in-tab="false">
-            <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/30791a6b-4421-491e-9a59-5d8eb66b8164/console.sql">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="1258">
-                  <caret line="74" selection-start-line="74" selection-end-line="74" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="class_banque.php" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/class_banque.php">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="2074">
-                  <caret line="127" column="17" selection-start-line="127" selection-start-column="17" selection-end-line="127" selection-end-column="17" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="form_banques.php" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/form_banques.php">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="1037">
-                  <caret line="66" column="26" selection-start-line="66" selection-start-column="26" selection-end-line="66" selection-end-column="26" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-        </leaf>
-      </split-second>
-    </splitter>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="ajax_consultation.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/ajax_consultation.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="323">
+              <caret line="156" column="23" selection-start-line="156" selection-start-column="23" selection-end-line="156" selection-end-column="23" />
+              <caret line="157" column="23" selection-start-line="157" selection-start-column="23" selection-end-line="157" selection-end-column="23" />
+              <folding>
+                <element signature="n#style#0;n#thead#0;n#table#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -180,7 +82,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>xof</find>
       <find>feedback</find>
       <find>solde</find>
       <find>($</find>
@@ -195,7 +96,6 @@
       <find>onclick=&quot;goBack();&quot;</find>
       <find>title=&quot;Page d'accueil&quot;</find>
       <find>monnaie_devise</find>
-      <find>valider</find>
       <find>ncare</find>
       <find>table.ncare</find>
       <find>mask</find>
@@ -210,6 +110,8 @@
       <find>content-response</find>
       <find>'&quot;</find>
       <find>operand</find>
+      <find>avant</find>
+      <find>valider</find>
     </findStrings>
     <replaceStrings>
       <replace>form-control-sm text-uppercase</replace>
@@ -247,8 +149,8 @@
   <component name="Git.Settings">
     <option name="PREVIOUS_COMMIT_AUTHORS">
       <list>
-        <option value="ange_kouakou &lt;angemarius@gmail.com&gt;" />
         <option value="AngeKouakou_office &lt;angemarius@gmail.com&gt;" />
+        <option value="ange_kouakou &lt;angemarius@gmail.com&gt;" />
       </list>
     </option>
     <option name="PUSH_AUTO_UPDATE" value="true" />
@@ -282,19 +184,22 @@
         <option value="$PROJECT_DIR$/ajax_banq_info.php" />
         <option value="$APPLICATION_CONFIG_DIR$/consoles/db/30791a6b-4421-491e-9a59-5d8eb66b8164/console_1.sql" />
         <option value="$PROJECT_DIR$/form_operations.php" />
-        <option value="$PROJECT_DIR$/accueil.php" />
-        <option value="$PROJECT_DIR$/ajax_consultation.php" />
-        <option value="$PROJECT_DIR$/styles.css" />
-        <option value="$PROJECT_DIR$/form_consultation.php" />
         <option value="$PROJECT_DIR$/class_banque.php" />
-        <option value="$PROJECT_DIR$/form_banques.php" />
-        <option value="$PROJECT_DIR$/test.php" />
         <option value="$APPLICATION_CONFIG_DIR$/consoles/db/30791a6b-4421-491e-9a59-5d8eb66b8164/console.sql" />
         <option value="$PROJECT_DIR$/class_operation.php" />
         <option value="$PROJECT_DIR$/updatedata.php" />
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/ajax_saisie_operations.php" />
+        <option value="$PROJECT_DIR$/form_consultation.php" />
+        <option value="$PROJECT_DIR$/form_pram_consultation.php" />
+        <option value="$PROJECT_DIR$/font-awesome-animation.min.css" />
         <option value="$PROJECT_DIR$/index.php" />
+        <option value="$PROJECT_DIR$/accueil.php" />
+        <option value="$PROJECT_DIR$/styles.css" />
+        <option value="$PROJECT_DIR$/form_param_consultation.php" />
+        <option value="$PROJECT_DIR$/form_banques.php" />
+        <option value="$PROJECT_DIR$/test.php" />
+        <option value="$PROJECT_DIR$/ajax_consultation.php" />
       </list>
     </option>
   </component>
@@ -333,7 +238,31 @@
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
-    <panes />
+    <panes>
+      <pane id="Scope" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="recap-treso" type="b2602c69:ProjectViewProjectNode" />
+              <item name="recap-treso" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="recap-treso" type="b2602c69:ProjectViewProjectNode" />
+              <item name="recap-treso" type="462c0819:PsiDirectoryNode" />
+              <item name="addons" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="recap-treso" type="b2602c69:ProjectViewProjectNode" />
+              <item name="recap-treso" type="462c0819:PsiDirectoryNode" />
+              <item name="addons" type="462c0819:PsiDirectoryNode" />
+              <item name="css" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+    </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
@@ -360,13 +289,14 @@
     <property name="settings.editor.selected.configurable" value="project.scopes" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\wamp64\www\recap-treso\datepicker" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\wamp64\www\recap-treso\addons\css" />
       <recent name="C:\wamp64\www\recap-treso" />
       <recent name="C:\wamp64\www\recap-treso\bootstrap" />
       <recent name="C:\wamp64\www\recap-treso\js" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\wamp64\www\recap-treso\datepicker" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -426,7 +356,7 @@
       <workItem from="1538925213279" duration="1373000" />
       <workItem from="1539008355442" duration="12042000" />
       <workItem from="1539041092396" duration="524000" />
-      <workItem from="1539078810553" duration="4057000" />
+      <workItem from="1539078810553" duration="23682000" />
     </task>
     <task id="LOCAL-00001" summary="index.php updated">
       <created>1537516057036</created>
@@ -463,11 +393,18 @@
       <option name="project" value="LOCAL" />
       <updated>1539041523054</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="done with auto calculation of amount in xof in form_operation">
+      <created>1539087222483</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1539087222483</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="273230000" />
+    <option name="totallyTimeSpent" value="292855000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -541,7 +478,8 @@
     <MESSAGE value="done lot of ajax" />
     <MESSAGE value="almost done with save operation data" />
     <MESSAGE value="quite done with save operation data, lots of amendments too" />
-    <option name="LAST_COMMIT_MESSAGE" value="quite done with save operation data, lots of amendments too" />
+    <MESSAGE value="done with auto calculation of amount in xof in form_operation" />
+    <option name="LAST_COMMIT_MESSAGE" value="done with auto calculation of amount in xof in form_operation" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -549,14 +487,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/updatedata.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="5" selection-start-column="5" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/30791a6b-4421-491e-9a59-5d8eb66b8164/console.sql" />
     <entry file="file://$PROJECT_DIR$/index.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="544">
@@ -725,59 +655,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/accueil.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="8" column="12" selection-start-line="8" selection-start-column="12" selection-end-line="8" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ajax_consultation.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="73">
-          <caret line="19" column="44" lean-forward="true" selection-start-line="19" selection-start-column="44" selection-end-line="19" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/styles.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="80" column="23" selection-start-line="80" selection-start-column="23" selection-end-line="80" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/form_consultation.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="19" column="54" selection-start-line="19" selection-start-column="54" selection-end-line="19" selection-end-column="54" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/form_operations.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1105">
-          <caret line="70" column="32" lean-forward="true" selection-start-line="70" selection-start-column="32" selection-end-line="70" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/test1.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
           <caret line="12" lean-forward="true" selection-start-line="12" selection-end-line="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/form_banques.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1037">
-          <caret line="66" column="26" selection-start-line="66" selection-start-column="26" selection-end-line="66" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2397">
-          <caret line="146" column="110" selection-start-line="146" selection-start-column="110" selection-end-line="146" selection-end-column="110" />
         </state>
       </provider>
     </entry>
@@ -805,13 +686,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" column="6" selection-start-line="1" selection-start-column="6" selection-end-line="1" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/class_operation.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="696">
@@ -821,20 +695,97 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/ajax_saisie_operations.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="329">
-          <caret line="57" column="138" selection-start-line="57" selection-start-column="128" selection-end-line="57" selection-end-column="138" />
+        <state relative-caret-position="901">
+          <caret line="58" column="25" selection-start-line="58" selection-start-column="25" selection-end-line="58" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="1" column="6" selection-start-line="1" selection-start-column="6" selection-end-line="1" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/addons/css/font-awesome-animation.min.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="18372" lean-forward="true" selection-start-column="18368" selection-end-column="18372" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/index.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="645">
-          <caret line="105" column="17" selection-start-line="105" selection-start-column="17" selection-end-line="105" selection-end-column="17" />
+        <state relative-caret-position="1430">
+          <caret line="209" column="30" selection-start-line="209" selection-start-column="30" selection-end-line="209" selection-end-column="30" />
           <folding>
-            <element signature="e#3067#5034#0#HTML" />
             <element signature="e#5065#6170#0#HTML" />
             <element signature="e#6202#9296#0#HTML" />
-            <element signature="e#9322#10148#0#HTML" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/form_consultation.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="257">
+          <caret line="42" column="33" lean-forward="true" selection-start-line="42" selection-start-column="33" selection-end-line="42" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/styles.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="362">
+          <caret line="86" column="10" lean-forward="true" selection-start-line="86" selection-start-column="10" selection-end-line="86" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/accueil.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="20" column="144" selection-start-line="20" selection-start-column="144" selection-end-line="20" selection-end-column="171" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/form_operations.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="696">
+          <caret line="70" column="32" lean-forward="true" selection-start-line="70" selection-start-column="32" selection-end-line="70" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/form_param_consultation.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="52" column="73" selection-start-line="52" selection-start-column="73" selection-end-line="52" selection-end-column="73" />
+          <folding>
+            <element signature="n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" />
+            <element signature="n#div#2;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" />
+            <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="578">
+          <caret line="96" column="83" selection-start-line="96" selection-start-column="83" selection-end-line="96" selection-end-column="83" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/form_banques.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="9" column="34" selection-start-line="9" selection-start-column="34" selection-end-line="9" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ajax_consultation.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="156" column="23" selection-start-line="156" selection-start-column="23" selection-end-line="156" selection-end-column="23" />
+          <caret line="157" column="23" selection-start-line="157" selection-start-column="23" selection-end-line="157" selection-end-column="23" />
+          <folding>
+            <element signature="n#style#0;n#thead#0;n#table#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>

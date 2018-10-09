@@ -28,7 +28,8 @@
             $lignes = $resultat->fetch_all(MYSQLI_ASSOC);
 
             foreach ($lignes as $ligne) {
-                $solde_avant = $ligne['solde_avant'];
+                $solde_avant = stripcslashes($ligne['solde_avant']);
+                $solde_avant = number_format($solde_avant, 2, ',', '.');
             }
         }
 
@@ -38,6 +39,7 @@
 
             foreach ($lignes as $ligne) {
                 $solde_apres = $ligne['solde_apres'];
+                $solde_apres = number_format($solde_apres, 2, ',', '.');
             }
         }
 
@@ -51,19 +53,18 @@
             if ($choix == 1) {
                 echo '
             <table class="table table-striped fixed_header">
-            <thead class="">
+            <thead style="font-size: small">
             <tr>
-                <th>Pièce</th>
                 <th>Compte</th>
                 <th>Libellé</th>
-                <th>Date</th>
+                <th>Date Saisie</th>
                 <th>Date Op.</th>
                 <th>Opération</th>
                 <th>Recettes</th>
                 <th>Dépenses</th>
             </tr>
             </thead>
-            <tbody>
+            <tbody style="font-size: small">
             ';
 
                 foreach ($lignes as $ligne) {
@@ -76,6 +77,8 @@
                     $date = stripslashes($ligne['date_operation']);
                     $designation = stripslashes($ligne['designation_operation']);
                     $xof = stripslashes($ligne['montant_xof_operation']);
+                    $xof = sprintf("%01.2f", $xof);
+                    $xof = number_format($xof, 2, ',', '.');
 
                     $arr = explode('-', $date_saisie);
                     $date_saisie = $arr[2] . '-' . $arr[1] . '-' . $arr[0];
@@ -85,21 +88,20 @@
 
                     echo '
                 <tr>
-                    <th scope="row">' . $piece . '</th>
-                    <td>' . $compte . '</td>
-                    <td>' . $libelle . '</td>
+                    <td title="N° ' . $piece . '">' . $compte . '</td>
+                    <td title="N° ' . $piece . '">' . $libelle . '</td>
                     <td>' . $date_saisie . '</td>
                     <td>' . $date . '</td>
-                    <td>' . $designation . '</td>
+                    <td title="N° ' . $piece . '">' . $designation . '</td>
                 ';
                     if ($type_operation == 0) {
                         echo '
                     <td></td>
-                    <td>' . $xof . '</td>               
+                    <td title="Dépense de...">' . $xof . '</td>               
                 ';
                     } elseif ($type_operation == 1) {
                         echo '
-                    <td>' . $xof . '</td>
+                    <td title="Recette de...">' . $xof . '</td>
                     <td></td>            
                 ';
                     }
@@ -113,14 +115,13 @@
             elseif ($choix == 2) {
                 echo '
             <table class="table table-striped">
-            <thead>
+            <thead style="font-size: small">
             <tr>
-                <th class="" rowspan="2">Pièce</th>
                 <th class="" rowspan="2">Compte</th>
                 <th class="" rowspan="2">Libellé</th>
-                <th class="" rowspan="2">Date</th>
+                <th class="" rowspan="2">Date Saisie</th>
                 <th class="" rowspan="2">Date Op.</th>
-                <th class="w-25" rowspan="2">Opération</th>
+                <th class="" rowspan="2">Opération</th>
                 <th colspan="3" class="">Recettes</th>
                 <th colspan="3" class="">Dépenses</th>
                 <th class="" rowspan="2">Observation</th>
@@ -134,7 +135,7 @@
                 <th class="bg-secondary text-light">XOF</th>
             </tr>
             </thead>
-            <tbody>
+            <tbody style="font-size: small">
             ';
 
                 foreach ($lignes as $ligne) {
@@ -153,27 +154,26 @@
 
                     echo '
                 <tr>
-                    <th scope="row">' . $piece . '</th>
-                    <td>' . $compte . '</td>
-                    <td>' . $libelle . '</td>
+                    <td title="' . $piece . '">' . $compte . '</td>
+                    <td title="' . $piece . '">' . $libelle . '</td>
                     <td>' . $date_saisie . '</td>
                     <td>' . $date . '</td>
-                    <td>' . $designation . '</td>
+                    <td title="' . $piece . '">' . $designation . '</td>
                 ';
                     if ($type_operation == 0) {
                         echo '
                     <td></td>
                     <td></td>
                     <td></td>
-                    <td>' . $cours . '</td>
-                    <td>' . $devise . '</td>
-                    <td>' . $xof . '</td>               
+                    <td title="Dépense de...">' . $cours . '</td>
+                    <td title="Dépense de...">' . $devise . '</td>
+                    <td title="Dépense de...">' . $xof . '</td>               
                 ';
                     } elseif ($type_operation == 1) {
                         echo '
-                    <td>' . $cours . '</td>
-                    <td>' . $devise . '</td>
-                    <td>' . $xof . '</td>
+                    <td title="Recette de...">' . $cours . '</td>
+                    <td title="Recette de...">' . $devise . '</td>
+                    <td title="Recette de...">' . $xof . '</td>
                     <td></td>
                     <td></td>
                     <td></td>               

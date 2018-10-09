@@ -15,7 +15,7 @@
             <i class="fas fa-university ncare mx-auto"></i>
         </div>
         <div class="col offset-1">
-            <h2 class="d-flex justify-content-center ncare insetshadow cadre pb-2 w-75 mx-auto">Banque</h2>
+            <h3 class="d-flex justify-content-center ncare insetshadow cadre pb-2 w-75 mx-auto">Banque</h3>
             <form id="form_banque">
                 <div class="input-group input-group-sm my-3">
                     <div class="input-group-prepend">
@@ -53,8 +53,8 @@
                     </select>
                 </div>
                 <div class="d-flex justify-content-end">
-                    <button type="button" class="btn btn-primary my-2" onclick="ajoutBanque();">
-                        <i class="fas fa-save mr-2"></i>
+                    <button type="button" class="btn btn-primary btn-lg btn-sm my-2 faa-parent animated-hover" onclick="ajoutBanque();">
+                        <i class="fas fa-save mr-2 faa-pulse"></i>
                         Enregistrer
                     </button>
                     <div class="modal fade" id="modal-response" tabindex="-1" role="dialog">
