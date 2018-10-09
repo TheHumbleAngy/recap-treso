@@ -55,15 +55,15 @@
                     </td>
                     
                     <td class="">
-                        <input type="text" class="form-control form-control-sm text-uppercase text-right" id="mtt_devise' . $i . '">
+                        <input type="text" class="operand' . $i . ' form-control form-control-sm text-uppercase text-right" id="mtt_devise' . $i . '" placeholder="0">
                     </td>
                     
                     <td class="">
-                        <input type="text" class="form-control form-control-sm text-uppercase text-right" id="cours' . $i . '">
+                        <input type="text" class="operand' . $i . ' form-control form-control-sm text-uppercase text-right" id="cours' . $i . '" placeholder="0">
                     </td>
                     
                     <td class="">
-                        <input type="text" class="form-control form-control-sm text-uppercase text-right" id="mtt_xof' . $i . '">
+                        <input type="text" class="form-control form-control-sm text-uppercase text-right" id="mtt_xof' . $i . '" placeholder="0" readonly>
                     </td>
                     
                     <td>

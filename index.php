@@ -43,38 +43,24 @@
 <!--<script src="addons/daterangepicker/daterangepicker.js"></script>-->
 
 <script>
-    /*$(".datepicker").each(function(){
-        $(this).datepicker({
-            uiLibrary: "bootstrap4",
-            iconsLibrary: "fontawesome",
-            size: "small",
-            format: "dd-mm-yyyy"
-        });
-    });*/
     let nombre = $('#nombre'),
         nature_ = $('#nature'),
         saisir = $('#saisir'),
         valider = $('#valider'),
-        check = false,
         choix = 1;
 
     $('.form-check-input').click(function () {
         choix = $(this).val();
     });
+
     $(document).ready(function () {
-        /*$('#periode').daterangepicker({
-            startDate: moment().startOf(),
-            locale: {
-                format: 'DD-MM-YYYY'
-            }
-        });*/
         $('#nature').prop('disabled', true);
         $('#nombre').prop('disabled', true);
         $('#saisir').prop('disabled', true);
 
         $('#valider').prop('disabled', true);
-
     });
+
     $(function () {
         $('[data-toggle="tooltip"]').tooltip();
     });
@@ -95,11 +81,33 @@
 
                 feedback.empty();
                 feedback.html(resultat);
-                check = true;
+                valider.prop('disabled', false);
+
+                // On gère ici le calcul du montant XOF qui se fait automatiquement
+                // on recupere le nombre de lignes
+                let n = $('[id^="mtt_devise"]').length,
+                    operand = ".operand";
+                console.log(n);
+
+                for (let i = 1; i <= n; i++) {
+
+                    let sel_operand = operand + i;
+
+                    $(sel_operand).change(function () {
+                        let sel_mtt_devise = "#mtt_devise" + i;
+                        let sel_cours = "#cours" + i;
+                        let sel_xof = "#mtt_xof" + i;
+
+                        let mtt_devise = $(sel_mtt_devise).val();
+                        let cours = $(sel_cours).val();
+                        let mtt_xof = Number(mtt_devise) * Number(cours);
+                        $(sel_xof).val(mtt_xof);
+                    })
+                }
             }
         });
 
-        valider.prop('disabled', false);
+
 
         /* TODO: An alternative way to use AJAX
         $.post(
