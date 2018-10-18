@@ -3,27 +3,41 @@
     <words>
       <w>accueil</w>
       <w>ajout</w>
+      <w>angem</w>
+      <w>apres</w>
+      <w>avant</w>
       <w>banq</w>
       <w>banque</w>
       <w>banques</w>
       <w>choix</w>
+      <w>compte</w>
+      <w>cours</w>
       <w>datepicker</w>
       <w>dropdown</w>
       <w>enregistrer</w>
       <w>entite</w>
       <w>fontawesome</w>
+      <w>geographique</w>
       <w>libelle</w>
       <w>ligne</w>
       <w>lignes</w>
       <w>liste</w>
       <w>listes</w>
+      <w>milliers</w>
       <w>monnaie</w>
+      <w>monnaies</w>
       <w>montant</w>
       <w>ncare</w>
       <w>nombre</w>
+      <w>période</w>
       <w>resultat</w>
+      <w>saisie</w>
       <w>saisir</w>
+      <w>separateur</w>
+      <w>sigle</w>
+      <w>signe</w>
       <w>solde</w>
+      <w>strtoupper</w>
       <w>treso</w>
       <w>valider</w>
     </words>

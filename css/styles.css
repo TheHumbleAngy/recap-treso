@@ -1,3 +1,8 @@
+body {
+    /*height: 100vh;
+    width: 100vw;*/
+}
+
 @media (max-width: 1500px) {
     i.ncare {
         font-size: 10em !important;
@@ -33,7 +38,7 @@
 
 @font-face {
     font-family: 'Roboto-regular';
-    src: url(fonts/Roboto-Regular.ttf);
+    src: url(../fonts/Roboto-Regular.ttf);
 }
 
 table.ncare th {
@@ -47,11 +52,12 @@ table.ncare th {
     background-color: #fff;
     border-radius: 10px;
     position: absolute;
-    top:0;
+    top: 0;
     bottom: 0;
     left: 0;
     right: 0;
     margin: 25vh auto;
+    /*background: url("images/bg_lg02.png") center;*/
 }
 
 i.ncare {
@@ -66,11 +72,10 @@ h2.ncare {
 #wrapper_banque {
     width: 50vw;
     height: 400px;
-    padding: 40px 80px;
     background-color: #fff;
     border-radius: 10px;
     position: absolute;
-    top:0;
+    top: 0;
     bottom: 0;
     left: 0;
     right: 0;
@@ -79,16 +84,15 @@ h2.ncare {
 
 #wrapper_consultation {
     width: 40vw;
-    height: 300px;
-    padding: 40px 80px;
+    height: 350px;
     background-color: #fff;
     border-radius: 10px;
     position: absolute;
-    top:0;
+    top: 0;
     bottom: 0;
     left: 0;
     right: 0;
-    margin: 20vh auto;
+    margin: 30vh auto;
 }
 
 #retour {
@@ -113,8 +117,13 @@ h2.ncare {
     width: 12% !important;
 }
 
+.fa-1-5x {
+    font-size: 1.5em;
+}
+
 .force-to-bottom {
-    background: grey; height: 50px;
+    background: grey;
+    height: 50px;
     margin: 0;
     justify-content: center;
     align-items: center;
@@ -149,4 +158,39 @@ input.ncare {
     width: 100%;
     overflow-y: scroll;
     height: 350px;
+}
+
+#goTop {
+    display: none; /* Hidden by default */
+    position: fixed; /* Fixed/sticky position */
+    bottom: 1vh; /* Place the button at the bottom of the page */
+    right: 1vw; /* Place the button 30px from the right */
+    z-index: 99; /* Make sure it does not overlap */
+    border: none; /* Remove borders */
+    outline: none; /* Remove outline */
+    cursor: pointer; /* Add a mouse pointer on hover */
+}
+
+.xof {
+    background-color: #1b70b6;
+    border-color: #1b70b6;
+    color: #fff;
+}
+
+.devise {
+    background-color: #28a745;
+    border-color: #28a745;
+    color: #fff;
+}
+
+.gradient {
+    background: linear-gradient(rgba(48, 173, 221, 0.16), #fff) no-repeat;
+}
+
+.gradient-in {
+    background: linear-gradient(rgb(76, 218, 109), #fff) no-repeat;
+}
+
+.gradient-out {
+    background: linear-gradient(#ff4456, #fff) no-repeat;
 }

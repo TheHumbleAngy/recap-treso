@@ -6,11 +6,10 @@
      * Time: 11:46 PM
      */
 
-    class class_operation {
+    class class_operations {
         protected $id_operation;
         protected $id_banque;
         protected $id_type_operation;
-        protected $piece_operation;
         protected $compte_operation;
         protected $tag_operation;
         protected $date_saisie_operation;
@@ -19,12 +18,13 @@
         protected $cours_operation;
         protected $montant_operation;
         protected $montant_xof_operation;
+        protected $statut_operation;
         protected $observation_operation;
 
         protected $connection;
     }
 
-    class operation extends class_operation {
+    class operations extends class_operations {
 
         public function __construct() {
             $this->connection = mysqli_connect('localhost', 'root', '', 'recap_treso');
@@ -45,13 +45,6 @@
          */
         private function setIdTypeOperation($id_type_operation) {
             $this->id_type_operation = $id_type_operation;
-        }
-
-        /**
-         * @param mixed $piece_operation
-         */
-        private function setPieceOperation($piece_operation) {
-            $this->piece_operation = $piece_operation;
         }
 
         /**
@@ -134,13 +127,6 @@
         /**
          * @return mixed
          */
-        private function getPieceOperation() {
-            return $this->piece_operation;
-        }
-
-        /**
-         * @return mixed
-         */
         private function getCompteOperation() {
             return $this->compte_operation;
         }
@@ -200,12 +186,25 @@
         private function getObservationOperation() {
             return $this->observation_operation;
         }
+    
+        /**
+         * @return mixed
+         */
+        public function getStatutOperation() {
+            return $this->statut_operation;
+        }
+    
+        /**
+         * @param mixed $statut_operation
+         */
+        public function setStatutOperation($statut_operation) {
+            $this->statut_operation = $statut_operation;
+        }
 
-        public function setData($id_banque, $id_type_operation, $piece_operation, $compte_operation, $tag_operation, $date_saisie_operation, $date_operation, $designation_operation, $cours_operation, $montant_operation, $montant_xof_operation, $observation_operation) {
+        public function setData($id_banque, $id_type_operation, $compte_operation, $tag_operation, $date_saisie_operation, $date_operation, $designation_operation, $cours_operation, $montant_operation, $montant_xof_operation, $statut_operation, $observation_operation) {
             try {
                 $this->setIdBanque($id_banque);
                 $this->setIdTypeOperation($id_type_operation);
-                $this->setPieceOperation($piece_operation);
                 $this->setCompteOperation($compte_operation);
                 $this->setTagOperation($tag_operation);
                 $this->setDateSaisieOperation($date_saisie_operation);
@@ -214,6 +213,7 @@
                 $this->setCoursOperation($cours_operation);
                 $this->setMontantOperation($montant_operation);
                 $this->setMontantXofOperation($montant_xof_operation);
+                $this->setStatutOperation($statut_operation);
                 $this->setObservationOperation($observation_operation);
 
                 return true;
@@ -224,65 +224,42 @@
 
         function getData() {
             try {
-                return $arr_operation = array($this->getIdBanque(), $this->getIdTypeOperation(), $this->getPieceOperation(), $this->getCompteOperation(), $this->getTagOperation(), $this->getDateSaisieOperation(), $this->getDateOperation(), $this->getDesignationOperation(), $this->getCoursOperation(), $this->getMontantOperation(), $this->getMontantXofOperation(), $this->getObservationOperation());
+                return $arr_operation = array($this->getIdBanque(), $this->getIdTypeOperation(), $this->getCompteOperation(), $this->getTagOperation(), $this->getDateSaisieOperation(), $this->getDateOperation(), $this->getDesignationOperation(), $this->getCoursOperation(), $this->getMontantOperation(), $this->getMontantXofOperation(), $this->getStatutOperation(), $this->getObservationOperation());
             } catch (Exception $e) {
                 return false;
             }
         }
 
-        function saveData() {
-            $req = "SELECT id_operation FROM operations ORDER BY id_operation DESC LIMIT 1";
-            $resultat = $this->connection->query($req);
-
-            if ($resultat->num_rows > 0) {
-                $lignes = $resultat->fetch_all(MYSQLI_ASSOC);
-
-                $_id_operation = "";
-                foreach ($lignes as $ligne) {
-                    $_id_operation = stripslashes($ligne['id_operation']);
-                }
-
-                $_id_operation = substr($_id_operation, -4);
-                $_id_operation++;
-            } else {
-                $_id_operation = 1;
-            }
-
-            $b = "OP";
-            $dat = date("Y");
-            $dat = substr($dat, -2);
-            $format = '%04d';
-
-            $req = "SELECT libelle_banque, pays_banque FROM banque WHERE id_banque = '$this->id_banque'";
-            $resultat = $this->connection->query($req);
-
-            $libelle_banque = "";
-            $pays_banque = "";
-
-            if ($resultat->num_rows > 0) {
-                $lignes = $resultat->fetch_all(MYSQLI_ASSOC);
-
-                foreach ($lignes as $ligne) {
-                    $libelle_banque = stripslashes($ligne['libelle_banque']);
-                    $pays_banque = stripslashes($ligne['pays_banque']);
-                }
-
-                $libelle_banque = substr($libelle_banque, 0, 4);
-                $pays_banque = substr($pays_banque, 0, 5);
-            }
-
-            $code = $dat . $b . strtoupper($libelle_banque) . strtoupper($pays_banque) . sprintf($format, $_id_operation);
-
+        function saveData($banque, $pays, $monnaie) {
+            
+            // On génère le code, puis on vérifie son existence dans la base
+            $b = strtoupper($banque) . strtoupper($pays) . strtoupper($monnaie);
+            $annee = date("Y");
+            $annee = substr($annee, -2);
+            $mois = date("m");
+            $mois = substr($mois, -2);
+            $format = '%02d';
+    
+            $id = 1;
+            $test = TRUE;
+            do {
+                $code = $b . sprintf($format, $mois) . sprintf($format, $annee) . sprintf($format, $id);
+        
+                $sql_operation = "SELECT * FROM operations WHERE id_operation = '$code'";
+                $resultat = $this->connection->query($sql_operation);
+                if ($resultat->num_rows > 0)
+                    $id++;
+                else
+                    $test = FALSE;
+            } while ($test);
+            
             $this->id_operation = $code;
-//            $operation = addcslashes($this->designation_operation, '"');
-
-            $piece = mysqli_escape_string($this->connection, $this->piece_operation);
+    
             $compte = mysqli_escape_string($this->connection, $this->compte_operation);
             $libelle = mysqli_escape_string($this->connection, $this->tag_operation);
             $operation = mysqli_escape_string($this->connection, $this->designation_operation);
             $observation = mysqli_escape_string($this->connection, $this->observation_operation);
 
-            $piece = htmlspecialchars($piece);
             $compte = htmlspecialchars($compte);
             $libelle = htmlspecialchars($libelle);
             $operation = htmlspecialchars($operation);
@@ -291,7 +268,6 @@
             $sql = "INSERT INTO operations (id_operation, 
                                             id_banque, 
                                             id_type_operation, 
-                                            piece_operation, 
                                             compte_operation, 
                                             tag_operation, 
                                             date_saisie_operation, 
@@ -300,11 +276,11 @@
                                             cours_operation, 
                                             montant_operation, 
                                             montant_xof_operation, 
+                                            statut_operation,
                                             observation_operation)
                     VALUES ('$this->id_operation',
                             '$this->id_banque',
                             '$this->id_type_operation',
-                            '$piece',
                             '$compte',
                             '$libelle',
                             '$this->date_saisie_operation',
@@ -313,9 +289,10 @@
                             '$this->cours_operation',
                             '$this->montant_operation',
                             '$this->montant_xof_operation',
+                            '$this->statut_operation',
                             '$observation')";
 
-//            echo $sql;
+            echo $sql;
             if ($result = mysqli_query($this->connection, $sql))
                 return TRUE;
             else

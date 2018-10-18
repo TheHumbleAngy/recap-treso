@@ -6,17 +6,17 @@
      * Time: 9:30 AM
      */
 
-    abstract class class_banque {
+    abstract class class_banques {
         protected $id_banque;
         protected $libelle_banque;
-        protected $pays_banque;
         protected $entite_banque;
-        protected $monnaie_banque;
+        protected $abbr_banque;
+        /*protected $monnaie_banque;*/
 
         protected $connection;
     }
 
-    class banque extends class_banque {
+    class banques extends class_banques {
 
         public function __construct() {
             $this->connection = mysqli_connect('localhost', 'root', '', 'recap_treso');
@@ -55,34 +55,6 @@
         /**
          * @return mixed
          */
-        public function getPaysBanque() {
-            return $this->pays_banque;
-        }
-
-        /**
-         * @param mixed $pays_banque
-         */
-        public function setPaysBanque($pays_banque) {
-            $this->pays_banque = $pays_banque;
-        }
-
-        /**
-         * @return mixed
-         */
-        public function getMonnaieBanque() {
-            return $this->monnaie_banque;
-        }
-
-        /**
-         * @param mixed $monnaie_banque
-         */
-        public function setMonnaieBanque($monnaie_banque) {
-            $this->monnaie_banque = $monnaie_banque;
-        }
-
-        /**
-         * @return mixed
-         */
         public function getEntiteBanque() {
             return $this->entite_banque;
         }
@@ -93,13 +65,44 @@
         public function setEntiteBanque($entite_banque) {
             $this->entite_banque = $entite_banque;
         }
+    
+        /**
+         * @return mixed
+         */
+        public function getAbbrBanque() {
+            return $this->abbr_banque;
+        }
+    
+        /**
+         * @param mixed $abbr_banque
+         */
+        public function setAbbrBanque() {
+            // Creation abbr banque
+            $arr = str_split($this->getLibelleBanque());
+            $i = 3;
+            /*$abbr = array($arr[0], $arr[1], $arr[2], $arr[$i]);
+            $n = count($arr);
+            
+            do {
+                // vérification de l'existence de l'abbreviation
+                $temp = $arr[0] . $arr[1] . $arr[$i];
+                $sql = "SELECT abbr_banque FROM banques WHERE abbr_banque = '$temp'";
+                $resultat = $this->connection->query($sql);
+                if ($resultat->num_rows > 0)
+                    $i++;
+                else
+                    break;
+            }
+            while ($i <= $n);*/
+            $temp = $arr[0] . $arr[1] . $arr[2] . $arr[$i];
+            $this->abbr_banque = $temp;
+        }
 
-        function setData($libelle_banque, $pays_banque, $entite_banque, $monnaie_banque) {
+        function setData($libelle_banque, $entite_banque) {
             try {
                 $this->setLibelleBanque(stripcslashes($libelle_banque));
-                $this->setPaysBanque($pays_banque);
                 $this->setEntiteBanque(stripcslashes($entite_banque));
-                $this->setMonnaieBanque($monnaie_banque);
+                $this->setAbbrBanque();
 
                 return true;
             } catch (Exception $e) {
@@ -109,14 +112,15 @@
 
         function getData() {
             try {
-                return $arr_banque = array($this->getIdBanque(), $this->getLibelleBanque(), $this->getEntiteBanque(), $this->getPaysBanque(), $this->getMonnaieBanque());;
+//                return $arr_banque = array($this->getIdBanque(), $this->getLibelleBanque(), $this->getEntiteBanque(), $this->getPaysBanque(), $this->getMonnaieBanque());
+                return $arr_banque = array($this->getIdBanque(), $this->getLibelleBanque(), $this->getEntiteBanque(), $this->getAbbrBanque());
             } catch (Exception $e) {
                 return false;
             }
         }
 
         function saveData() {
-            $req = "SELECT id_banque FROM banque ORDER BY id_banque DESC LIMIT 1";
+            $req = "SELECT id_banque FROM banques ORDER BY id_banque DESC LIMIT 1";
             $resultat = $this->connection->query($req);
 
             if ($resultat->num_rows > 0) {
@@ -140,17 +144,16 @@
 
             $this->id_banque = $dat . $b . sprintf($format, $id_banque);
 
-            $sql = "INSERT INTO banque(id_banque, 
+            $sql = "INSERT INTO banques(id_banque, 
                                         libelle_banque, 
-                                        pays_banque, 
-                                        entite_banque, 
-                                        monnaie_banque)
+                                        entite_banque,
+                                        abbr_banque)
                     VALUES ('$this->id_banque',
                             '$this->libelle_banque',
-                            '$this->pays_banque',
                             '$this->entite_banque',
-                            '$this->monnaie_banque')";
+                            '$this->abbr_banque')";
 
+//            echo $sql;
             if ($result = mysqli_query($this->connection, $sql))
                 return TRUE;
             else
@@ -158,11 +161,9 @@
         }
 
         function updateData($id) {
-            $sql = "UPDATE banque SET 
+            $sql = "UPDATE banques SET 
                       libelle_banque = '" . $this->libelle_banque . "',
-                      pays_banque = '" . $this->pays_banque . "',
                       entite_banque = '" . $this->entite_banque . "',
-                      monnaie_banque = '" . $this->monnaie_banque . "',
                     WHERE id_banque = '" . $id . "'";
 
             if ($result = mysqli_query($this->connection, $sql))
@@ -172,7 +173,7 @@
         }
 
         function deleteData($id) {
-            $sql = "DELETE FROM banque WHERE id_banque = '" . $id . "'";
+            $sql = "DELETE FROM banques WHERE id_banque = '" . $id . "'";
 
             if ($result = mysqli_query($this->connection, $sql))
                 return TRUE;
