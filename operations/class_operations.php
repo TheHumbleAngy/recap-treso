@@ -265,19 +265,20 @@
             $operation = htmlspecialchars($operation);
             $observation = htmlspecialchars($observation);
 
-            $sql = "INSERT INTO operations (id_operation, 
-                                            id_banque, 
-                                            id_type_operation, 
-                                            compte_operation, 
-                                            tag_operation, 
-                                            date_saisie_operation, 
-                                            date_operation, 
-                                            designation_operation, 
-                                            cours_operation, 
-                                            montant_operation, 
-                                            montant_xof_operation, 
-                                            statut_operation,
-                                            observation_operation)
+            $sql = "INSERT INTO 
+                          operations (id_operation, 
+                                      id_banque, 
+                                      id_type_operation, 
+                                      compte_operation, 
+                                      tag_operation, 
+                                      date_saisie_operation, 
+                                      date_operation, 
+                                      designation_operation, 
+                                      cours_operation, 
+                                      montant_operation, 
+                                      montant_xof_operation, 
+                                      statut_operation,
+                                      observation_operation)
                     VALUES ('$this->id_operation',
                             '$this->id_banque',
                             '$this->id_type_operation',
@@ -292,7 +293,18 @@
                             '$this->statut_operation',
                             '$observation')";
 
-            echo $sql;
+//            echo $sql;
+            if ($result = mysqli_query($this->connection, $sql))
+                return TRUE;
+            else
+                return FALSE;
+        }
+
+        function updateData($id, $statut) {
+            $sql = "UPDATE operations SET 
+                      statut_operation = '" . $statut . "'
+                    WHERE id_operation = '" . $id . "'";
+
             if ($result = mysqli_query($this->connection, $sql))
                 return TRUE;
             else

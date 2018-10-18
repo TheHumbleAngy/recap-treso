@@ -94,4 +94,3 @@ WHERE
         $json_data[] = array("entite" => $entite, "solde_xof" => $solde_xof, "solde_devise" => $solde_devise);
         echo json_encode($json_data);
     }
-?>

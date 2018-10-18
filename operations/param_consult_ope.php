@@ -28,7 +28,7 @@
                                 <select class="custom-select custom-select-sm" name="entite" id="param_entite">
                                     <option selected>Sélectionner...</option>
                                     <?php
-                                        $sql_entite = "SELECT DISTINCT entite_banque FROM banque ORDER BY entite_banque";
+                                        $sql_entite = "SELECT DISTINCT entite_banque FROM banques ORDER BY entite_banque";
 
                                         if ($resultat = $connection->query($sql_entite)) {
                                             if ($resultat->num_rows > 0) {

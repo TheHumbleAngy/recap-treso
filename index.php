@@ -27,10 +27,7 @@
 <body class="bg-light">
 <img src="images/banniere_01.png" class="img-fluid mb-2 sticky-top" alt="">
 <div class="container-fluid">
-    <!--<h4 class="display-4 d-flex justify-content-center mt-1 mb-4 mx-auto pb-3 w-75 cadre retroshadow">
-        Trésorerie NCA Ré <small><i class="fas fa-hand-holding-usd fa-xs mx-3 mt-2" style="line-height: inherit"></i></small>
-    </h4>-->
-
+    
     <div id="content">
         <?php include $page; ?>
     </div>

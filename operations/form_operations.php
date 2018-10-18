@@ -39,16 +39,12 @@
                             $pays = stripcslashes($ligne['libelle_pays']);
                             $abbr_banque = stripcslashes($ligne['abbr_banque']);
                             $abbr_pays = stripcslashes($ligne['abbr_pays']);
-
-                            /*$abbr_banque = substr($libelle, 0, 4);
-                            $abbr_pays = substr($pays, 0, 3);*/
-
                             ?>
                             <li class="nav-item dropdown" id="<?php echo 'nav_' . $libelle . '_' . $pays; ?>">
 
                                 <!-- potential-->
-                                <span hidden id="<?php echo 'banque_' . $libelle; ?>"><?php echo $libelle; ?></span>
-                                <span hidden id="<?php echo 'pays_' . $pays; ?>"><?php echo $pays; ?></span>
+<!--                                <span hidden id="--><?php //echo 'banque_' . $libelle; ?><!--">--><?php //echo $libelle; ?><!--</span>-->
+<!--                                <span hidden id="--><?php //echo 'pays_' . $pays; ?><!--">--><?php //echo $pays; ?><!--</span>-->
                                 <!-- -->
 
                                 <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button"
@@ -135,7 +131,7 @@
                                                 </div>
                                                 <div class="col-5">
                                                     <div class="form-group row my-0">
-                                                        <label for="nombre" class="col-sm-7 ">Nbr. de lignes</label>
+                                                        <label for="nombre" class="col-sm-7">Nbr. de lignes</label>
                                                         <div class="col-sm-5">
                                                             <input type="number" class="form-control form-control-sm" id="nombre" min="1">
                                                         </div>
@@ -143,7 +139,6 @@
                                                 </div>
                                                 <div class="col-1">
                                                     <button class="btn btn-sm btn-outline-primary px-3 faa-parent animated-hover" type="button" id="saisir"
-                                                            data-toggle="tooltip" data-placement="right"
                                                             title="Cliquez ici pour commencer à saisir">
                                                         <i class="fas fa-angle-double-down faa-float"></i>
                                                     </button>
@@ -171,7 +166,7 @@
                                                         <label for="solde_xof" class="col-sm-3" title="Solde précédent">Solde Préc.</label>
                                                         <div class="col-sm-4">
                                                             <div class="input-group input-group-sm">
-                                                                <input type="text" class="form-control text-right ncare" id="solde_xof" placeholder="0" aria-placeholder="Solde XOF" readonly>
+                                                                <input type="text" class="form-control text-right ncare font-weight-bold" id="solde_xof" placeholder="0" aria-placeholder="Solde XOF" readonly>
                                                                 <div class="input-group-append">
                                                                     <span class="input-group-text text-uppercase xof" id="monnaie_xof"><strong>XOF</strong></span>
                                                                 </div>
@@ -179,7 +174,7 @@
                                                         </div>
                                                         <div class="col-sm-4">
                                                             <div class="input-group input-group-sm">
-                                                                <input type="text" class="form-control text-right ncare" id="solde_devise" placeholder="0" aria-placeholder="Solde Devise" readonly>
+                                                                <input type="text" class="form-control text-right ncare font-weight-bold" id="solde_devise" placeholder="0" aria-placeholder="Solde Devise" readonly>
                                                                 <div class="input-group-append">
                                                                     <span class="input-group-text text-uppercase devise" id="monnaie_devise"><strong><i class="fa fa-dollar-sign"></i></strong></span>
                                                                 </div>

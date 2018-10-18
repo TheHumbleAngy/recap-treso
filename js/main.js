@@ -268,7 +268,7 @@ function ajoutOperation() {
         if (element.checked)
             statut_ = 1;
         else
-            statut_ = 0;
+            statut_ = 2;
         observation_ = $('[id*="observation"]')[i].value.trim();
 
         // On ne tient compte que des lignes renseignées
@@ -411,3 +411,36 @@ function retourParam() {
         }
     })
 }
+
+/*
+$("[id*='statut_']").change(function () {
+    let selector = $(this);
+    console.log(selector.value);
+    console.log("Test");
+});*/
+
+function majStatut(element) {
+    let id_ = Object.values(element)[0].parentElement.id;
+    let statut = element.value;
+    // console.log(id);
+    // console.log(statut);
+    // console.log(element);
+    // console.log( element.value );
+    let arr = id_.split('_');
+    let id = arr[1];
+    let action = 'maj_statut';
+    let info = 'id=' + id + '&statut=' + statut;
+
+    $.ajax({
+        type: 'POST',
+        url: 'operations/update_data_operations.php?action=' + action,
+        data: info,
+        success: function (data) {
+            console.log(data);
+        }
+    });
+}
+
+$("[id*='statut_']").on('change', function() {
+    console.log( $(this).find(":selected").val() );
+});

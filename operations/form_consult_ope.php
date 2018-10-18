@@ -41,7 +41,7 @@
                             </div>
                             <label for="solde_avant" class="col-sm-2 offset-1 text-right">Solde Avant</label>
                             <div class="input-group input-group-sm col-2">
-                                <input type="text" class="form-control text-right ncare" id="solde_avant"
+                                <input type="text" class="form-control text-right ncare font-weight-bold" id="solde_avant"
                                        placeholder="0" aria-placeholder="Solde XOF" readonly>
                                 <div class="input-group-append">
                                     <span class="input-group-text text-uppercase xof" id="monnaie_xof"><strong>XOF</strong></span>
@@ -64,7 +64,7 @@
                             </div>
                             <label for="solde_avant" class="col-sm-2 offset-1 text-right">Solde Après</label>
                             <div class="input-group input-group-sm col-2">
-                                <input type="text" class="form-control text-right ncare" id="solde_apres"
+                                <input type="text" class="form-control text-right ncare font-weight-bold" id="solde_apres"
                                        placeholder="0" aria-placeholder="Solde XOF" readonly>
                                 <div class="input-group-append">
                                     <span class="input-group-text text-uppercase xof" id="monnaie_xof"><strong>XOF</strong></span>
@@ -72,7 +72,7 @@
                             </div>
                         </div>
                         <div class="d-flex justify-content-center">
-                            <button type="button" class="btn btn-sm btn-outline-primary px-4" id="consluter"
+                            <button type="button" class="btn btn-outline-primary w-25" id="consluter"
                                     onclick="consultationOperation();">
                                 Consulter <i class="fas fa-search ml-1"></i>
                             </button>

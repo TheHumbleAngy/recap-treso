@@ -1,8 +1,3 @@
-body {
-    /*height: 100vh;
-    width: 100vw;*/
-}
-
 @media (max-width: 1500px) {
     i.ncare {
         font-size: 10em !important;
@@ -136,7 +131,7 @@ h2.ncare {
 
 .insetshadow {
     color: #0096d3;
-    background-color: whitesmoke;
+    background-color: #fff;
     letter-spacing: 0.1em;
     text-shadow: -1px -1px 1px white, 2px 2px 1px rgba(0, 0, 0, 0.1);
     font-weight: bolder;

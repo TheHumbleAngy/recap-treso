@@ -11,7 +11,6 @@
         protected $libelle_banque;
         protected $entite_banque;
         protected $abbr_banque;
-        /*protected $monnaie_banque;*/
 
         protected $connection;
     }
@@ -80,28 +79,14 @@
             // Creation abbr banque
             $arr = str_split($this->getLibelleBanque());
             $i = 3;
-            /*$abbr = array($arr[0], $arr[1], $arr[2], $arr[$i]);
-            $n = count($arr);
-            
-            do {
-                // vérification de l'existence de l'abbreviation
-                $temp = $arr[0] . $arr[1] . $arr[$i];
-                $sql = "SELECT abbr_banque FROM banques WHERE abbr_banque = '$temp'";
-                $resultat = $this->connection->query($sql);
-                if ($resultat->num_rows > 0)
-                    $i++;
-                else
-                    break;
-            }
-            while ($i <= $n);*/
             $temp = $arr[0] . $arr[1] . $arr[2] . $arr[$i];
             $this->abbr_banque = $temp;
         }
 
         function setData($libelle_banque, $entite_banque) {
             try {
-                $this->setLibelleBanque(stripcslashes($libelle_banque));
-                $this->setEntiteBanque(stripcslashes($entite_banque));
+                $this->setLibelleBanque(stripcslashes(strtoupper($libelle_banque)));
+                $this->setEntiteBanque(stripcslashes(strtoupper($entite_banque)));
                 $this->setAbbrBanque();
 
                 return true;
@@ -112,7 +97,6 @@
 
         function getData() {
             try {
-//                return $arr_banque = array($this->getIdBanque(), $this->getLibelleBanque(), $this->getEntiteBanque(), $this->getPaysBanque(), $this->getMonnaieBanque());
                 return $arr_banque = array($this->getIdBanque(), $this->getLibelleBanque(), $this->getEntiteBanque(), $this->getAbbrBanque());
             } catch (Exception $e) {
                 return false;
@@ -163,7 +147,7 @@
         function updateData($id) {
             $sql = "UPDATE banques SET 
                       libelle_banque = '" . $this->libelle_banque . "',
-                      entite_banque = '" . $this->entite_banque . "',
+                      entite_banque = '" . $this->entite_banque . "'
                     WHERE id_banque = '" . $id . "'";
 
             if ($result = mysqli_query($this->connection, $sql))

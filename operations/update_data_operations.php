@@ -9,7 +9,7 @@
         include 'class_operations.php';
 
         $operation = new operations();
-    
+
         $id_pays = $_GET['pays'];
         $monnaie = $_GET['monnaie']; //echo $monnaie . " " . $id_pays;
 
@@ -27,11 +27,11 @@
         $montant_xof_operation = json_decode($_POST['montant_xof_operation'], ENT_QUOTES);
         $statut_operation = json_decode($_POST['statut_operation'], ENT_QUOTES);
         $observation_operation = json_decode($_POST['observation_operation'], ENT_QUOTES);
-    
+
         $error = 0;
-    
+
         $connection = mysqli_connect('localhost', 'root', '', 'recap_treso');
-        
+
         // Recuperation des abbréviations de la banque et du pays
         $sql = "SELECT abbr_banque FROM banques WHERE id_banque = '$id_banque'";
         $resultat = $connection->query($sql);
@@ -42,7 +42,7 @@
                 $abbr_banque = stripslashes($ligne['abbr_banque']);
             }
         }
-        
+
         $sql = "SELECT abbr_pays FROM pays WHERE id_pays = '$id_pays'";
         $resultat = $connection->query($sql);
         $abbr_pays = "";
@@ -52,13 +52,13 @@
                 $abbr_pays = stripslashes($ligne['abbr_pays']);
             }
         }
-        
+
         for ($i = 0; $i < $nbr; $i++) {
             $compte_operation[$i] = strtoupper($compte_operation[$i]);
             $tag_operation[$i] = strtoupper($tag_operation[$i]);
             $designation_operation[$i] = strtoupper($designation_operation[$i]);
             $observation_operation[$i] = strtoupper($observation_operation[$i]);
-    
+
             if ($operation->setData($id_banque, $id_type_operation, $compte_operation[$i], $tag_operation[$i], $date_saisie_operation, $date_operation[$i], $designation_operation[$i], $cours_operation[$i], $montant_operation[$i], $montant_xof_operation[$i], $statut_operation[$i], $observation_operation[$i])) {
                 if ($operation->saveData($abbr_banque, $abbr_pays, $monnaie)) {
                     $error = 0;
@@ -85,5 +85,17 @@
             echo '
             <h6>Erreur <small class="text-muted">lors de la recupération des données [' . $i . ']</small></h6>
                 ';
+        }
+    } elseif (isset($_GET['action']) && $_GET['action'] == "maj_statut" && isset($_POST['id'])) {
+        include 'class_operations.php';
+
+        $id = $_POST['id'];
+        $statut = $_POST['statut'];
+        $operation = new operations();
+
+        if ($operation->updateData($id, $statut)) {
+            echo "Successfully updated piece " . $id . " with statut=" . $statut;
+        } else {
+            echo "Error while updating piece " . $id . " with statut=" . $statut;
         }
     }

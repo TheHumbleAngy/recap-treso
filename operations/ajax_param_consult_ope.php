@@ -8,7 +8,13 @@
     if (isset($_POST['param']) && empty($_POST['param']) === false) {
         $param = $_POST['param'];
 
-        $sql = "SELECT * FROM banque WHERE entite_banque = '$param'";
+        $sql = "
+SELECT *
+FROM banques b
+  INNER JOIN banque_pays_monnaie bpm on b.id_banque = bpm.id_banque
+  INNER JOIN pays p on bpm.id_pays = p.id_pays
+  INNER JOIN monnaies m on bpm.id_monnaie = m.id_monnaie 
+WHERE entite_banque = '$param'";
 
         $connection = mysqli_connect('localhost', 'root', '', 'recap_treso');
         if ($connection->connect_error) {
@@ -21,8 +27,8 @@
 
             foreach ($lignes as $ligne) {
                 $libelle = stripcslashes($ligne['libelle_banque']);
-                $pays = stripcslashes($ligne['pays_banque']);
-                $monnaie = stripcslashes($ligne['monnaie_banque']);
+                $pays = stripcslashes($ligne['libelle_pays']);
+                $monnaie = stripcslashes($ligne['sigle_monnaie']);
             }
 
             echo '
