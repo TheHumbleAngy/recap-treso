@@ -20,6 +20,7 @@
         protected $montant_xof_operation;
         protected $statut_operation;
         protected $observation_operation;
+        protected $etat_operation;
 
         protected $connection;
     }
@@ -201,6 +202,20 @@
             $this->statut_operation = $statut_operation;
         }
 
+        /**
+         * @return mixed
+         */
+        public function getEtatOperation() {
+            return $this->etat_operation;
+        }
+
+        /**
+         * @param mixed $etat_operation
+         */
+        public function setEtatOperation($etat_operation) {
+            $this->etat_operation = $etat_operation;
+        }
+
         public function setData($id_banque, $id_type_operation, $compte_operation, $tag_operation, $date_saisie_operation, $date_operation, $designation_operation, $cours_operation, $montant_operation, $montant_xof_operation, $statut_operation, $observation_operation) {
             try {
                 $this->setIdBanque($id_banque);
@@ -216,6 +231,12 @@
                 $this->setStatutOperation($statut_operation);
                 $this->setObservationOperation($observation_operation);
 
+                if ($this->statut_operation != 1) {
+                    $this->setEtatOperation(0);
+                } else {
+                    $this->setEtatOperation(1);
+                }
+
                 return true;
             } catch (Exception $e) {
                 return false;
@@ -224,7 +245,7 @@
 
         function getData() {
             try {
-                return $arr_operation = array($this->getIdBanque(), $this->getIdTypeOperation(), $this->getCompteOperation(), $this->getTagOperation(), $this->getDateSaisieOperation(), $this->getDateOperation(), $this->getDesignationOperation(), $this->getCoursOperation(), $this->getMontantOperation(), $this->getMontantXofOperation(), $this->getStatutOperation(), $this->getObservationOperation());
+                return $arr_operation = array($this->getIdBanque(), $this->getIdTypeOperation(), $this->getCompteOperation(), $this->getTagOperation(), $this->getDateSaisieOperation(), $this->getDateOperation(), $this->getDesignationOperation(), $this->getCoursOperation(), $this->getMontantOperation(), $this->getMontantXofOperation(), $this->getStatutOperation(), $this->getObservationOperation(), $this->getEtatOperation());
             } catch (Exception $e) {
                 return false;
             }
@@ -265,8 +286,7 @@
             $operation = htmlspecialchars($operation);
             $observation = htmlspecialchars($observation);
 
-            $sql = "INSERT INTO 
-                          operations (id_operation, 
+            $sql = "INSERT INTO operations (id_operation, 
                                       id_banque, 
                                       id_type_operation, 
                                       compte_operation, 
@@ -278,7 +298,8 @@
                                       montant_operation, 
                                       montant_xof_operation, 
                                       statut_operation,
-                                      observation_operation)
+                                      observation_operation,
+                                      etat_operation)
                     VALUES ('$this->id_operation',
                             '$this->id_banque',
                             '$this->id_type_operation',
@@ -291,18 +312,30 @@
                             '$this->montant_operation',
                             '$this->montant_xof_operation',
                             '$this->statut_operation',
-                            '$observation')";
+                            '$observation',
+                            '$this->etat_operation')";
 
-//            echo $sql;
+            //echo $sql;
             if ($result = mysqli_query($this->connection, $sql))
                 return TRUE;
             else
                 return FALSE;
         }
 
-        function updateData($id, $statut) {
+        function updateStatut($id, $statut) {
             $sql = "UPDATE operations SET 
                       statut_operation = '" . $statut . "'
+                    WHERE id_operation = '" . $id . "'";
+
+            if ($result = mysqli_query($this->connection, $sql))
+                return TRUE;
+            else
+                return FALSE;
+        }
+
+        function updateEtat($id, $etat) {
+            $sql = "UPDATE operations SET 
+                      etat_operation = '" . $etat . "'
                     WHERE id_operation = '" . $id . "'";
 
             if ($result = mysqli_query($this->connection, $sql))

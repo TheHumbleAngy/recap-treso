@@ -26,7 +26,7 @@
                             </div>
                             <div class="col-8">
                                 <select class="custom-select custom-select-sm" id="pays">
-                                    <option selected>Sélectionner...</option>
+                                    <option value="" selected>Sélectionner...</option>
                                     <?php
                                         $connection = mysqli_connect('localhost', 'root', '', 'recap_treso');
 
@@ -53,7 +53,7 @@
                             </div>
                             <div class="col-8">
                                 <select class="custom-select custom-select-sm" id="monnaie">
-                                    <option selected>Sélectionner...</option>
+                                    <option value="" selected>Sélectionner...</option>
                                     <?php
                                         $sql = "SELECT * FROM monnaies ORDER BY sigle_monnaie";
                                         if ($resultat = $connection->query($sql)) {
@@ -110,10 +110,27 @@
                                     </div>
                                 </div>
                             </div>
+                            <div class="modal fade" id="modal-check" tabindex="-1" role="dialog">
+                                <div class="modal-dialog modal-sm" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalLabel">Banque</h5>
+                                            <button type="button" class="close" data-dismiss="modal"
+                                                    aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <div id="content-check-response">
+                                                <p class="lead">Veuillez renseigner tous les champs svp.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </form>
                 </div>
-
             </div>
         </div>
     </div>

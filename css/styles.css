@@ -96,6 +96,12 @@ h2.ncare {
     left: 0.5vw;
 }
 
+#retour_banque {
+    position: relative;
+    top: 1vh;
+    left: 1.1vw;
+}
+
 .w-6 {
     width: 6% !important;
 }
@@ -113,7 +119,7 @@ h2.ncare {
 }
 
 .fa-1-5x {
-    font-size: 1.5em;
+    font-size: 1.2em;
 }
 
 .force-to-bottom {

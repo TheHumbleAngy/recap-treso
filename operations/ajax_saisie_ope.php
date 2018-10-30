@@ -51,22 +51,23 @@
                     </td>
                     
                     <td class="">
-                        <input type="text" class="operand' . $i . ' form-control form-control-sm text-uppercase text-right" id="mtt_devise' . $i . '" placeholder="0">
+                        <input type="text" class="operand' . $i . ' form-control form-control-sm text-uppercase text-right" id="mtt_devise-' . $i . '" placeholder="0" onchange="calculXof(this)">
                     </td>
                     
                     <td class="">
-                        <input type="text" class="operand' . $i . ' form-control form-control-sm text-uppercase text-right" id="cours' . $i . '" placeholder="0">
+                        <input type="text" class="operand' . $i . ' form-control form-control-sm text-uppercase text-right" id="cours-' . $i . '" placeholder="0" onchange="calculXof(this)">
                     </td>
                     
                     <td class="">
-                        <input type="text" class="form-control form-control-sm text-uppercase text-right" id="mtt_xof' . $i . '" placeholder="0" readonly>
+                        <input type="text" class="form-control form-control-sm text-uppercase text-right" id="mtt_xof-' . $i . '" placeholder="0" readonly>
                     </td>
                     
                     <td>
-                        <div class="custom-control custom-checkbox d-flex justify-content-center">
-                            <input type="checkbox" class="custom-control-input" id="statut' . $i . '">
-                            <label class="custom-control-label" for="statut' . $i . '" title="En attente">A</label>
-                        </div>
+                        <select class="custom-select custom-select-sm" id="statut' . $i . '">
+                            <option value="1" title="Validée">Val.</option>
+                            <option value="2" title="En Attente">Att.</option>
+                            <option value="3" title="Annulée">Ann.</option>
+                        </select>
                     </td>
                     
                     <td>

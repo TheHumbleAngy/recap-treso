@@ -12,6 +12,10 @@
        title="Accueil" href="index.php">
         <i class="fas fa-home fa-1-5x"></i>
     </a>
+    <a id="retour_banque" class="" role="button" data-toggle="tooltip" data-placement="right"
+       title="Enregistrer une banque" href="index.php?page=banques/form_banques">
+        <i class="fas fa-university fa-1-5x"></i>
+    </a>
 
     <?php
         $connection = mysqli_connect('localhost', 'root', '', 'recap_treso');
@@ -32,7 +36,7 @@
                 $lignes = $resultat->fetch_all(MYSQLI_ASSOC);
                 ?>
 
-                <ul class="nav nav-tabs mt-1">
+                <ul class="nav nav-tabs mt-2">
                     <?php
                         foreach ($lignes as $ligne) {
                             $libelle = stripcslashes($ligne['libelle_banque']);
@@ -139,7 +143,7 @@
                                                 </div>
                                                 <div class="col-1">
                                                     <button class="btn btn-sm btn-outline-primary px-3 faa-parent animated-hover" type="button" id="saisir"
-                                                            title="Cliquez ici pour commencer à saisir">
+                                                            title="Cliquez ici pour commencer à saisir" onclick="afficherSaisieOperations()">
                                                         <i class="fas fa-angle-double-down faa-float"></i>
                                                     </button>
                                                 </div>

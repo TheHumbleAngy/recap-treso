@@ -1,19 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AnalysisUIOptions">
+    <option name="SCOPE_TYPE" value="3" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="bc4f30b7-6a35-4415-8de2-63235db8ccfc" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources/30791a6b-4421-491e-9a59-5d8eb66b8164/storage_v2/_src_/schema/gestion.6S-G-w.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dictionaries/Ange_KOUAKOU.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/30791a6b-4421-491e-9a59-5d8eb66b8164.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/30791a6b-4421-491e-9a59-5d8eb66b8164.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dictionaries/angem.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dictionaries/angem.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/banques/ajax_banque_info.php" beforeDir="false" afterPath="$PROJECT_DIR$/banques/ajax_banque_info.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/banques/class_banques.php" beforeDir="false" afterPath="$PROJECT_DIR$/banques/class_banques.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/banques/form_banques.php" beforeDir="false" afterPath="$PROJECT_DIR$/banques/form_banques.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/css/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/styles.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/js/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/main.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/operations/ajax_consult_ope.php" beforeDir="false" afterPath="$PROJECT_DIR$/operations/ajax_consult_ope.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/operations/ajax_param_consult_ope.php" beforeDir="false" afterPath="$PROJECT_DIR$/operations/ajax_param_consult_ope.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/operations/ajax_saisie_ope.php" beforeDir="false" afterPath="$PROJECT_DIR$/operations/ajax_saisie_ope.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/operations/class_operations.php" beforeDir="false" afterPath="$PROJECT_DIR$/operations/class_operations.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/operations/form_consult_ope.php" beforeDir="false" afterPath="$PROJECT_DIR$/operations/form_consult_ope.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/operations/form_operations.php" beforeDir="false" afterPath="$PROJECT_DIR$/operations/form_operations.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/operations/param_consult_ope.php" beforeDir="false" afterPath="$PROJECT_DIR$/operations/param_consult_ope.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/operations/update_data_operations.php" beforeDir="false" afterPath="$PROJECT_DIR$/operations/update_data_operations.php" afterDir="false" />
@@ -44,13 +46,13 @@
       <path>
         <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
         <item name="recap_treso@localhost" type="feb32156:DbDataSourceImpl" />
-        <item name="recap_treso: schema" type="c314c289:MysqlImplModel$Schema" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
       </path>
       <path>
         <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
         <item name="recap_treso@localhost" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
         <item name="recap_treso: schema" type="c314c289:MysqlImplModel$Schema" />
-        <item name="operations: table" type="98d5ac3d:MysqlImplModel$Table" />
       </path>
     </expand>
     <select />
@@ -59,130 +61,7 @@
     <favorites_list name="recap-treso" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.5">
-      <split-first>
-        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file leaf-file-name="main.js" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/js/main.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="-1045">
-                  <caret line="205" column="23" selection-start-line="205" selection-start-column="23" selection-end-line="205" selection-end-column="23" />
-                  <folding>
-                    <element signature="n#!!block;n#scrollFunction#0" />
-                    <element signature="n#!!block;n#topFunction#0" />
-                    <element signature="e#1071#1127#0" />
-                    <element signature="e#3384#5763#0" />
-                    <element signature="n#!!block;n#isEmpty#0" />
-                    <element signature="n#!!block;n#validationCheck#0" />
-                    <element signature="n#!!block;n#ajoutBanque#0" />
-                    <element signature="n#!!block;n#consultationOperation#0" />
-                    <element signature="e#11854#12178#0" />
-                    <element signature="e#12215#12571#0" />
-                    <element signature="n#!!block;n#retourParam#0" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="ajax_consult_ope.php" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/operations/ajax_consult_ope.php">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="557">
-                  <caret line="137" column="124" lean-forward="true" selection-start-line="137" selection-start-column="98" selection-end-line="137" selection-end-column="124" />
-                  <folding>
-                    <element signature="e#10#112#0#PHP" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="console.sql" pinned="false" current-in-tab="false">
-            <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/30791a6b-4421-491e-9a59-5d8eb66b8164/console.sql">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="634">
-                  <caret line="196" column="15" selection-start-line="196" selection-start-column="6" selection-end-line="196" selection-end-column="15" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="update_data_operations.php" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/operations/update_data_operations.php">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="552">
-                  <caret line="95" column="47" selection-start-line="95" selection-start-column="47" selection-end-line="95" selection-end-column="47" />
-                  <folding>
-                    <element signature="e#10#112#0#PHP" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="class_operations.php" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/operations/class_operations.php">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="501">
-                  <caret line="304" column="53" selection-start-line="304" selection-start-column="53" selection-end-line="304" selection-end-column="53" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-        </leaf>
-      </split-first>
-      <split-second>
-        <leaf>
-          <file leaf-file-name="main.js" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/js/main.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="379">
-                  <caret line="426" column="28" lean-forward="true" selection-start-line="426" selection-start-column="28" selection-end-line="426" selection-end-column="28" />
-                  <folding>
-                    <element signature="n#!!block;n#scrollFunction#0" />
-                    <element signature="n#!!block;n#topFunction#0" />
-                    <element signature="e#1071#1127#0" />
-                    <element signature="e#3384#5763#0" />
-                    <element signature="n#!!block;n#isEmpty#0" />
-                    <element signature="n#!!block;n#validationCheck#0" />
-                    <element signature="n#!!block;n#ajoutBanque#0" />
-                    <element signature="n#!!block;n#ajoutOperation#0" />
-                    <element signature="n#!!block;n#consultationOperation#0" />
-                    <element signature="e#11854#12178#0" />
-                    <element signature="e#12215#12571#0" />
-                    <element signature="n#!!block;n#retourParam#0" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="class_banques.php" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/banques/class_banques.php">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="354">
-                  <caret line="148" column="70" selection-start-line="148" selection-start-column="39" selection-end-line="148" selection-end-column="70" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="param_consult_ope.php" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/operations/param_consult_ope.php">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="447">
-                  <caret line="52" column="37" selection-start-line="52" selection-start-column="37" selection-end-line="52" selection-end-column="37" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="form_consult_ope.php" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/operations/form_consult_ope.php">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="176">
-                  <caret line="50" column="35" selection-start-line="50" selection-start-column="35" selection-end-line="50" selection-end-column="35" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-        </leaf>
-      </split-second>
-    </splitter>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -195,20 +74,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>idban</find>
-      <find>idbanque</find>
-      <find>sticky-top</find>
-      <find>monnaie</find>
-      <find>str_split</find>
-      <find>ajoutban</find>
-      <find>piece</find>
-      <find>ajoutop</find>
-      <find>console</find>
-      <find>$statut_operation</find>
-      <find>pays_</find>
-      <find>menu_</find>
-      <find>id_pays</find>
-      <find>$banque</find>
       <find>$pays</find>
       <find>$_GET</find>
       <find>'POST'</find>
@@ -224,7 +89,21 @@
       <find>consulter</find>
       <find>proce</find>
       <find>update</find>
+      <find>val.</find>
+      <find>updateData</find>
+      <find>enreg</find>
+      <find>fusio</find>
+      <find>separateurMilliers</find>
+      <find>operand</find>
+      <find>saisir</find>
+      <find>majsta</find>
+      <find>aff</find>
       <find>split</find>
+      <find>ajoutop</find>
+      <find>modal</find>
+      <find>libe</find>
+      <find>banque</find>
+      <find>menu_</find>
     </findStrings>
     <replaceStrings>
       <replace>home</replace>
@@ -262,8 +141,8 @@
   <component name="Git.Settings">
     <option name="PREVIOUS_COMMIT_AUTHORS">
       <list>
-        <option value="ange_kouakou &lt;angemarius@gmail.com&gt;" />
         <option value="AngeKouakou_office &lt;angemarius@gmail.com&gt;" />
+        <option value="ange_kouakou &lt;angemarius@gmail.com&gt;" />
       </list>
     </option>
     <option name="PUSH_AUTO_UPDATE" value="true" />
@@ -299,7 +178,6 @@
         <option value="$PROJECT_DIR$/form_operations.php" />
         <option value="$PROJECT_DIR$/accueil.php" />
         <option value="$PROJECT_DIR$/ajax.php" />
-        <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/banques/class_pays.php" />
         <option value="$PROJECT_DIR$/banques/class_monnaies.php" />
         <option value="$PROJECT_DIR$/banques/class_banques_pays.php" />
@@ -307,22 +185,23 @@
         <option value="$PROJECT_DIR$/banques/class_banque_pays_monnaie.php" />
         <option value="$PROJECT_DIR$/banques/class_banques_pays_monnaies.php" />
         <option value="$PROJECT_DIR$/styles.css" />
-        <option value="$PROJECT_DIR$/operations/ajax_saisie_ope.php" />
         <option value="$PROJECT_DIR$/banques/update_data_banques.php" />
         <option value="$PROJECT_DIR$/index.php" />
-        <option value="$PROJECT_DIR$/banques/form_banques.php" />
         <option value="$PROJECT_DIR$/banques/ajax_banque_info.php" />
-        <option value="$PROJECT_DIR$/operations/form_operations.php" />
         <option value="$PROJECT_DIR$/banques/class_banques.php" />
-        <option value="$PROJECT_DIR$/css/styles.css" />
         <option value="$PROJECT_DIR$/operations/ajax_param_consult_ope.php" />
         <option value="$PROJECT_DIR$/operations/form_consult_ope.php" />
-        <option value="$APPLICATION_CONFIG_DIR$/consoles/db/30791a6b-4421-491e-9a59-5d8eb66b8164/console.sql" />
         <option value="$PROJECT_DIR$/operations/ajax_consult_ope.php" />
-        <option value="$PROJECT_DIR$/js/main.js" />
         <option value="$PROJECT_DIR$/operations/param_consult_ope.php" />
-        <option value="$PROJECT_DIR$/operations/class_operations.php" />
+        <option value="$PROJECT_DIR$/operations/ajax_saisie_ope.php" />
         <option value="$PROJECT_DIR$/operations/update_data_operations.php" />
+        <option value="$PROJECT_DIR$/operations/class_operations.php" />
+        <option value="$PROJECT_DIR$/banques/form_banques.php" />
+        <option value="$APPLICATION_CONFIG_DIR$/consoles/db/30791a6b-4421-491e-9a59-5d8eb66b8164/console.sql" />
+        <option value="$PROJECT_DIR$/css/styles.css" />
+        <option value="$PROJECT_DIR$/operations/form_operations.php" />
+        <option value="$PROJECT_DIR$/js/main.js" />
+        <option value="$PROJECT_DIR$/.gitignore" />
       </list>
     </option>
   </component>
@@ -363,44 +242,14 @@
     </navigator>
     <panes>
       <pane id="Scope" />
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="recap-treso" type="b2602c69:ProjectViewProjectNode" />
-              <item name="recap-treso" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="recap-treso" type="b2602c69:ProjectViewProjectNode" />
-              <item name="recap-treso" type="462c0819:PsiDirectoryNode" />
-              <item name="operations" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="recap-treso" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Scratches and Consoles" type="1a2a3e82:ScratchProjectViewPane$MyProjectNode" />
-            </path>
-            <path>
-              <item name="recap-treso" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Scratches and Consoles" type="1a2a3e82:ScratchProjectViewPane$MyProjectNode" />
-              <item name="Database Consoles" type="d62648e6:ScratchProjectViewPane$MyRootNode" />
-            </path>
-            <path>
-              <item name="recap-treso" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Scratches and Consoles" type="1a2a3e82:ScratchProjectViewPane$MyProjectNode" />
-              <item name="Database Consoles" type="d62648e6:ScratchProjectViewPane$MyRootNode" />
-              <item name="30791a6b-4421-491e-9a59-5d8eb66b8164" type="1e004dc1:ScratchProjectViewPane$MyRootNode$1$1" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
+      <pane id="ProjectPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="com.intellij.database.dataSource.DataSourceTemplate" value="MySQL" />
-    <property name="database.console.LAST_STATE" value="false" />
+    <property name="database.console.LAST_STATE" value="true" />
     <property name="database.data.extractors.current.id" value="SQL-Insert-Statements.sql.groovy" />
     <property name="last_opened_file_path" value="D:/pays.csv" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
@@ -419,6 +268,7 @@
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
+    <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
     <property name="settings.editor.selected.configurable" value="database.main" />
   </component>
   <component name="RecentsManager">
@@ -502,7 +352,15 @@
       <workItem from="1539706487679" duration="910000" />
       <workItem from="1539786195664" duration="13363000" />
       <workItem from="1539850458071" duration="13370000" />
-      <workItem from="1539875910904" duration="15292000" />
+      <workItem from="1539875910904" duration="15474000" />
+      <workItem from="1539937003621" duration="10361000" />
+      <workItem from="1540134624330" duration="2933000" />
+      <workItem from="1540195913482" duration="11594000" />
+      <workItem from="1540657252641" duration="4010000" />
+      <workItem from="1540724344829" duration="6318000" />
+      <workItem from="1540765631742" duration="3165000" />
+      <workItem from="1540818980718" duration="1077000" />
+      <workItem from="1540882638670" duration="3426000" />
     </task>
     <task id="LOCAL-00001" summary="index.php updated">
       <created>1537516057036</created>
@@ -553,11 +411,25 @@
       <option name="project" value="LOCAL" />
       <updated>1539127694900</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="started working on consultation with new criterias">
+      <created>1539892883155</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1539892883155</updated>
+    </task>
+    <task id="LOCAL-00009" summary="started working on consultation with new criterias">
+      <created>1539957469168</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1539957469168</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="445114000" />
+    <option name="totallyTimeSpent" value="488180000" />
   </component>
   <component name="TodoView" selected-index="3">
     <todo-panel id="selected-file">
@@ -570,28 +442,27 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1616" height="916" extended-state="6" />
-    <editor active="true" />
     <layout>
+      <window_info content_ui="combo" id="Project" order="0" weight="0.16251831" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.3288948" />
+      <window_info anchor="bottom" id="Docker" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
-      <window_info anchor="bottom" id="Database Changes" />
-      <window_info anchor="bottom" id="Version Control" order="7" weight="0.3288948" />
+      <window_info anchor="right" id="Database" order="3" weight="0.1425" />
+      <window_info anchor="bottom" id="Database Changes" order="8" weight="0.3283582" />
       <window_info anchor="bottom" id="Run" order="2" />
-      <window_info anchor="bottom" id="Terminal" order="7" />
-      <window_info anchor="bottom" id="Database Console" order="7" weight="0.3277635" />
-      <window_info content_ui="combo" id="Project" order="0" weight="0.16323908" />
-      <window_info anchor="bottom" id="Docker" show_stripe_button="false" />
-      <window_info anchor="right" id="Database" order="3" weight="0.12532134" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32904884" />
+      <window_info anchor="bottom" id="Version Control" order="7" weight="0.3071161" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Terminal" order="7" weight="0.32904884" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info active="true" anchor="bottom" id="Database Console" order="7" visible="true" weight="0.3258427" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32904884" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -633,7 +504,8 @@
     <MESSAGE value="quite done with save operation data, lots of amendments too" />
     <MESSAGE value="done with auto calculation of amount in xof in form_operation" />
     <MESSAGE value="icon animation, input formatting (thousand format), components adjustment" />
-    <option name="LAST_COMMIT_MESSAGE" value="icon animation, input formatting (thousand format), components adjustment" />
+    <MESSAGE value="started working on consultation with new criterias" />
+    <option name="LAST_COMMIT_MESSAGE" value="started working on consultation with new criterias" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -641,7 +513,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$USER_HOME$/AppData/Roaming/npm/node_modules/jscs/bin/jscs" />
     <entry file="file://$PROJECT_DIR$/css/bootstrap/css/bootstrap.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
@@ -675,35 +546,7 @@
     <entry file="das://30791a6b-4421-491e-9a59-5d8eb66b8164/schema/recap_treso/table/monnaies" />
     <entry file="file://$PROJECT_DIR$/banques/class_monnaies_pays.php" />
     <entry file="file://$PROJECT_DIR$/banques/class_banques_pays.php" />
-    <entry file="uml://DATABASE/30791a6b-4421-491e-9a59-5d8eb66b8164.SCHEMA:recap_treso">
-      <provider selected="true" editor-type-id="UmlEditorProvider">
-        <state>
-          <ID>DATABASE</ID>
-          <OriginalElement>30791a6b-4421-491e-9a59-5d8eb66b8164.SCHEMA:recap_treso</OriginalElement>
-          <nodes>
-            <node x="" y="">30791a6b-4421-491e-9a59-5d8eb66b8164.TABLE:recap_treso.pays</node>
-            <node x="" y="">30791a6b-4421-491e-9a59-5d8eb66b8164.TABLE:recap_treso.monnaies</node>
-            <node x="" y="">30791a6b-4421-491e-9a59-5d8eb66b8164.TABLE:recap_treso.type_operation</node>
-            <node x="" y="">30791a6b-4421-491e-9a59-5d8eb66b8164.TABLE:recap_treso.operations</node>
-            <node x="" y="">30791a6b-4421-491e-9a59-5d8eb66b8164.TABLE:recap_treso.banques</node>
-            <node x="" y="">30791a6b-4421-491e-9a59-5d8eb66b8164.TABLE:recap_treso.banque_pays_monnaie</node>
-          </nodes>
-          <notes />
-          <edges />
-          <settings layout="Hierarchic Group" zoom="0.7043756670224119" x="459.0" y="253.0" />
-          <SelectedNodes />
-          <Categories>
-            <Category>Key columns</Category>
-            <Category>Columns</Category>
-          </Categories>
-          <SCOPE>All</SCOPE>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/form_banques.php" />
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/ajax.php" />
     <entry file="file://$PROJECT_DIR$/connect.php" />
     <entry file="file://$PROJECT_DIR$/recap_treso_operations.sql" />
@@ -721,20 +564,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="561">
           <caret line="38" column="6" lean-forward="true" selection-start-line="38" selection-start-column="6" selection-end-line="38" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/operations/ajax_saisie_ope.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="26" column="46" selection-start-line="26" selection-start-column="46" selection-end-line="26" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/operations/form_operations.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="448">
-          <caret line="176" column="136" selection-start-line="176" selection-start-column="136" selection-end-line="176" selection-end-column="136" />
         </state>
       </provider>
     </entry>
@@ -764,117 +593,140 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/banques/form_banques.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="20" column="71" selection-start-line="20" selection-start-column="71" selection-end-line="20" selection-end-column="71" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" />
-            <element signature="n#style#0;n#i#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="e#6171#6178#1#HTML" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/banques/update_data_banques.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="19" column="44" selection-start-line="19" selection-start-column="44" selection-end-line="19" selection-end-column="44" />
-          <folding>
-            <element signature="e#10#112#0#PHP" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/css/styles.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2602" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/operations/ajax_param_consult_ope.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="425">
           <caret line="30" column="62" selection-start-line="30" selection-start-column="62" selection-end-line="30" selection-end-column="62" />
-          <folding>
-            <element signature="e#10#112#0#PHP" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/operations/form_consult_ope.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="176">
+        <state relative-caret-position="765">
           <caret line="50" column="35" selection-start-line="50" selection-start-column="35" selection-end-line="50" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/banques/class_banques.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2431">
+          <caret line="148" column="70" selection-start-line="148" selection-start-column="39" selection-end-line="148" selection-end-column="70" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/operations/param_consult_ope.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="5" lean-forward="true" selection-start-column="5" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="uml://DATABASE/30791a6b-4421-491e-9a59-5d8eb66b8164.SCHEMA:recap_treso">
+      <provider selected="true" editor-type-id="UmlEditorProvider">
+        <state>
+          <ID>DATABASE</ID>
+          <OriginalElement>30791a6b-4421-491e-9a59-5d8eb66b8164.SCHEMA:recap_treso</OriginalElement>
+          <nodes>
+            <node x="" y="">30791a6b-4421-491e-9a59-5d8eb66b8164.TABLE:recap_treso.pays</node>
+            <node x="" y="">30791a6b-4421-491e-9a59-5d8eb66b8164.TABLE:recap_treso.type_operation</node>
+            <node x="" y="">30791a6b-4421-491e-9a59-5d8eb66b8164.TABLE:recap_treso.monnaies</node>
+            <node x="" y="">30791a6b-4421-491e-9a59-5d8eb66b8164.TABLE:recap_treso.operations</node>
+            <node x="" y="">30791a6b-4421-491e-9a59-5d8eb66b8164.TABLE:recap_treso.banques</node>
+            <node x="" y="">30791a6b-4421-491e-9a59-5d8eb66b8164.TABLE:recap_treso.banque_pays_monnaie</node>
+          </nodes>
+          <notes />
+          <edges />
+          <settings layout="Hierarchic Group" zoom="1.0" x="459.0" y="275.0" />
+          <SelectedNodes />
+          <Categories>
+            <Category>Key columns</Category>
+            <Category>Columns</Category>
+          </Categories>
+          <SCOPE>All</SCOPE>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external/lib.dom.d.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="207">
+          <caret line="15865" column="12" selection-start-line="15865" selection-start-column="12" selection-end-line="15865" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/operations/ajax_consult_ope.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="137" column="108" selection-start-line="137" selection-start-column="108" selection-end-line="137" selection-end-column="108" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/operations/ajax_saisie_ope.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="884">
+          <caret line="57" column="161" selection-start-line="57" selection-start-column="161" selection-end-line="57" selection-end-column="161" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/operations/class_operations.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="348">
+          <caret line="318" column="12" lean-forward="true" selection-start-line="318" selection-start-column="12" selection-end-line="318" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/operations/update_data_operations.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="319">
+          <caret line="62" column="30" selection-start-line="62" selection-start-column="30" selection-end-line="62" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/banques/update_data_banques.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="24" column="90" lean-forward="true" selection-start-line="24" selection-start-column="24" selection-end-line="24" selection-end-column="90" />
         </state>
       </provider>
     </entry>
     <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/30791a6b-4421-491e-9a59-5d8eb66b8164/console.sql">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="634">
-          <caret line="196" column="15" selection-start-line="196" selection-start-column="6" selection-end-line="196" selection-end-column="15" />
+          <caret line="199" selection-start-line="199" selection-end-line="199" selection-end-column="24" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/operations/ajax_consult_ope.php">
+    <entry file="file://$PROJECT_DIR$/banques/form_banques.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="557">
-          <caret line="137" column="124" lean-forward="true" selection-start-line="137" selection-start-column="98" selection-end-line="137" selection-end-column="124" />
-          <folding>
-            <element signature="e#10#112#0#PHP" />
-          </folding>
+        <state relative-caret-position="187">
+          <caret line="16" column="87" lean-forward="true" selection-start-line="16" selection-start-column="16" selection-end-line="16" selection-end-column="87" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/banques/class_banques.php">
+    <entry file="file://$PROJECT_DIR$/css/styles.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="354">
-          <caret line="148" column="70" selection-start-line="148" selection-start-column="39" selection-end-line="148" selection-end-column="70" />
+        <state relative-caret-position="268">
+          <caret line="121" column="21" lean-forward="true" selection-start-line="121" selection-start-column="21" selection-end-line="121" selection-end-column="21" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/js/main.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1045">
-          <caret line="205" column="23" selection-start-line="205" selection-start-column="23" selection-end-line="205" selection-end-column="23" />
-          <folding>
-            <element signature="n#!!block;n#scrollFunction#0" />
-            <element signature="n#!!block;n#topFunction#0" />
-            <element signature="e#1071#1127#0" />
-            <element signature="e#3384#5763#0" />
-            <element signature="n#!!block;n#isEmpty#0" />
-            <element signature="n#!!block;n#validationCheck#0" />
-            <element signature="n#!!block;n#ajoutBanque#0" />
-            <element signature="n#!!block;n#consultationOperation#0" />
-            <element signature="e#11854#12178#0" />
-            <element signature="e#12215#12571#0" />
-            <element signature="n#!!block;n#retourParam#0" />
-          </folding>
+        <state relative-caret-position="2448">
+          <caret line="144" column="9" selection-start-line="144" selection-start-column="9" selection-end-line="144" selection-end-column="9" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/operations/param_consult_ope.php">
+    <entry file="file://$PROJECT_DIR$/operations/form_operations.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="447">
-          <caret line="52" column="37" selection-start-line="52" selection-start-column="37" selection-end-line="52" selection-end-column="37" />
+        <state relative-caret-position="251">
+          <caret line="197" column="71" selection-start-line="197" selection-start-column="71" selection-end-line="197" selection-end-column="71" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/operations/class_operations.php">
+    <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="501">
-          <caret line="304" column="53" selection-start-line="304" selection-start-column="53" selection-end-line="304" selection-end-column="53" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/operations/update_data_operations.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="552">
-          <caret line="95" column="47" selection-start-line="95" selection-start-column="47" selection-end-line="95" selection-end-column="47" />
-          <folding>
-            <element signature="e#10#112#0#PHP" />
-          </folding>
+        <state relative-caret-position="34">
+          <caret line="2" column="5" selection-start-line="2" selection-start-column="5" selection-end-line="2" selection-end-column="5" />
         </state>
       </provider>
     </entry>
