@@ -7,17 +7,15 @@
      */
     ?>
 <div id="wrapper_banque" class="shadow gradient">
-    <a id="retour" class="mx-2" role="button" data-toggle="tooltip" data-placement="right"
-       title="Accueil" href="index.php">
-        <i class="fas fa-home fa-1-5x"></i>
-    </a>
+    <a class="retour mx-2" role="button" data-toggle="tooltip" data-placement="right"
+       title="Accueil" href="index.php"><i class="fas fa-home fa-1-5x"></i></a>
     <div style="padding: 10px 60px 40px;">
         <div class="row">
             <div class="col-3 d-flex flex-column justify-content-center">
                 <i class="fas fa-university fa-6x mx-auto" style="color: #1A74B8;"></i>
             </div>
             <div class="col ">
-                <div class="cadre" style="padding: 20px 30px">
+                <div class="" style="padding: 20px 30px">
                     <h3 class="d-flex justify-content-center ncare insetshadow cadre pb-2 w-75 mx-auto">Banque</h3>
                     <form id="form_banque">
                         <div class="row my-3">

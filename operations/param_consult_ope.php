@@ -7,10 +7,8 @@
      */
 ?>
 <div id="wrapper_consultation" class="shadow gradient">
-    <a id="retour" class="mx-2" role="button" data-toggle="tooltip" data-placement="right"
-       title="Accueil" href="index.php">
-        <i class="fas fa-home fa-1-5x"></i>
-    </a>
+    <a class="retour mx-2" role="button" data-toggle="tooltip" data-placement="right"
+       title="Accueil" href="index.php"><i class="fas fa-home fa-1-5x"></i></a>
 
     <?php
         $connection = mysqli_connect('localhost', 'root', '', 'recap_treso');

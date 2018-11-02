@@ -90,7 +90,7 @@ h2.ncare {
     margin: 30vh auto;
 }
 
-#retour {
+.retour {
     position: relative;
     top: 1vh;
     left: 0.5vw;

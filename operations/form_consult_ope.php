@@ -13,13 +13,13 @@
             <input type="hidden" id="entite" value="<?php echo $entite; ?>">
             <div class="container-fluid">
                 <div class="row">
-                    <a id="retour" class="mx-2" role="button" data-toggle="tooltip" data-placement="right"
+                    <a class="retour mx-2" role="button" data-toggle="tooltip" data-placement="right"
                        title="Accueil" href="index.php">
                         <i class="fas fa-home fa-1-5x"></i>
                     </a>
-                    <a id="retour" class="" role="button" data-toggle="tooltip" data-placement="right"
+                    <a class="retour mx-2" role="button" data-toggle="tooltip" data-placement="right"
                        title="Retour au parmetrage" href="index.php?page=operations/param_consult_ope">
-                        <i class="fas fa-wrench fa-2x faa-wrench animated"></i>
+                        <i class="fas fa-wrench fa-1x faa-wrench animated"></i>
                     </a>
                     <div class="col-10 cadre mb-4 p-4 mx-auto">
                         <div class="form-group row">
@@ -32,11 +32,11 @@
                             </div>
                         </div>
                         <div class="form-group row">
-                            <span class="col-sm-1 ">Période</span>
+                            <span class="col-sm-1" title="Date de saisie">Période</span>
                             <div class="col-sm-4">
                                 <div class="row">
-                                    <input type="date" class="form-control form-control-sm col mx-2" id="debut">
-                                    <input type="date" class="form-control form-control-sm col mx-2" id="fin">
+                                    <label for="debut"></label><input type="date" class="form-control form-control-sm col mx-2" id="debut">
+                                    <label for="fin"></label><input type="date" class="form-control form-control-sm col mx-2" id="fin">
                                 </div>
                             </div>
                             <label for="solde_avant" class="col-sm-2 offset-1 text-right">Solde Avant</label>
@@ -77,7 +77,6 @@
                                 Consulter <i class="fas fa-search ml-1"></i>
                             </button>
                         </div>
-
                     </div>
                 </div>
                 <div class="row" id="feedback_consultation"></div>

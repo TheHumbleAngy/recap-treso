@@ -286,6 +286,44 @@
             $operation = htmlspecialchars($operation);
             $observation = htmlspecialchars($observation);
 
+            if ($this->statut_operation == 3) {
+                $regul_type = ($this->id_type_operation == 0 ? 1 : 0);
+                $regul_id = $b . sprintf($format, $mois) . sprintf($format, $annee) . sprintf($format, ++$id);
+                $regul_statut = 4;
+                $this->etat_operation = 1;
+                $observation = "PIECE ANNULEE ET CONTRE-PASSEE A LA PIECE " . $regul_id;
+                $regul_observation = "REGULARISATION DE LA PIECE " . $this->id_operation;
+
+                $sql_regul = "INSERT INTO operations (id_operation, 
+                                      id_banque, 
+                                      id_type_operation, 
+                                      compte_operation, 
+                                      tag_operation, 
+                                      date_saisie_operation, 
+                                      date_operation, 
+                                      designation_operation, 
+                                      cours_operation, 
+                                      montant_operation, 
+                                      montant_xof_operation, 
+                                      statut_operation,
+                                      observation_operation,
+                                      etat_operation)
+                    VALUES ('$regul_id',
+                            '$this->id_banque',
+                            '$regul_type',
+                            '$compte',
+                            '$libelle',
+                            '$this->date_saisie_operation',
+                            '$this->date_operation',
+                            '$operation',
+                            '$this->cours_operation',
+                            '$this->montant_operation',
+                            '$this->montant_xof_operation',
+                            '$regul_statut',
+                            '$regul_observation',
+                            '$this->etat_operation')";
+            }
+
             $sql = "INSERT INTO operations (id_operation, 
                                       id_banque, 
                                       id_type_operation, 
@@ -316,8 +354,15 @@
                             '$this->etat_operation')";
 
             //echo $sql;
-            if ($result = mysqli_query($this->connection, $sql))
+            if ($result = mysqli_query($this->connection, $sql)) {
+                if (isset($sql_regul)) {
+                    if ($result = mysqli_query($this->connection, $sql_regul))
+                        return TRUE;
+                    else
+                        return FALSE;
+                }
                 return TRUE;
+            }
             else
                 return FALSE;
         }

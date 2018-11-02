@@ -28,7 +28,7 @@
                     <span class="mr-auto">Consultation</span>
                     <i class="fa fa-arrow-right my-auto faa-passing"></i>
                 </a>
-                <a role="button" class="btn btn-primary btn-lg btn-sm btn-block d-flex justify-content-between faa-parent animated-hover" href="index.php?">
+                <a role="button" class="btn btn-primary btn-lg btn-sm btn-block d-flex justify-content-between faa-parent animated-hover" href="index.php?page=reporting/param_reporting">
                     <i class="fas fa-calendar-check mr-2 my-auto"></i>
                     <span class="mr-auto">Reporting</span>
                     <i class="fa fa-arrow-right my-auto faa-passing"></i>

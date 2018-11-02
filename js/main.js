@@ -11,6 +11,10 @@ $(document).ready(function () {
     $('#saisir').prop('disabled', true);
 
     $('#valider').prop('disabled', true);
+    $('#liste_banques').hide();
+    $('#lst_banq').prop('selected', function () {
+        return this.defaultSelected;
+    });
 });
 
 // When the user scrolls down 20px from the top of the document, show the button
@@ -142,16 +146,16 @@ function afficherSaisieOperations() {
     }
 }
 
-function isEmpty(element) {
+/*function isEmpty(element) {
     if (element === '')
         return true;
-}
+}*/
 
-function validationCheck(n) {
+/*function validationCheck(n) {
     for (let i = 0; i < n; i++) {
 
     }
-}
+}*/
 
 function ajoutBanque() {
     let libelle_banque = $('#libelle').val().trim(),
@@ -304,6 +308,12 @@ function consultationOperation() {
     })
 }
 
+/*function consultationReporting() {
+    let nature = $("[name='rdo_nature']:checked").val();
+
+
+}*/
+
 $('#param_entite').change(function () {
     let param = $(this).val();
 
@@ -336,7 +346,7 @@ $('#proceder').click(function () {
     }
 });
 
-function retourParam() {
+/*function retourParam() {
     $.ajax({
         type: 'POST',
         url: 'operations/param_consult_ope.php',
@@ -344,7 +354,7 @@ function retourParam() {
             $('#content').html(data);
         }
     })
-}
+}*/
 
 function majStatut(element) {
     let id_ = Object.values(element)[0].parentElement.id;
@@ -379,5 +389,9 @@ function calculXof(element) {
     } else {
         $(sel_mtt_xof).val(devise * cours);
     }
+}
 
+function assignListeBanque() {
+    let liste = $('#lst_banq').val();
+    $('#select_liste_banques').val(liste);
 }

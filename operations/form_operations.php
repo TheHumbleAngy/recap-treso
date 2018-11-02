@@ -8,14 +8,11 @@
 ?>
 
 <div class="bg-white p-2" style="border-radius: 10px">
-    <a id="retour" class="" role="button" data-toggle="tooltip" data-placement="right"
-       title="Accueil" href="index.php">
-        <i class="fas fa-home fa-1-5x"></i>
-    </a>
+    <a class="retour" role="button" data-toggle="tooltip" data-placement="right"
+       title="Accueil" href="index.php"><i class="fas fa-home fa-1-5x"></i></a>
     <a id="retour_banque" class="" role="button" data-toggle="tooltip" data-placement="right"
-       title="Enregistrer une banque" href="index.php?page=banques/form_banques">
-        <i class="fas fa-university fa-1-5x"></i>
-    </a>
+       title="Enregistrer une banque" href="index.php?page=banques/form_banques"><i
+                class="fas fa-university fa-1-5x"></i></a>
 
     <?php
         $connection = mysqli_connect('localhost', 'root', '', 'recap_treso');

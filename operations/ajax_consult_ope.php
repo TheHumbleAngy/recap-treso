@@ -11,6 +11,65 @@
         $entite = $_POST['entite'];
         $choix = $_POST['choix'];
 
+        $r_sql_1 = "SELECT SUM(montant_xof_operation) AS recette_solde_avant FROM operations AS o INNER JOIN banques AS b ON o.id_banque = b.id_banque WHERE b.entite_banque = '$entite' AND o.date_saisie_operation < '$debut' AND o.id_type_operation = 1";
+        $r_sql_2 = "SELECT SUM(montant_xof_operation) AS recette_solde_apres FROM operations AS o INNER JOIN banques AS b ON o.id_banque = b.id_banque WHERE b.entite_banque = '$entite' AND o.date_saisie_operation <= '$fin' AND o.id_type_operation = 1";
+
+        $d_sql_1 = "SELECT SUM(montant_xof_operation) AS depense_solde_avant FROM operations AS o INNER JOIN banques AS b ON o.id_banque = b.id_banque WHERE b.entite_banque = '$entite' AND o.date_saisie_operation < '$debut' AND o.id_type_operation = 0";
+        $d_sql_2 = "SELECT SUM(montant_xof_operation) AS depense_solde_apres FROM operations AS o INNER JOIN banques AS b ON o.id_banque = b.id_banque WHERE b.entite_banque = '$entite' AND o.date_saisie_operation <= '$fin' AND o.id_type_operation = 0";
+
+        $connection = mysqli_connect('localhost', 'root', '', 'recap_treso');
+        if ($connection->connect_error) {
+            die($connection->connect_error);
+        }
+
+        $recette_solde_avant = 0;
+        $recette_solde_apres = 0;
+
+        $depense_solde_avant = 0;
+        $depense_solde_apres = 0;
+
+        $resultat = mysqli_query($connection, $r_sql_1);
+        if ($resultat->num_rows > 0) {
+            $lignes = $resultat->fetch_all(MYSQLI_ASSOC);
+
+            foreach ($lignes as $ligne) {
+                $recette_solde_avant = stripcslashes($ligne['recette_solde_avant']);
+            }
+        }
+
+        $resultat = mysqli_query($connection, $d_sql_1);
+        if ($resultat->num_rows > 0) {
+            $lignes = $resultat->fetch_all(MYSQLI_ASSOC);
+
+            foreach ($lignes as $ligne) {
+                $depense_solde_avant = $ligne['depense_solde_avant'];
+            }
+        }
+
+        $resultat = mysqli_query($connection, $r_sql_2);
+        if ($resultat->num_rows > 0) {
+            $lignes = $resultat->fetch_all(MYSQLI_ASSOC);
+
+            foreach ($lignes as $ligne) {
+                $recette_solde_apres = stripcslashes($ligne['recette_solde_apres']);
+            }
+        }
+
+        $resultat = mysqli_query($connection, $d_sql_2);
+        if ($resultat->num_rows > 0) {
+            $lignes = $resultat->fetch_all(MYSQLI_ASSOC);
+
+            foreach ($lignes as $ligne) {
+                $depense_solde_apres = $ligne['depense_solde_apres'];
+            }
+        }
+
+        $solde_avt = $recette_solde_avant - $depense_solde_avant;
+        $solde_apr = $recette_solde_apres - $depense_solde_apres;
+
+        echo '<input type="hidden" id="solde_avt" value="'. number_format(floatval($solde_avt), 2, ',', ' ') . '">';
+        echo '<input type="hidden" id="solde_apr" value="'. number_format(floatval($solde_apr), 2, ',', ' ') . '">';
+
         $sql = "
 SELECT 
   * 
@@ -20,41 +79,6 @@ WHERE
   b.entite_banque = '$entite' AND 
   o.date_saisie_operation BETWEEN '$debut' AND '$fin' 
   ORDER BY o.date_saisie_operation";
-
-        $sql_1 = "SELECT SUM(montant_xof_operation) AS solde_avant FROM operations AS o INNER JOIN banques AS b ON o.id_banque = b.id_banque WHERE b.entite_banque = '$entite' AND o.date_saisie_operation < '$debut'";
-        $sql_2 = "SELECT SUM(montant_xof_operation) AS solde_apres FROM operations AS o INNER JOIN banques AS b ON o.id_banque = b.id_banque WHERE b.entite_banque = '$entite' AND o.date_saisie_operation <= '$fin'";
-//        echo $sql;
-
-        $connection = mysqli_connect('localhost', 'root', '', 'recap_treso');
-        if ($connection->connect_error) {
-            die($connection->connect_error);
-        }
-
-        $solde_avant = 0;
-        $solde_apres = 0;
-
-        $resultat = mysqli_query($connection, $sql_1);
-        if ($resultat->num_rows > 0) {
-            $lignes = $resultat->fetch_all(MYSQLI_ASSOC);
-
-            foreach ($lignes as $ligne) {
-                $solde_avant = stripcslashes($ligne['solde_avant']);
-                $solde_avant = number_format(floatval($solde_avant), 2, ',', '.');
-            }
-        }
-
-        $resultat = mysqli_query($connection, $sql_2);
-        if ($resultat->num_rows > 0) {
-            $lignes = $resultat->fetch_all(MYSQLI_ASSOC);
-
-            foreach ($lignes as $ligne) {
-                $solde_apres = $ligne['solde_apres'];
-                $solde_apres = number_format(floatval($solde_apres), 2, ',', '.');
-            }
-        }
-
-        echo '<input type="hidden" id="solde_avt" value="'. $solde_avant . '">';
-        echo '<input type="hidden" id="solde_apr" value="'. $solde_apres . '">';
 
         $resultat = mysqli_query($connection, $sql);
         if ($resultat->num_rows > 0) {
@@ -91,7 +115,7 @@ WHERE
                     $statut = stripslashes($ligne['statut_operation']);
                     $xof = stripslashes($ligne['montant_xof_operation']);
                     $xof = sprintf("%01.2f", $xof);
-                    $xof = number_format($xof, 2, ',', '.');
+                    $xof = number_format($xof, 2, ',', ' ');
 
                     $arr = explode('-', $date_saisie);
                     $date_saisie = $arr[2] . '-' . $arr[1] . '-' . $arr[0];
@@ -194,15 +218,15 @@ WHERE
 
                     $cours = stripslashes($ligne['cours_operation']);
                     $cours = sprintf("%01.2f", $cours);
-                    $cours = number_format($cours, 2, ',', '.');
+                    $cours = number_format($cours, 2, ',', ' ');
 
                     $devise = stripslashes($ligne['montant_operation']);
                     $devise = sprintf("%01.2f", $devise);
-                    $devise = number_format($devise, 2, ',', '.');
+                    $devise = number_format($devise, 2, ',', ' ');
 
                     $xof = stripslashes($ligne['montant_xof_operation']);
                     $xof = sprintf("%01.2f", $xof);
-                    $xof = number_format($xof, 2, ',', '.');
+                    $xof = number_format($xof, 2, ',', ' ');
 
                     echo '
                 <tr title="N° ' . $piece . '">
@@ -233,7 +257,7 @@ WHERE
                     }
 
                     echo '
-                    <td>' . $observation . '</td>
+                    <td title="' . $observation . '"></td>
                 </tr> 
                 ';
                 }
