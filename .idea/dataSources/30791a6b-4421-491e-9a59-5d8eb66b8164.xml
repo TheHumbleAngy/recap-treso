@@ -954,59 +954,59 @@
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="240" parent="231" name="id_pays">
+    <column id="240" parent="231" name="entite_banque">
+      <Position>4</Position>
+      <DataType>varchar(20)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <index id="241" parent="231" name="id_pays">
       <ColNames>id_pays</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="241" parent="231" name="id_monnaie">
+    <index id="242" parent="231" name="id_monnaie">
       <ColNames>id_monnaie</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="242" parent="231" name="PRIMARY">
+    <key id="243" parent="231" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id_banque
 id_pays
 id_monnaie</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="243" parent="231" name="banque_pays_monnaie_ibfk_1">
+    <foreign-key id="244" parent="231" name="banque_pays_monnaie_ibfk_1">
       <ColNames>id_banque</ColNames>
       <RefSchemaName>recap_treso</RefSchemaName>
       <RefTableName>banques</RefTableName>
       <RefColNames>id_banque</RefColNames>
     </foreign-key>
-    <foreign-key id="244" parent="231" name="banque_pays_monnaie_ibfk_2">
+    <foreign-key id="245" parent="231" name="banque_pays_monnaie_ibfk_2">
       <ColNames>id_pays</ColNames>
       <RefSchemaName>recap_treso</RefSchemaName>
       <RefTableName>pays</RefTableName>
       <RefColNames>id_pays</RefColNames>
     </foreign-key>
-    <foreign-key id="245" parent="231" name="banque_pays_monnaie_ibfk_3">
+    <foreign-key id="246" parent="231" name="banque_pays_monnaie_ibfk_3">
       <ColNames>id_monnaie</ColNames>
       <RefSchemaName>recap_treso</RefSchemaName>
       <RefTableName>monnaies</RefTableName>
       <RefColNames>id_monnaie</RefColNames>
     </foreign-key>
-    <column id="246" parent="232" name="id_banque">
+    <column id="247" parent="232" name="id_banque">
       <Position>1</Position>
       <DataType>varchar(10)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="247" parent="232" name="libelle_banque">
+    <column id="248" parent="232" name="libelle_banque">
       <Position>2</Position>
       <DataType>varchar(30)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="248" parent="232" name="entite_banque">
-      <Position>3</Position>
-      <DataType>varchar(20)|0s</DataType>
-      <NotNull>1</NotNull>
-      <ColumnKind>normal</ColumnKind>
-    </column>
     <column id="249" parent="232" name="abbr_banque">
-      <Position>4</Position>
+      <Position>3</Position>
       <DataType>varchar(5)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>

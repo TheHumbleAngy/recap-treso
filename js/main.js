@@ -395,3 +395,24 @@ function assignListeBanque() {
     let liste = $('#lst_banq').val();
     $('#select_liste_banques').val(liste);
 }
+
+function libelleCheck(element) {
+    let libelle = element.value,
+        info = 'libelle=' + libelle;
+    // console.log(element);
+
+    // Checks whether the libelle already exists
+    $.ajax({
+        type: 'POST',
+        url: 'banques/update_data_banques.php',
+        data: info,
+        success: function (data) {
+            // console.log(data);
+            if (data !== '0') {
+                $('#modal-check-libelle').modal('show');
+                element.value = '';
+                // element.focus();
+            }
+        }
+    });
+}

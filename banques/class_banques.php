@@ -9,7 +9,6 @@
     abstract class class_banques {
         protected $id_banque;
         protected $libelle_banque;
-        protected $entite_banque;
         protected $abbr_banque;
 
         protected $connection;
@@ -50,20 +49,6 @@
         public function setLibelleBanque($libelle_banque) {
             $this->libelle_banque = $libelle_banque;
         }
-
-        /**
-         * @return mixed
-         */
-        public function getEntiteBanque() {
-            return $this->entite_banque;
-        }
-
-        /**
-         * @param mixed $entite_banque
-         */
-        public function setEntiteBanque($entite_banque) {
-            $this->entite_banque = $entite_banque;
-        }
     
         /**
          * @return mixed
@@ -77,16 +62,19 @@
          */
         public function setAbbrBanque() {
             // Creation abbr banque
-            $arr = str_split($this->getLibelleBanque());
-            $i = 3;
-            $temp = $arr[0] . $arr[1] . $arr[2] . $arr[$i];
-            $this->abbr_banque = $temp;
+            if (sizeof($this->getLibelleBanque()) > 4) {
+                $arr = str_split($this->getLibelleBanque());
+                $i = 3;
+                $temp = $arr[0] . $arr[1] . $arr[2] . $arr[$i];
+                $this->abbr_banque = $temp;
+            } else
+                $this->abbr_banque = $this->getLibelleBanque();
+
         }
 
-        function setData($libelle_banque, $entite_banque) {
+        function setData($libelle_banque) {
             try {
                 $this->setLibelleBanque(stripcslashes(strtoupper($libelle_banque)));
-                $this->setEntiteBanque(stripcslashes(strtoupper($entite_banque)));
                 $this->setAbbrBanque();
 
                 return true;
@@ -97,7 +85,7 @@
 
         function getData() {
             try {
-                return $arr_banque = array($this->getIdBanque(), $this->getLibelleBanque(), $this->getEntiteBanque(), $this->getAbbrBanque());
+                return $arr_banque = array($this->getIdBanque(), $this->getLibelleBanque(), $this->getAbbrBanque());
             } catch (Exception $e) {
                 return false;
             }
@@ -129,12 +117,10 @@
             $this->id_banque = $dat . $b . sprintf($format, $id_banque);
 
             $sql = "INSERT INTO banques(id_banque, 
-                                        libelle_banque, 
-                                        entite_banque,
+                                        libelle_banque,
                                         abbr_banque)
                     VALUES ('$this->id_banque',
                             '$this->libelle_banque',
-                            '$this->entite_banque',
                             '$this->abbr_banque')";
 
 //            echo $sql;
@@ -146,8 +132,7 @@
 
         function updateData($id) {
             $sql = "UPDATE banques SET 
-                      libelle_banque = '" . $this->libelle_banque . "',
-                      entite_banque = '" . $this->entite_banque . "'
+                      libelle_banque = '" . $this->libelle_banque . "'
                     WHERE id_banque = '" . $id . "'";
 
             if ($result = mysqli_query($this->connection, $sql))

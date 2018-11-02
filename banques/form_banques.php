@@ -76,7 +76,25 @@
                                 <label for="libelle">Libellé</label>
                             </div>
                             <div class="col-8">
-                                <input type="text" class="form-control form-control-sm text-uppercase" id="libelle">
+                                <input type="text" class="form-control form-control-sm text-uppercase" id="libelle" onchange="libelleCheck(this)">
+                            </div>
+                            <div class="modal fade" id="modal-check-libelle" tabindex="-1" role="dialog">
+                                <div class="modal-dialog modal-sm" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalLabel">Banque</h5>
+                                            <button type="button" class="close" data-dismiss="modal"
+                                                    aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <div id="content-check-response">
+                                                <p class="lead">Ce libellé de banque existe déjà.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                         <div class="row my-3">

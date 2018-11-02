@@ -10,6 +10,7 @@
         protected $id_banque;
         protected $id_pays;
         protected $id_monnaie;
+        protected $entite_banque;
 
         protected $connection;
     }
@@ -61,17 +62,32 @@
         }
 
         /**
+         * @return mixed
+         */
+        public function getEntiteBanque() {
+            return $this->entite_banque;
+        }
+
+        /**
+         * @param mixed $entite_banque
+         */
+        public function setEntiteBanque($entite_banque) {
+            $this->entite_banque = $entite_banque;
+        }
+
+        /**
          * @param mixed $id_monnaie
          */
         public function setIdMonnaie($id_monnaie) {
             $this->id_monnaie = $id_monnaie;
         }
 
-        function setData($id_banque, $id_pays, $id_monnaie) {
+        function setData($id_banque, $id_pays, $id_monnaie, $entite_banque) {
             try {
                 $this->setIdBanque(stripcslashes($id_banque));
                 $this->setIdPays(stripcslashes($id_pays));
                 $this->setIdMonnaie(stripcslashes($id_monnaie));
+                $this->setEntiteBanque(strtoupper(stripcslashes($entite_banque)));
 
                 return true;
             } catch (Exception $e) {
@@ -81,14 +97,14 @@
 
         function getData() {
             try {
-                return $arr = array($this->getIdBanque(), $this->getIdBanque(), $this->getIdMonnaie());
+                return $arr = array($this->getIdBanque(), $this->getIdPays(), $this->getIdMonnaie(), $this->getEntiteBanque());
             } catch (Exception $e) {
                 return false;
             }
         }
 
         function saveData() {
-            $sql = "INSERT INTO banque_pays_monnaie(id_banque, id_pays, id_monnaie) VALUES ('$this->id_banque', '$this->id_pays', '$this->id_monnaie')";
+            $sql = "INSERT INTO banque_pays_monnaie(id_banque, id_pays, id_monnaie, entite_banque) VALUES ('$this->id_banque', '$this->id_pays', '$this->id_monnaie', '$this->entite_banque')";
 
 //            echo $sql;
             if ($result = mysqli_query($this->connection, $sql))

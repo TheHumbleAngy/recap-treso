@@ -14,12 +14,12 @@
         
 
         // First, save in banques table
-        if ($banque->setData($_POST['libelle_banque'], $_POST['entite_banque'])) {
+        if ($banque->setData($_POST['libelle_banque'])) {
             if ($banque->saveData()) {
 
                 // Second, save in banques_pays_monnaie
                 $id_banque = $banque->getIdBanque();
-                if ($banque_pays_monnaie->setData($id_banque, $_POST['pays_banque'], $_POST['monnaie_banque'])) {
+                if ($banque_pays_monnaie->setData($id_banque, $_POST['pays_banque'], $_POST['monnaie_banque'], $_POST['entite_banque'])) {
                     if ($banque_pays_monnaie->saveData()) {
                         echo '
                         <h6>Enregistrée <small class="text-muted">avec succès</small></h6>
@@ -43,5 +43,17 @@
             echo '
                     <h6>Erreur <small class="text-muted">lors de la recupération des données</small></h6>
                 ';
+        }
+    } elseif (isset($_POST['libelle'])) {
+        include 'class_banques.php';
+        $connection = mysqli_connect('localhost', 'root', '', 'recap_treso');
+
+        $banque = new banques();
+        $libelle = $_POST['libelle'];
+
+        $sql = "SELECT * FROM banques b INNER JOIN banque_pays_monnaie bpm ON b.id_banque = bpm.id_banque WHERE libelle_banque = '" . $libelle . "'";
+
+        if ($result = mysqli_query($connection, $sql)) {
+            echo $result->num_rows;
         }
     }
