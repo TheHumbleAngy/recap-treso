@@ -8,6 +8,27 @@
 
     if (isset($_POST['param'])) {
         $entite = $_POST['param'];
+
+        $connection = mysqli_connect('localhost', 'root', '', 'recap_treso');
+
+        $sql = "
+SELECT DISTINCT libelle_banque, libelle_pays, sigle_monnaie
+FROM banque_pays_monnaie bpm 
+  INNER JOIN banques b on bpm.id_banque = b.id_banque 
+  INNER JOIN pays p on bpm.id_pays = p.id_pays
+  INNER JOIN monnaies m on bpm.id_monnaie = m.id_monnaie
+WHERE entite_banque = '" . $entite . "'";
+
+        if ($resultat = $connection->query($sql)) {
+            if ($resultat->num_rows > 0) {
+                $lignes = $resultat->fetch_all(MYSQLI_ASSOC);
+                foreach ($lignes as $ligne) {
+                    $libelle_banque = stripcslashes($ligne['libelle_banque']);
+                    $libelle_pays = stripcslashes($ligne['libelle_pays']);
+                    $sigle_monnaie = stripcslashes($ligne['sigle_monnaie']);
+                }
+            }
+        }
         ?>
         <div class="bg-white p-3" style="border-radius: 10px">
             <input type="hidden" id="entite" value="<?php echo $entite; ?>">
@@ -22,15 +43,7 @@
                         <i class="fas fa-wrench fa-1x faa-wrench animated"></i>
                     </a>
                     <div class="col-10 cadre mb-4 p-4 mx-auto">
-                        <div class="form-group row">
-                            <div class="col-sm-4">
-                                <h4 class="mb-0">
-                                    <span class="badge badge-primary text-uppercase" id="entite">
-                                        #<?php echo $entite; ?>
-                                    </span>
-                                </h4>
-                            </div>
-                        </div>
+                        <h4 class="w-50 text-center py-1 mx-auto mb-2 cadre-titre"><?php echo strtoupper($libelle_banque . ' ' . $libelle_pays); ?></h4>
                         <div class="form-group row">
                             <span class="col-sm-1" title="Date de saisie">Période</span>
                             <div class="col-sm-4">
@@ -46,6 +59,13 @@
                                 <div class="input-group-append">
                                     <span class="input-group-text text-uppercase xof" id="monnaie_xof"><strong>XOF</strong></span>
                                 </div>
+                            </div>
+                            <div class="col-sm">
+                                <h4 class="mb-0">
+                                    <span class="badge badge-primary text-uppercase" id="entite">
+                                        #<?php echo $entite; ?>
+                                    </span>
+                                </h4>
                             </div>
                         </div>
                         <div class="form-group row">
@@ -73,6 +93,7 @@
                         </div>
                         <div class="d-flex justify-content-center">
                             <button type="button" class="btn btn-outline-primary w-25" id="consluter"
+                                    title="Cliquez ici pour voir la liste des opérations..."
                                     onclick="consultationOperation();">
                                 Consulter <i class="fas fa-search ml-1"></i>
                             </button>

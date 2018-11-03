@@ -43,7 +43,7 @@
                             $abbr_pays = stripcslashes($ligne['abbr_pays']);
 
                             if (strlen($libelle) < 4)
-                                $abbr_banque = $libelle;
+                                $abbr_banque_ = $libelle;
                             ?>
                             <li class="nav-item dropdown" id="<?php echo 'nav_' . $libelle . '_' . $pays; ?>">
 

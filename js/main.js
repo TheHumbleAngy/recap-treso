@@ -290,6 +290,19 @@ function consultationOperation() {
 
     choix = $("[name='rdo_nature']:checked").val();
 
+    if (debut === '' && fin === '') {
+        debut = '2018-01-01';
+        fin = '2018-12-31';
+    }
+    else if (debut === '' && fin !== '')
+        debut = '2018-01-01';
+    else if (debut !== '' && fin === '')
+        fin = '2018-12-31';
+
+    if (choix === undefined)
+        choix = 'simple';
+
+    console.log(debut + ' ' + fin + ' ' + choix);
     $.ajax({
         type: 'POST',
         url: 'operations/ajax_consult_ope.php',
@@ -319,7 +332,7 @@ function consultationOperation() {
 
 }*/
 
-$('#param_entite').change(function () {
+/*$('#param_entite').change(function () {
     let param = $(this).val();
 
     $.ajax({
@@ -332,7 +345,7 @@ $('#param_entite').change(function () {
             $('#details').html(data);
         }
     })
-});
+});*/
 
 $('#proceder').click(function () {
     let param = $('#param_entite').val();

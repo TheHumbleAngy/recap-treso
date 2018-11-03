@@ -11,11 +11,62 @@
         $entite = $_POST['entite'];
         $choix = $_POST['choix'];
 
-        $r_sql_1 = "SELECT SUM(montant_xof_operation) AS recette_solde_avant FROM operations AS o INNER JOIN banques AS b ON o.id_banque = b.id_banque WHERE b.entite_banque = '$entite' AND o.date_saisie_operation < '$debut' AND o.id_type_operation = 1";
-        $r_sql_2 = "SELECT SUM(montant_xof_operation) AS recette_solde_apres FROM operations AS o INNER JOIN banques AS b ON o.id_banque = b.id_banque WHERE b.entite_banque = '$entite' AND o.date_saisie_operation <= '$fin' AND o.id_type_operation = 1";
+        // Recup des info de la banque
+        $connection = mysqli_connect('localhost', 'root', '', 'recap_treso');
+        $sql = "SELECT * FROM banque_pays_monnaie WHERE entite_banque = '" . $entite . "'";
+        $resultat = mysqli_query($connection, $sql);
+        if ($resultat->num_rows > 0) {
+            $lignes = $resultat->fetch_all(MYSQLI_ASSOC);
+            foreach ($lignes as $ligne) {
+                $id_banque = $ligne['id_banque'];
+                $id_pays = $ligne['id_pays'];
+                $id_monnaie = $ligne['id_monnaie'];
+            }
+        }
 
-        $d_sql_1 = "SELECT SUM(montant_xof_operation) AS depense_solde_avant FROM operations AS o INNER JOIN banques AS b ON o.id_banque = b.id_banque WHERE b.entite_banque = '$entite' AND o.date_saisie_operation < '$debut' AND o.id_type_operation = 0";
-        $d_sql_2 = "SELECT SUM(montant_xof_operation) AS depense_solde_apres FROM operations AS o INNER JOIN banques AS b ON o.id_banque = b.id_banque WHERE b.entite_banque = '$entite' AND o.date_saisie_operation <= '$fin' AND o.id_type_operation = 0";
+        $r_sql_1 = "
+SELECT SUM(montant_xof_operation) AS recette_solde_avant 
+FROM operations AS o 
+  INNER JOIN banque_pays_monnaie AS b ON o.id_banque = b.id_banque 
+WHERE b.entite_banque = '$entite' 
+  AND o.id_banque = '$id_banque'
+  AND o.id_pays = '$id_pays'
+  AND o.id_monnaie = '$id_monnaie'
+  AND o.date_saisie_operation < '$debut' 
+  AND o.id_type_operation = 1";
+
+        $r_sql_2 = "
+SELECT SUM(montant_xof_operation) AS recette_solde_apres 
+FROM operations AS o 
+  INNER JOIN banque_pays_monnaie AS b ON o.id_banque = b.id_banque 
+WHERE b.entite_banque = '$entite'  
+  AND o.id_banque = '$id_banque'
+  AND o.id_pays = '$id_pays'
+  AND o.id_monnaie = '$id_monnaie'
+  AND o.date_saisie_operation <= '$fin' 
+  AND o.id_type_operation = 1";
+
+        $d_sql_1 = "
+SELECT SUM(montant_xof_operation) AS depense_solde_avant 
+FROM operations AS o 
+  INNER JOIN banque_pays_monnaie AS b ON o.id_banque = b.id_banque 
+WHERE b.entite_banque = '$entite'  
+  AND o.id_banque = '$id_banque'
+  AND o.id_pays = '$id_pays'
+  AND o.id_monnaie = '$id_monnaie'
+  AND o.date_saisie_operation < '$debut' 
+  AND o.id_type_operation = 0";
+
+        $d_sql_2 = "
+SELECT SUM(montant_xof_operation) AS depense_solde_apres 
+FROM operations AS o 
+  INNER JOIN banque_pays_monnaie AS b ON o.id_banque = b.id_banque 
+WHERE b.entite_banque = '$entite'  
+  AND o.id_banque = '$id_banque'
+  AND o.id_pays = '$id_pays'
+  AND o.id_monnaie = '$id_monnaie'
+  AND o.date_saisie_operation <= '$fin' 
+  AND o.id_type_operation = 0";
 
         $connection = mysqli_connect('localhost', 'root', '', 'recap_treso');
         if ($connection->connect_error) {
@@ -71,13 +122,15 @@
         echo '<input type="hidden" id="solde_apr" value="'. number_format(floatval($solde_apr), 2, ',', ' ') . '">';
 
         $sql = "
-SELECT 
-  * 
+SELECT * 
 FROM operations o 
-  INNER JOIN banques b ON o.id_banque = b.id_banque 
+  INNER JOIN banque_pays_monnaie b ON o.id_banque = b.id_banque 
 WHERE 
-  b.entite_banque = '$entite' AND 
-  o.date_saisie_operation BETWEEN '$debut' AND '$fin' 
+  b.entite_banque = '$entite' 
+  AND o.id_banque = '$id_banque'
+  AND o.id_pays = '$id_pays'
+  AND o.id_monnaie = '$id_monnaie' 
+  AND o.date_saisie_operation BETWEEN '$debut' AND '$fin' 
   ORDER BY o.date_saisie_operation";
 
         $resultat = mysqli_query($connection, $sql);
@@ -86,17 +139,17 @@ WHERE
 
             if ($choix == "simple") {
                 echo '
-            <table class="table table-striped fixed_header" style="font-size: small">
-            <thead class="gradient">
-            <tr>
+            <table class="table table-striped ncare" style="font-size: small">
+            <thead class="table-sticky-top">
+            <tr class="bg-primary text-light">
                 <th>COMPTE</th>
                 <th>LIBELLE</th>
                 <th title="Date de saisie">SAISIE LE</th>
                 <th title="Date de l\'opération">DATE OP.</th>
                 <th>OPERATION</th>
-                <th class="text-right">RECETTE</th>
-                <th class="text-right">DEPENSE</th>
-                <th class="" title="En attente">STATUT<br>(En Att.)</th>
+                <th class="col-1 text-right">RECETTE</th>
+                <th class="col-1 text-right">DEPENSE</th>
+                <th class="" title="En attente">STATUT</th>
             </tr>
             </thead>
             <tbody>
@@ -134,7 +187,7 @@ WHERE
                     if ($type_operation == 0) {
                         echo '
                     <td></td>
-                    <td title="Dépense de..." class="text-right">' . $xof . '</td>               
+                    <td title="Dépense de..." class="text-right text-danger" style="font-weight: bolder">' . $xof . '</td>               
                 ';
                         // En attente
                         if ($statut == 1) {
@@ -152,7 +205,7 @@ WHERE
                         }
                     } elseif ($type_operation == 1) {
                         echo '
-                    <td title="Recette de..." class="text-right">' . $xof . '</td>
+                    <td title="Recette de..." class="text-right text-success text" style="font-weight: bolder">' . $xof . '</td>
                     <td></td>            
                 ';
                         // En attente
@@ -181,25 +234,25 @@ WHERE
             }
             elseif ($choix == "detaillee") {
                 echo '
-            <table class="table table-striped" style="font-size: small">
-            <thead class="sticky-top">
+            <table class="table table-striped ncare" style="font-size: small">
+            <thead class="table-sticky-top">
             <tr>
-                <th class="gradient" rowspan="2">COMPTES</th>
-                <th class="gradient" rowspan="2">LIBELLES</th>
-                <th class="gradient" rowspan="2" title="Date de saisie">SAISIE LE</th>
-                <th class="gradient" rowspan="2" title="Date de l\'opération">DATE OP.</th>
-                <th class="gradient" rowspan="2">OPERATIONS</th>
-                <th class="gradient" colspan="3">RECETTES</th>
-                <th class="gradient" colspan="3">DEPENSES</th>
-                <th class="gradient" rowspan="2" title="Observations">OBS.</th>
+                <th class="bg-primary text-light" rowspan="2">COMPTES</th>
+                <th class="bg-primary text-light" rowspan="2">LIBELLES</th>
+                <th class="bg-primary text-light" rowspan="2" title="Date de saisie">SAISIE LE</th>
+                <th class="bg-primary text-light" rowspan="2" title="Date de l\'opération">DATE OP.</th>
+                <th class="bg-primary text-light" rowspan="2">OPERATIONS</th>
+                <th class="bg-primary text-light" colspan="3">RECETTES</th>
+                <th class="bg-primary text-light" colspan="3">DEPENSES</th>
+                <th class="bg-primary text-light" rowspan="2" title="Observations">OBS.</th>
             </tr>
             <tr class="">
-                <th class="gradient-in">Devise</th>
-                <th class="gradient-in">Cours</th>
-                <th class="gradient-in">XOF</th>
-                <th class="gradient-out">Devise</th>
-                <th class="gradient-out">Cours</th>
-                <th class="gradient-out">XOF</th>
+                <th class="bg-success text-light col-1 text-right" title="Montant en devise">Devise</th>
+                <th class="bg-success text-light col-1 text-right">Cours</th>
+                <th class="bg-success text-light col-1 text-right" title="Montant en FCFA">XOF</th>
+                <th class="bg-danger text-light col-1 text-right" title="Montant en devise">Devise</th>
+                <th class="bg-danger text-light col-1 text-right">Cours</th>
+                <th class="bg-danger text-light col-1 text-right" title="Montant en FCFA">XOF</th>
             </tr>
             </thead>
             <tbody>
@@ -217,8 +270,8 @@ WHERE
                     $observation = stripslashes($ligne['observation_operation']);
 
                     $cours = stripslashes($ligne['cours_operation']);
-                    $cours = sprintf("%01.2f", $cours);
-                    $cours = number_format($cours, 2, ',', ' ');
+                    $cours = sprintf("%01.4f", $cours);
+                    $cours = number_format($cours, 4, ',', ' ');
 
                     $devise = stripslashes($ligne['montant_operation']);
                     $devise = sprintf("%01.2f", $devise);
@@ -241,15 +294,15 @@ WHERE
                     <td></td>
                     <td></td>
                     <td></td>
-                    <td class="text-right">' . $devise . '</td>
-                    <td class="text-right">' . $cours . '</td>
-                    <td class="text-right" title="Dépense de...">' . $xof . '</td>               
+                    <td class="text-right text-danger">' . $devise . '</td>
+                    <td class="text-right text-danger">' . $cours . '</td>
+                    <td class="text-right text-danger" style="font-weight: bolder" title="Dépense de...">' . $xof . '</td>               
                 ';
                     } elseif ($type_operation == 1) {
                         echo '
-                    <td class="text-right">' . $devise . '</td>
-                    <td class="text-right">' . $cours . '</td>
-                    <td class="text-right" title="Recette de...">' . $xof . '</td>
+                    <td class="text-right text-success">' . $devise . '</td>
+                    <td class="text-right text-success">' . $cours . '</td>
+                    <td class="text-right text-success" style="font-weight: bolder" title="Recette de...">' . $xof . '</td>
                     <td></td>
                     <td></td>
                     <td></td>               

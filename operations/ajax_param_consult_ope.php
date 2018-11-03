@@ -34,7 +34,7 @@ WHERE entite_banque = '$param'";
             echo '
             <div class="row my-3">
                 <div class="col-4">
-                    <label for="banque">Banque</label>
+                    <label for="banque">Libellé</label>
                 </div>
                 <div class="col-8">
                     <input type="text" class="form-control form-control-sm text-uppercase" id="banque" readonly value="' . $libelle . '">

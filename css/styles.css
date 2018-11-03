@@ -79,6 +79,19 @@ h2.ncare {
 
 #wrapper_consultation {
     width: 40vw;
+    height: 200px;
+    background-color: #fff;
+    border-radius: 10px;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: 30vh auto;
+}
+
+#wrapper_reporting {
+    width: 40vw;
     height: 350px;
     background-color: #fff;
     border-radius: 10px;
@@ -133,6 +146,10 @@ h2.ncare {
 .cadre {
     border: #DEE2E6 solid 1px;
     border-radius: 4px;
+}
+
+.cadre-titre {
+    color: #1A74B8; border: solid 2px #1A74B8; border-radius: 4px;
 }
 
 .insetshadow {
@@ -194,4 +211,9 @@ input.ncare {
 
 .gradient-out {
     background: linear-gradient(#ff4456, #fff) no-repeat;
+}
+
+.table-sticky-top {
+    position: sticky;
+    top: 65px;
 }

@@ -6,7 +6,7 @@
      * Time: 11:41 PM
      */
 ?>
-<div id="wrapper_consultation" class="shadow gradient">
+<div id="wrapper_reporting" class="shadow gradient">
     <a class="retour mx-2" role="button" data-toggle="tooltip" data-placement="right"
        title="Accueil" href="index.php">
         <i class="fas fa-home fa-1-5x"></i>
