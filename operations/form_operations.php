@@ -39,7 +39,11 @@
                             $libelle = stripcslashes($ligne['libelle_banque']);
                             $pays = stripcslashes($ligne['libelle_pays']);
                             $abbr_banque = stripcslashes($ligne['abbr_banque']);
+                            $abbr_banque_ = $abbr_banque . ".";
                             $abbr_pays = stripcslashes($ligne['abbr_pays']);
+
+                            if (strlen($libelle) < 4)
+                                $abbr_banque = $libelle;
                             ?>
                             <li class="nav-item dropdown" id="<?php echo 'nav_' . $libelle . '_' . $pays; ?>">
 
@@ -54,7 +58,7 @@
                                    title="<?php echo strtoupper($libelle). " " . strtoupper($pays); ?>"
                                    aria-expanded="false">
 
-                                    <span class="text-uppercase"><?php echo strtoupper($abbr_banque) . ". " . strtoupper($abbr_pays) . "."; ?></span>
+                                    <span class="text-uppercase"><?php echo strtoupper($abbr_banque_) . " " . strtoupper($abbr_pays) . "."; ?></span>
                                 </a>
                                 <div class="dropdown-menu">
                                     <?php

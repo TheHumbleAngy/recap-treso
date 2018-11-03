@@ -19,7 +19,7 @@
 
         // Recuperation de l'entité
         $entite = "";
-        $sql = "SELECT entite_banque FROM banques WHERE id_banque = '$id_banque'";
+        $sql = "SELECT entite_banque FROM banque_pays_monnaie WHERE id_banque = '$id_banque' AND id_pays = '" . $id_pays . "' AND id_monnaie = '" . $id_monnaie . "'";
         $resultat = mysqli_query($connection, $sql);
         if ($resultat->num_rows > 0) {
             $lignes = $resultat->fetch_all(MYSQLI_ASSOC);
@@ -33,15 +33,9 @@
         $recette_devise = 0;
         $sql_recettes = "
 SELECT SUM(montant_xof_operation) AS recette_xof, SUM(montant_operation) AS recette_devise
-FROM operations AS o
-  INNER JOIN type_operation AS to2
-    ON o.id_type_operation = to2.id_type_operation
-  INNER JOIN banques b 
-    ON o.id_banque = b.id_banque
-  INNER JOIN banque_pays_monnaie m 
-    ON b.id_banque = m.id_banque
+FROM operations
 WHERE
-  to2.id_type_operation = 1 AND b.id_banque = '$id_banque' AND id_pays = '$id_pays' AND id_monnaie = '$id_monnaie'
+  id_type_operation = 1 AND id_banque = '$id_banque' AND id_pays = '$id_pays' AND id_monnaie = '$id_monnaie'
         ";
 
         $resultat = mysqli_query($connection, $sql_recettes);
@@ -63,15 +57,9 @@ WHERE
         $depense_devise = 0;
         $sql_depenses = "
 SELECT SUM(montant_xof_operation) AS depense_xof, SUM(montant_operation) AS depense_devise
-FROM operations AS o
-  INNER JOIN type_operation AS to2
-    ON o.id_type_operation = to2.id_type_operation
-  INNER JOIN banques b 
-    ON o.id_banque = b.id_banque
-  INNER JOIN banque_pays_monnaie m 
-    ON b.id_banque = m.id_banque
+FROM operations
 WHERE
-  to2.id_type_operation = 0 AND b.id_banque = '$id_banque' AND id_pays = '$id_pays' AND id_monnaie = '$id_monnaie'
+  id_type_operation = 0 AND id_banque = '$id_banque' AND id_pays = '$id_pays' AND id_monnaie = '$id_monnaie'
         ";
 
         $resultat = mysqli_query($connection, $sql_depenses);

@@ -241,41 +241,46 @@ function ajoutOperation() {
         }
     }
 
-    let json_compte_op = JSON.stringify(compte_op),
-        json_libelle_op = JSON.stringify(libelle_op),
-        json_date_op = JSON.stringify(date_op),
-        json_designation_op = JSON.stringify(designation_op),
-        json_cours_op = JSON.stringify(cours_op),
-        json_devise_op = JSON.stringify(devise_op),
-        json_xof_op = JSON.stringify(xof_op),
-        json_statut_op = JSON.stringify(statut),
-        json_observation_op = JSON.stringify(observation_op),
-        info = "nbr=" + k +
-            "&id_banque=" + id_banque +
-            "&id_type_operation=" + nature +
-            "&compte_operation=" + json_compte_op +
-            "&tag_operation=" + json_libelle_op +
-            "&date_saisie_operation=" + datesaisie_op +
-            "&date_operation=" + json_date_op +
-            "&designation_operation=" + json_designation_op +
-            "&cours_operation=" + json_cours_op +
-            "&montant_operation=" + json_devise_op +
-            "&montant_xof_operation=" + json_xof_op +
-            "&statut_operation=" + json_statut_op +
-            "&observation_operation=" + json_observation_op,
-        action = "ajout_operation";
-    $.ajax({
-        type: 'POST',
-        url: 'operations/update_data_operations.php?action=' + action + '&monnaie=' + monnaie + '&pays=' + id_pays,
-        data: info,
-        success: function (data) {
-            $('#content-response').html(data);
-            $('#feedback').empty();
-            $('#modal-response').modal('show');
-            valider.prop('disabled', true);
-            selectionBanque();
-        }
-    });
+    if (k > 0) {
+        let json_compte_op = JSON.stringify(compte_op),
+            json_libelle_op = JSON.stringify(libelle_op),
+            json_date_op = JSON.stringify(date_op),
+            json_designation_op = JSON.stringify(designation_op),
+            json_cours_op = JSON.stringify(cours_op),
+            json_devise_op = JSON.stringify(devise_op),
+            json_xof_op = JSON.stringify(xof_op),
+            json_statut_op = JSON.stringify(statut),
+            json_observation_op = JSON.stringify(observation_op),
+            info = "nbr=" + k +
+                "&id_banque=" + id_banque +
+                "&id_type_operation=" + nature +
+                "&compte_operation=" + json_compte_op +
+                "&tag_operation=" + json_libelle_op +
+                "&date_saisie_operation=" + datesaisie_op +
+                "&date_operation=" + json_date_op +
+                "&designation_operation=" + json_designation_op +
+                "&cours_operation=" + json_cours_op +
+                "&montant_operation=" + json_devise_op +
+                "&montant_xof_operation=" + json_xof_op +
+                "&statut_operation=" + json_statut_op +
+                "&observation_operation=" + json_observation_op+
+                "&monnaie=" + monnaie +
+                "&pays=" + id_pays,
+            action = "ajout_operation";
+        $.ajax({
+            type: 'POST',
+            url: 'operations/update_data_operations.php?action=' + action,
+            data: info,
+            success: function (data) {
+                console.log(data);
+                $('#content-response').html(data);
+                $('#feedback').empty();
+                $('#modal-response').modal('show');
+                valider.prop('disabled', true);
+                //selectionBanque();
+            }
+        });
+    }
 }
 
 function consultationOperation() {
