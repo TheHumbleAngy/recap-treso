@@ -34,22 +34,23 @@
                     <select id="lst_banq" class="custom-select" multiple onchange="assignListeBanque()">
                         <?php
                             $sql = "
-SELECT DISTINCT libelle_banque, libelle_pays
+SELECT DISTINCT libelle_banque, b.id_banque, libelle_pays, p.id_pays
 FROM banques b 
   INNER JOIN banque_pays_monnaie bpm ON b.id_banque = bpm.id_banque
   INNER JOIN monnaies m on bpm.id_monnaie = m.id_monnaie
   INNER JOIN pays p ON bpm.id_pays = p.id_pays
-  ORDER BY libelle_banque";
+ORDER BY libelle_banque, libelle_pays";
 
                             if ($resultat = $connection->query($sql)) {
                                 if ($resultat->num_rows > 0) {
                                     $lignes = $resultat->fetch_all(MYSQLI_ASSOC);
                                     foreach ($lignes as $ligne) {
                                         $libelle_banque = stripcslashes($ligne['libelle_banque']);
-                                        $monnaie = stripcslashes($ligne['sigle_monnaie']);
                                         $libelle_pays = stripcslashes($ligne['libelle_pays']);
+                                        $id_banque = stripcslashes($ligne['id_banque']);
+                                        $id_pays = stripcslashes($ligne['id_pays']);
                                         ?>
-                                        <option value="<?php echo $libelle_banque . '_' . $libelle_pays . '_' . $monnaie; ?>"><?php echo strtoupper($libelle_banque . ' ' . $libelle_pays . ' ' . $monnaie); ?></option>
+                                        <option value="<?php echo $libelle_banque . '_' . $libelle_pays . '_' . $id_banque . '_' . $id_pays; ?>"><?php echo strtoupper($libelle_banque . ' ' . $libelle_pays); ?></option>
                                         <?php
                                     }
                                 }

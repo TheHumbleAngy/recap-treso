@@ -26,10 +26,11 @@
 
             if (isset($_POST['rdo_nature']) && $_POST['rdo_nature'] == "toutes") {
 
+                // Recup de chaque banque-pays
                 $sql_grp_banq = "
 SELECT DISTINCT
-  libelle_banque,
-  libelle_pays
+  libelle_banque, bpm.id_banque,
+  libelle_pays, bpm.id_pays
 FROM banques b
   INNER JOIN banque_pays_monnaie bpm ON b.id_banque = bpm.id_banque
   INNER JOIN monnaies m on bpm.id_monnaie = m.id_monnaie
@@ -37,11 +38,15 @@ FROM banques b
 ORDER BY libelle_banque";
 
                 $libelle_banque = array();
+                $id_banque = array();
                 $libelle_pays = array();
+                $id_pays = array();
                 $monnaie = array();
+                $id_monnaie = array();
+                $entite = array();
                 $n = 0;
 
-                echo "<h4 class='w-75 text-center py-2 mx-auto cadre-titre'>RECAP TRESORERIE du <span class='badge badge-primary'>" . $debut_. "</span> au <span class='badge badge-primary'>" . $fin_. "</span></h4>";
+                echo "<h4 class='w-75 text-center py-2 mx-auto cadre-titre'>RECAP TRESORERIE du <strong>" . $debut_. "</strong> au <strong>" . $fin_. "</strong></h4>";
                 if ($resultat = mysqli_query($connection, $sql_grp_banq)) {
                     if ($resultat->num_rows > 0) {
                         $lignes =$resultat->fetch_all(MYSQLI_ASSOC);
@@ -52,18 +57,18 @@ ORDER BY libelle_banque";
 
                         foreach ($lignes as $ligne) { // banque-pays
                             $libelle_banque[$n] = stripcslashes($ligne['libelle_banque']);
+                            $id_banque[$n] = stripcslashes($ligne['id_banque']);
                             $libelle_pays[$n] = stripcslashes($ligne['libelle_pays']);
+                            $id_pays[$n] = stripcslashes($ligne['id_pays']);
 
-                            $qry_libelle_banque = addslashes($libelle_banque[$n]);
-                            $qry_libelle_pays = addslashes($libelle_pays[$n]);
-
+                            // Recup des monnaies de chaque banque-pays
                             $sql_grp_curr = "
-SELECT DISTINCT sigle_monnaie
-FROM banques b
-  INNER JOIN banque_pays_monnaie bpm ON b.id_banque = bpm.id_banque
-  INNER JOIN monnaies m on bpm.id_monnaie = m.id_monnaie
+SELECT m.id_monnaie, sigle_monnaie, entite_banque
+FROM monnaies m
+  INNER JOIN banque_pays_monnaie bpm ON m.id_monnaie = bpm.id_monnaie
+  INNER JOIN banques b ON bpm.id_banque = b.id_banque
   INNER JOIN pays p ON bpm.id_pays = p.id_pays
-WHERE libelle_banque = '$qry_libelle_banque' AND libelle_pays = '$qry_libelle_pays'
+WHERE b.id_banque = '$id_banque[$n]' AND p.id_pays = '$id_pays[$n]'
 ORDER BY sigle_monnaie";
 
                             $m = 0;
@@ -104,6 +109,8 @@ ORDER BY sigle_monnaie";
                                     foreach ($rows as $row) { // banque-pays-monnaie
                                         
                                         $monnaie[$m] = stripcslashes($row['sigle_monnaie']);
+                                        $id_monnaie[$m] = stripcslashes($row['id_monnaie']);
+                                        $entite[$m] = stripcslashes($row['entite_banque']);
 
                                         $sql_rec_prec = "
 SELECT SUM(montant_xof_operation) AS rec_prec
@@ -112,8 +119,8 @@ FROM operations o
   INNER JOIN banques b ON bpm.id_banque = b.id_banque
   INNER JOIN pays p ON bpm.id_pays = p.id_pays
   INNER JOIN monnaies m on bpm.id_monnaie = m.id_monnaie
-WHERE o.id_type_operation = 1 AND libelle_banque = '$qry_libelle_banque' AND libelle_pays = '$qry_libelle_pays'
-      AND sigle_monnaie = '$monnaie[$m]' AND date_saisie_operation < '$debut'";
+WHERE o.id_type_operation = 1 AND o.id_banque = '$id_banque[$n]' AND o.id_pays = '$id_pays[$n]' AND entite_banque = '$entite[$m]'
+      AND o.id_monnaie = '$id_monnaie[$m]' AND date_saisie_operation < '$debut'";
 
                                         $sql_dep_prec = "
 SELECT SUM(montant_xof_operation) AS dep_prec
@@ -122,18 +129,18 @@ FROM operations o
   INNER JOIN banques b ON bpm.id_banque = b.id_banque
   INNER JOIN pays p ON bpm.id_pays = p.id_pays
   INNER JOIN monnaies m on bpm.id_monnaie = m.id_monnaie
-WHERE o.id_type_operation = 0 AND libelle_banque = '$qry_libelle_banque' AND libelle_pays = '$qry_libelle_pays'
-      AND sigle_monnaie = '$monnaie[$m]' AND date_saisie_operation < '$debut'";
+WHERE o.id_type_operation = 0 AND o.id_banque = '$id_banque[$n]' AND o.id_pays = '$id_pays[$n]' AND entite_banque = '$entite[$m]'
+      AND o.id_monnaie = '$id_monnaie[$m]' AND date_saisie_operation < '$debut'";
 
-                                        echo $sql_rec_apr = "
+                                        $sql_rec_apr = "
 SELECT SUM(montant_xof_operation) AS rec_apr
 FROM operations o
   INNER JOIN banque_pays_monnaie bpm ON o.id_banque = bpm.id_banque
   INNER JOIN banques b ON bpm.id_banque = b.id_banque
   INNER JOIN pays p ON bpm.id_pays = p.id_pays
   INNER JOIN monnaies m on bpm.id_monnaie = m.id_monnaie
-WHERE o.id_type_operation = 1 AND libelle_banque = '$qry_libelle_banque' AND libelle_pays = '$qry_libelle_pays'
-      AND sigle_monnaie = '$monnaie[$m]' AND date_saisie_operation >= '$debut' AND date_saisie_operation <= '$fin'";
+WHERE o.id_type_operation = 1 AND o.id_banque = '$id_banque[$n]' AND o.id_pays = '$id_pays[$n]' AND entite_banque = '$entite[$m]'
+      AND o.id_monnaie = '$id_monnaie[$m]' AND date_saisie_operation BETWEEN '$debut' AND '$fin'";
 
                                         $sql_dep_apr = "
 SELECT SUM(montant_xof_operation) AS dep_apr
@@ -142,8 +149,8 @@ FROM operations o
   INNER JOIN banques b ON bpm.id_banque = b.id_banque
   INNER JOIN pays p ON bpm.id_pays = p.id_pays
   INNER JOIN monnaies m on bpm.id_monnaie = m.id_monnaie
-WHERE o.id_type_operation = 0 AND libelle_banque = '$qry_libelle_banque' AND libelle_pays = '$qry_libelle_pays'
-      AND sigle_monnaie = '$monnaie[$m]' AND date_saisie_operation >= '$debut' AND date_saisie_operation <= '$fin'";
+WHERE o.id_type_operation = 0 AND o.id_banque = '$id_banque[$n]' AND o.id_pays = '$id_pays[$n]' AND entite_banque = '$entite[$m]'
+      AND o.id_monnaie = '$id_monnaie[$m]' AND date_saisie_operation BETWEEN '$debut' AND '$fin'";
 
                                         if ($resultat = mysqli_query($connection, $sql_rec_prec)) {
                                             if ($resultat->num_rows > 0) {
@@ -192,13 +199,6 @@ WHERE o.id_type_operation = 0 AND libelle_banque = '$qry_libelle_banque' AND lib
                                         $solde_prec = $rec_prec - $dep_prec;
                                         $solde_final = $solde_prec + $rec_apr - $dep_apr;
 
-                                        $total_solde_prec += $solde_prec;
-                                        $total_rec_apr += $rec_apr;
-                                        $total_dep_apr += $dep_apr;
-                                        $total_solde_final += $solde_final;
-                                //echo "Recette prec: " . $rec_prec . " Dépense prec: " . $dep_prec . " Recette apr: " . $rec_apr . " Depense apr: " . $dep_apr . "<br>";
-                                //echo "Solde prec: " . $solde_prec . " Entrées: " . $rec_apr . " Sortie: " . $dep_apr . " Solde final: " . $solde_final . "<br><br>";
-
                                         echo '
 <tr>
     <td class="montant pl-4">' . $monnaie[$m] . '</td>
@@ -211,6 +211,11 @@ WHERE o.id_type_operation = 0 AND libelle_banque = '$qry_libelle_banque' AND lib
     <td class="montant text-right"></td>
 </tr>
                                 ';
+                                        $total_solde_prec += $solde_prec;
+                                        $total_rec_apr += $rec_apr;
+                                        $total_dep_apr += $dep_apr;
+                                        $total_solde_final += $solde_final;
+
                                         $m++;
                                     }
                                 }
@@ -227,15 +232,16 @@ WHERE o.id_type_operation = 0 AND libelle_banque = '$qry_libelle_banque' AND lib
     <td class="montant text-right">' . number_format($total_solde_final , 2, ",", " ") . '</td>
     <td class="montant text-right"></td>
 </tr>';
+                            $total_general_solde_prec += $total_solde_prec;
+                            $total_general_rec_apr += $total_rec_apr;
+                            $total_general_dep_apr += $total_dep_apr;
+                            $total_general_solde_final += $total_solde_final;
+
                             $n++;
                         }
                         echo '
     </tbody>
 </table>';
-                        $total_general_solde_prec += $total_solde_prec;
-                        $total_general_rec_apr += $total_rec_apr;
-                        $total_general_dep_apr += $total_dep_apr;
-                        $total_general_solde_final += $total_solde_final;
 
                         echo '
 <table class="table table-sm my-4 ncare">
@@ -270,10 +276,14 @@ WHERE o.id_type_operation = 0 AND libelle_banque = '$qry_libelle_banque' AND lib
             }
             elseif (isset($_POST['rdo_nature']) && $_POST['rdo_nature'] == "selection" && isset($_POST['liste'])) {
                 $libelle_banque = array();
+                $id_banque = array();
                 $libelle_pays = array();
+                $id_pays = array();
                 $monnaie = array();
+                $id_monnaie = array();
+                $entite = array();
 
-                echo "<h4 class='w-75 text-center py-2 mx-auto' style='color: #1A74B8; border: solid 2px #1A74B8; border-radius: 4px'>RECAP TRESORERIE du <span class='badge badge-primary'>" . $debut_. "</span> au <span class='badge badge-primary'>" . $fin_. "</span></h4>";
+                echo "<h4 class='w-75 text-center py-2 mx-auto' style='color: #1A74B8; border: solid 2px #1A74B8; border-radius: 4px'>RECAP TRESORERIE du <strong>" . $debut_. "</strong> au <strong>" . $fin_. "</strong></h4>";
                 $total_general_solde_prec = 0;
                 $total_general_rec_apr = 0;
                 $total_general_dep_apr = 0;
@@ -287,17 +297,16 @@ WHERE o.id_type_operation = 0 AND libelle_banque = '$qry_libelle_banque' AND lib
                     $tab = explode('_', $item);
                     $libelle_banque[$n] = $tab[0];
                     $libelle_pays[$n] = $tab[1];
-
-                    $qry_libelle_banque = addslashes($tab[0]);
-                    $qry_libelle_pays = addslashes($tab[1]);
+                    $id_banque[$n] = $tab[2];
+                    $id_pays[$n] = $tab[3];
 
                     $sql_grp_curr = "
-SELECT DISTINCT sigle_monnaie
+SELECT m.id_monnaie, sigle_monnaie, entite_banque
 FROM banques b
   INNER JOIN banque_pays_monnaie bpm ON b.id_banque = bpm.id_banque
   INNER JOIN monnaies m on bpm.id_monnaie = m.id_monnaie
   INNER JOIN pays p ON bpm.id_pays = p.id_pays
-WHERE libelle_banque = '$qry_libelle_banque' AND libelle_pays = '$qry_libelle_pays'
+WHERE b.id_banque = '$id_banque[$n]' AND p.id_pays = '$id_pays[$n]'
 ORDER BY sigle_monnaie";
 
                     $m = 0;
@@ -336,8 +345,10 @@ ORDER BY sigle_monnaie";
                             $total_solde_final = 0;
 
                             foreach ($rows as $row) { // banque-pays-monnaie
-                                
+
                                 $monnaie[$m] = stripcslashes($row['sigle_monnaie']);
+                                $id_monnaie[$m] = stripcslashes($row['id_monnaie']);
+                                $entite[$m] = stripcslashes($row['entite_banque']);
 
                                 $sql_rec_prec = "
 SELECT SUM(montant_xof_operation) AS rec_prec
@@ -346,8 +357,8 @@ FROM operations o
   INNER JOIN banque_pays_monnaie bpm ON b.id_banque = bpm.id_banque
   INNER JOIN pays p ON bpm.id_pays = p.id_pays
   INNER JOIN monnaies m on bpm.id_monnaie = m.id_monnaie
-WHERE o.id_type_operation = 1 AND libelle_banque = '$qry_libelle_banque' AND libelle_pays = '$qry_libelle_pays'
-      AND sigle_monnaie = '$monnaie[$m]' AND date_saisie_operation < '$debut'";
+WHERE o.id_type_operation = 1 AND o.id_banque = '$id_banque[$n]' AND o.id_pays = '$id_pays[$n]' AND entite_banque = '$entite[$m]'
+      AND o.id_monnaie = '$id_monnaie[$m]' AND date_saisie_operation < '$debut'";
 
                                 $sql_dep_prec = "
 SELECT SUM(montant_xof_operation) AS dep_prec
@@ -356,8 +367,8 @@ FROM operations o
   INNER JOIN banque_pays_monnaie bpm ON b.id_banque = bpm.id_banque
   INNER JOIN pays p ON bpm.id_pays = p.id_pays
   INNER JOIN monnaies m on bpm.id_monnaie = m.id_monnaie
-WHERE o.id_type_operation = 0 AND libelle_banque = '$qry_libelle_banque' AND libelle_pays = '$qry_libelle_pays'
-      AND sigle_monnaie = '$monnaie[$m]' AND date_saisie_operation < '$debut'";
+WHERE o.id_type_operation = 0 AND o.id_banque = '$id_banque[$n]' AND o.id_pays = '$id_pays[$n]' AND entite_banque = '$entite[$m]'
+      AND o.id_monnaie = '$id_monnaie[$m]' AND date_saisie_operation < '$debut'";
 
                                 $sql_rec_apr = "
 SELECT SUM(montant_xof_operation) AS rec_apr
@@ -366,9 +377,8 @@ FROM operations o
   INNER JOIN banque_pays_monnaie bpm ON b.id_banque = bpm.id_banque
   INNER JOIN pays p ON bpm.id_pays = p.id_pays
   INNER JOIN monnaies m on bpm.id_monnaie = m.id_monnaie
-WHERE o.id_type_operation = 1 AND libelle_banque = '$qry_libelle_banque' AND libelle_pays = '$qry_libelle_pays'
-      AND sigle_monnaie = '$monnaie[$m]' AND date_saisie_operation >= '$debut' AND
-      date_saisie_operation <= '$fin'";
+WHERE o.id_type_operation = 1 AND o.id_banque = '$id_banque[$n]' AND o.id_pays = '$id_pays[$n]' AND entite_banque = '$entite[$m]'
+      AND o.id_monnaie = '$id_monnaie[$m]' AND date_saisie_operation BETWEEN '$debut' AND '$fin'";
 
                                 $sql_dep_apr = "
 SELECT SUM(montant_xof_operation) AS dep_apr
@@ -377,9 +387,8 @@ FROM operations o
   INNER JOIN banque_pays_monnaie bpm ON b.id_banque = bpm.id_banque
   INNER JOIN pays p ON bpm.id_pays = p.id_pays
   INNER JOIN monnaies m on bpm.id_monnaie = m.id_monnaie
-WHERE o.id_type_operation = 0 AND libelle_banque = '$qry_libelle_banque' AND libelle_pays = '$qry_libelle_pays'
-      AND sigle_monnaie = '$monnaie[$m]' AND date_saisie_operation >= '$debut' AND
-      date_saisie_operation <= '$fin'";
+WHERE o.id_type_operation = 0 AND o.id_banque = '$id_banque[$n]' AND o.id_pays = '$id_pays[$n]' AND entite_banque = '$entite[$m]'
+      AND o.id_monnaie = '$id_monnaie[$m]' AND date_saisie_operation BETWEEN '$debut' AND '$fin'";
 
                                 if ($resultat = mysqli_query($connection, $sql_rec_prec)) {
                                     if ($resultat->num_rows > 0) {
@@ -428,13 +437,6 @@ WHERE o.id_type_operation = 0 AND libelle_banque = '$qry_libelle_banque' AND lib
                                 $solde_prec = $rec_prec - $dep_prec;
                                 $solde_final = $solde_prec + $rec_apr - $dep_apr;
 
-                                $total_solde_prec += $solde_prec;
-                                $total_rec_apr += $rec_apr;
-                                $total_dep_apr += $dep_apr;
-                                $total_solde_final += $solde_final;
-                                //echo "Recette prec: " . $rec_prec . " Dépense prec: " . $dep_prec . " Recette apr: " . $rec_apr . " Depense apr: " . $dep_apr . "<br>";
-                                //echo "Solde prec: " . $solde_prec . " Entrées: " . $rec_apr . " Sortie: " . $dep_apr . " Solde final: " . $solde_final . "<br><br>";
-
                                 echo '
 <tr>
     <td class="montant pl-4">' . $monnaie[$m] . '</td>
@@ -446,6 +448,11 @@ WHERE o.id_type_operation = 0 AND libelle_banque = '$qry_libelle_banque' AND lib
     <td class="montant text-right">' . number_format($solde_final , 2, ",", " ") . '</td>
     <td class="montant text-right"></td>
 </tr>';
+                                $total_solde_prec += $solde_prec;
+                                $total_rec_apr += $rec_apr;
+                                $total_dep_apr += $dep_apr;
+                                $total_solde_final += $solde_final;
+
                                 $m++;
                             }
                         }
@@ -462,11 +469,12 @@ WHERE o.id_type_operation = 0 AND libelle_banque = '$qry_libelle_banque' AND lib
     <td class="montant text-right">' . number_format($total_solde_final , 2, ",", " ") . '</td>
     <td class="montant text-right"></td>
 </tr>';
-                    $n++;
                     $total_general_solde_prec += $total_solde_prec;
                     $total_general_rec_apr += $total_rec_apr;
                     $total_general_dep_apr += $total_dep_apr;
                     $total_general_solde_final += $total_solde_final;
+
+                    $n++;
                 }
                 echo '
     </tbody>

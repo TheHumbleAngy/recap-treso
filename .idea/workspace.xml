@@ -6,13 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="bc4f30b7-6a35-4415-8de2-63235db8ccfc" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/styles.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/main.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/operations/ajax_consult_ope.php" beforeDir="false" afterPath="$PROJECT_DIR$/operations/ajax_consult_ope.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/operations/ajax_param_consult_ope.php" beforeDir="false" afterPath="$PROJECT_DIR$/operations/ajax_param_consult_ope.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/operations/form_consult_ope.php" beforeDir="false" afterPath="$PROJECT_DIR$/operations/form_consult_ope.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/operations/form_operations.php" beforeDir="false" afterPath="$PROJECT_DIR$/operations/form_operations.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/operations/param_consult_ope.php" beforeDir="false" afterPath="$PROJECT_DIR$/operations/param_consult_ope.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/reporting/form_reporting.php" beforeDir="false" afterPath="$PROJECT_DIR$/reporting/form_reporting.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/reporting/param_reporting.php" beforeDir="false" afterPath="$PROJECT_DIR$/reporting/param_reporting.php" afterDir="false" />
     </list>
@@ -50,6 +43,13 @@
         <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
         <item name="recap_treso: schema" type="c314c289:MysqlImplModel$Schema" />
       </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="recap_treso@localhost" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="recap_treso: schema" type="c314c289:MysqlImplModel$Schema" />
+        <item name="banque_pays_monnaie: table" type="98d5ac3d:MysqlImplModel$Table" />
+      </path>
     </expand>
     <select />
   </component>
@@ -57,35 +57,14 @@
     <favorites_list name="recap-treso" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.49871466">
+    <splitter split-orientation="horizontal" split-proportion="0.825625">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file leaf-file-name="param_consult_ope.php" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/operations/param_consult_ope.php">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="51">
-                  <caret line="8" column="29" selection-start-line="8" selection-start-column="9" selection-end-line="8" selection-end-column="29" />
-                </state>
-              </provider>
-            </entry>
-          </file>
           <file leaf-file-name="form_consult_ope.php" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/operations/form_consult_ope.php">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="17">
+                <state relative-caret-position="535">
                   <caret line="68" column="34" selection-start-line="68" selection-start-column="34" selection-end-line="68" selection-end-column="34" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="ajax_consult_ope.php" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/operations/ajax_consult_ope.php">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="295">
-                  <caret line="144" column="31" lean-forward="true" selection-start-line="144" selection-start-column="31" selection-end-line="144" selection-end-column="31" />
-                  <folding>
-                    <element signature="e#10#112#0#PHP" />
-                  </folding>
                 </state>
               </provider>
             </entry>
@@ -93,47 +72,29 @@
           <file leaf-file-name="form_reporting.php" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/reporting/form_reporting.php">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="1411">
-                  <caret line="127" column="45" selection-start-line="127" selection-start-column="45" selection-end-line="127" selection-end-column="45" />
+                <state relative-caret-position="472">
+                  <caret line="219" column="36" selection-start-line="219" selection-start-column="36" selection-end-line="219" selection-end-column="36" />
                   <folding>
-                    <element signature="e#14093#26063#0#PHP" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-        </leaf>
-      </split-first>
-      <split-second>
-        <leaf>
-          <file leaf-file-name="console.sql" pinned="false" current-in-tab="true">
-            <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/30791a6b-4421-491e-9a59-5d8eb66b8164/console.sql">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="174">
-                  <caret line="371" selection-start-line="371" selection-end-line="385" selection-end-column="66" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="form_reporting.php" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/reporting/form_reporting.php">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="-3197">
-                  <caret line="56" column="53" selection-start-line="56" selection-start-column="50" selection-end-line="56" selection-end-column="53" />
-                  <folding>
-                    <element signature="n#style#0;n#table#0;n#!!top" expanded="true" />
-                    <element signature="n#style#0;n#tr#0;n#!!top" expanded="true" />
                     <element signature="n#style#0;n#h4#0;n#!!top" expanded="true" />
                   </folding>
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="ajax_consult_ope.php" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/operations/ajax_consult_ope.php">
+          <file leaf-file-name="param_reporting.php" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/reporting/param_reporting.php">
+              <provider selected="true" editor-type-id="text-editor" />
+            </entry>
+          </file>
+        </leaf>
+      </split-first>
+      <split-second>
+        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+          <file leaf-file-name="console.sql" pinned="false" current-in-tab="true">
+            <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/30791a6b-4421-491e-9a59-5d8eb66b8164/console.sql">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="205">
-                  <caret line="115" column="9" lean-forward="true" selection-start-line="108" selection-start-column="8" selection-end-line="115" selection-end-column="9" />
+                <state relative-caret-position="648">
+                  <caret line="411" column="52" lean-forward="true" selection-start-line="406" selection-end-line="411" selection-end-column="52" />
                 </state>
               </provider>
             </entry>
@@ -153,15 +114,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>$libelle_pays[$n][$m]</find>
-      <find>total</find>
-      <find>$n = 0</find>
-      <find>fa-wrench</find>
-      <find>id=&quot;retour&quot;</find>
-      <find>id=&quot;retour&quot; class=&quot;</find>
-      <find>total_g</find>
-      <find>total g</find>
-      <find>retourParam</find>
       <find>majStatut</find>
       <find>calculXof</find>
       <find>libelle</find>
@@ -183,10 +135,17 @@
       <find>wrapper_c</find>
       <find>$pays</find>
       <find>add</find>
+      <find>AND o.id_pays = '$id_pays[$n]'</find>
+      <find>AND o.id_pays = '$id_pays[$n]' AND entite_banque = '$entite[$m]'</find>
+      <find>&gt;= '$debut' AND date_saisie_operation &lt;= '$fin'</find>
+      <find>sigl</find>
+      <find>SELECT DISTINCT libelle_banque, libelle_pays, sigle_monnaie</find>
+      <find>monna</find>
+      <find>reca</find>
+      <find>recap tre</find>
+      <find>total_ge</find>
     </findStrings>
     <replaceStrings>
-      <replace>));</replace>
-      <replace>stripcslashes(addslashes(</replace>
       <replace>)));</replace>
       <replace>btn-lg btn-sm</replace>
       <replace>btn-block text-left</replace>
@@ -215,6 +174,8 @@
       <replace>class=&quot;retour</replace>
       <replace>$monnaie</replace>
       <replace>$qry_libelle_pays</replace>
+      <replace>AND o.id_pays = '$id_pays[$n]' AND entite_banque = '$entite[$m]'</replace>
+      <replace>BETWEEN '$debut' AND '$fin'</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -278,9 +239,9 @@
         <option value="$PROJECT_DIR$/operations/ajax_consult_ope.php" />
         <option value="$PROJECT_DIR$/css/styles.css" />
         <option value="$PROJECT_DIR$/operations/param_consult_ope.php" />
+        <option value="$APPLICATION_CONFIG_DIR$/consoles/db/30791a6b-4421-491e-9a59-5d8eb66b8164/console.sql" />
         <option value="$PROJECT_DIR$/reporting/param_reporting.php" />
         <option value="$PROJECT_DIR$/reporting/form_reporting.php" />
-        <option value="$APPLICATION_CONFIG_DIR$/consoles/db/30791a6b-4421-491e-9a59-5d8eb66b8164/console.sql" />
       </list>
     </option>
   </component>
@@ -327,7 +288,7 @@
     <property name="SearchEverywhereHistoryKey" value="&#9;null&#9;null" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="com.intellij.database.dataSource.DataSourceTemplate" value="MySQL" />
-    <property name="database.console.LAST_STATE" value="true" />
+    <property name="database.console.LAST_STATE" value="false" />
     <property name="database.data.extractors.current.id" value="SQL-Insert-Statements.sql.groovy" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/recap_treso_operations.csv" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
@@ -448,7 +409,8 @@
       <workItem from="1541143896281" duration="15212000" />
       <workItem from="1541232883820" duration="1280000" />
       <workItem from="1541235551837" duration="15769000" />
-      <workItem from="1541278841854" duration="7078000" />
+      <workItem from="1541278841854" duration="7196000" />
+      <workItem from="1541340393996" duration="6301000" />
     </task>
     <task id="LOCAL-00001" summary="index.php updated">
       <created>1537516057036</created>
@@ -541,11 +503,18 @@
       <option name="project" value="LOCAL" />
       <updated>1541205656420</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="working on reports">
+      <created>1541287442950</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1541287442950</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="580969000" />
+    <option name="totallyTimeSpent" value="587388000" />
   </component>
   <component name="TodoView" selected-index="3">
     <todo-panel id="selected-file">
@@ -563,16 +532,16 @@
       <window_info anchor="bottom" id="TODO" order="6" weight="0.3277635" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" weight="0.32904884" />
       <window_info anchor="bottom" id="Database Changes" order="8" weight="0.3277635" />
-      <window_info anchor="bottom" id="Version Control" order="7" weight="0.30462724" />
       <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="bottom" id="Version Control" order="7" weight="0.30462724" />
       <window_info anchor="bottom" id="Terminal" order="7" weight="0.3277635" />
-      <window_info active="true" anchor="bottom" id="Database Console" order="7" visible="true" weight="0.25578406" />
+      <window_info anchor="bottom" id="Database Console" order="7" weight="0.30337077" />
       <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4993758" weight="0.16195373" />
       <window_info anchor="bottom" id="Docker" order="8" show_stripe_button="false" />
-      <window_info anchor="right" id="Database" order="3" weight="0.14203085" />
+      <window_info anchor="right" id="Database" order="3" weight="0.141875" />
       <window_info id="Structure" order="1" sideWeight="0.50062424" side_tool="true" weight="0.16195373" />
-      <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
@@ -587,19 +556,19 @@
       <window_info active="true" anchor="bottom" id="Database Console" order="7" visible="true" weight="0.3258427" />
       <window_info anchor="bottom" id="Docker" order="11" show_stripe_button="false" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4993758" weight="0.1625" />
       <window_info id="Structure" order="1" sideWeight="0.50062424" side_tool="true" weight="0.1625" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.3288948" />
-      <window_info anchor="bottom" id="Version Control" order="10" weight="0.30586767" />
       <window_info anchor="bottom" id="Run" order="2" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32904884" />
       <window_info anchor="right" id="Database" order="3" weight="0.1425" />
       <window_info anchor="bottom" id="Terminal" order="8" weight="0.32904884" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Database Changes" order="12" weight="0.3283582" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Version Control" order="10" weight="0.30586767" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
@@ -651,7 +620,8 @@
     <MESSAGE value="started with &quot;reporting&quot;" />
     <MESSAGE value="moved property &quot;entite_banque&quot; from table &quot;banques&quot; to table &quot;banque_pays_monnaie&quot;, and updated code to match it" />
     <MESSAGE value="updated code on &quot;operations&quot; based on previous update" />
-    <option name="LAST_COMMIT_MESSAGE" value="updated code on &quot;operations&quot; based on previous update" />
+    <MESSAGE value="working on reports" />
+    <option name="LAST_COMMIT_MESSAGE" value="working on reports" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -843,20 +813,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/operations/param_consult_ope.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="8" column="29" selection-start-line="8" selection-start-column="9" selection-end-line="8" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/reporting/param_reporting.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="8" column="26" selection-start-line="8" selection-start-column="26" selection-end-line="8" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/css/styles.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="108">
@@ -864,36 +820,47 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/operations/form_consult_ope.php">
+    <entry file="file://$PROJECT_DIR$/operations/ajax_consult_ope.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
+          <caret line="144" column="31" selection-start-line="144" selection-start-column="31" selection-end-line="144" selection-end-column="31" />
+          <folding>
+            <element signature="e#10#112#0#PHP" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/operations/param_consult_ope.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="8" column="29" selection-start-line="8" selection-start-column="9" selection-end-line="8" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/operations/form_consult_ope.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="535">
           <caret line="68" column="34" selection-start-line="68" selection-start-column="34" selection-end-line="68" selection-end-column="34" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/operations/ajax_consult_ope.php">
+    <entry file="file://$PROJECT_DIR$/reporting/param_reporting.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/30791a6b-4421-491e-9a59-5d8eb66b8164/console.sql">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="205">
-          <caret line="115" column="9" lean-forward="true" selection-start-line="108" selection-start-column="8" selection-end-line="115" selection-end-column="9" />
+        <state relative-caret-position="648">
+          <caret line="411" column="52" lean-forward="true" selection-start-line="406" selection-end-line="411" selection-end-column="52" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/reporting/form_reporting.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-3197">
-          <caret line="56" column="53" selection-start-line="56" selection-start-column="50" selection-end-line="56" selection-end-column="53" />
+        <state relative-caret-position="472">
+          <caret line="219" column="36" selection-start-line="219" selection-start-column="36" selection-end-line="219" selection-end-column="36" />
           <folding>
-            <element signature="n#style#0;n#table#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#tr#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#h4#0;n#!!top" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/30791a6b-4421-491e-9a59-5d8eb66b8164/console.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="174">
-          <caret line="371" selection-start-line="371" selection-end-line="385" selection-end-column="66" />
         </state>
       </provider>
     </entry>
